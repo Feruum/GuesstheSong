@@ -1,0 +1,266 @@
+{
+  "authority": "design-preview-only",
+  "workflowProfile": "standard",
+  "checkpointMode": "continuous",
+  "nonPromotable": true,
+  "renderBudget": {
+    "totalCalls": 4,
+    "attemptsPerOutput": 1
+  },
+  "set": {
+    "artifactTopology": "independent-screens",
+    "continuityRequirement": "system-coherent",
+    "canvasRole": "representative-viewport",
+    "targetAspect": "16:10 desktop; approximately 9:19.5 mobile",
+    "transitionMode": "independent",
+    "shellOwnership": "Each viewport shows its own app shell; no continuous page or assembly.",
+    "referenceExposure": "Text-only direction; external functional references remain analysis-only. No image anchors required.",
+    "imageryReuse": "Unique pack art and lobby art. Desktop/mobile explicitly share anonymous mystery-vinyl semantics.",
+    "outputs": [
+      {
+        "id": "01-discover",
+        "file": "01-discover.png",
+        "purpose": "Desktop discovery, initial representative viewport",
+        "signature": "Collection browsing; editorial hero and sleeve shelf; moderate density",
+        "content": [
+          "home-copy",
+          "play-entry",
+          "daily-entry",
+          "catalog-filters",
+          "four-packs"
+        ],
+        "order": 1,
+        "shellRole": "root",
+        "shellChrome": "owner-visible",
+        "deliveryPath": "C:/Users/Ferumm/projects/music/design/2026-10-04/01-discover.png",
+        "dependsOn": [],
+        "anchorOutputId": null,
+        "prompt": "Use case: ui-mockup. Create one high-fidelity desktop discovery screen for a music guessing web game. This is a flat, full-bleed viewport, preferably 1600 x 1000 landscape, with readable product UI and no device frame.\nVisual system: warm charcoal #151713, subtly lighter olive panels, warm white #F3F0E6, acid lime #D7FF3F reserved for primary actions, crisp thin rules, restrained corners. Bold tightly spaced geometric display type; clean humanist interface type. A music collection feels browsable through original record-sleeve artwork, while the immediate play action dominates. Choose the layout and composition freely within that hierarchy.\nPersistent header: a small lime audio-bar mark and lowercase wordmark \"guess the song\"; navigation \"Discover\", \"Daily\", \"Party\", \"Leaderboard\"; avatar \"You\". Main headline \"Know it in a beat.\" Supporting text \"Hear a clip. Find the song. Keep the streak.\" Primary button \"Start guessing\", secondary \"Play with friends\". A quieter daily invitation says \"Daily challenge\", \"One song. Six guesses.\", \"Play today's song\".\nDiscovery section \"Find your sound\" includes search \"Search artists or packs\", separate \"Genre\", \"Decade\", \"Language\" filter controls, and tags \"All\", \"Pop\", \"Hip-Hop\", \"Rock\", \"K-Pop\", \"Afrobeats\", \"Latin\".\nShow four generous record-sleeve tiles titled \"Pop essentials\", \"Hip-Hop essentials\", \"Rock classics\", \"K-Pop favorites\". Each has distinct original editorial music artwork, no real album cover, and a small play affordance. Keep this a single readable discovery viewport. Avoid tiny text, unsupported statistics, and decorative elements competing with the play action. No watermark or annotations."
+      },
+      {
+        "id": "02-guessing-round",
+        "file": "02-guessing-round.png",
+        "purpose": "Desktop active round",
+        "signature": "Anonymous track; focused listening ritual; low density",
+        "content": [
+          "round-context",
+          "mystery-player",
+          "clip-progress",
+          "guess-input"
+        ],
+        "order": 2,
+        "shellRole": "root",
+        "shellChrome": "owner-visible",
+        "deliveryPath": "C:/Users/Ferumm/projects/music/design/2026-10-04/02-guessing-round.png",
+        "dependsOn": [],
+        "anchorOutputId": null,
+        "prompt": "Use case: ui-mockup. Create one high-fidelity desktop ACTIVE GUESSING ROUND screen for a music guessing web game, a flat full-bleed viewport preferably 1600 x 1000 landscape.\nVisual system: warm charcoal #151713, subtly lighter olive surfaces, warm white #F3F0E6, acid lime #D7FF3F for the primary listening control, crisp thin dividers and restrained corners. Bold tightly spaced geometric headings; clean humanist UI type. Listening is the dominant action; track identity remains a mystery until answered. Compose a focused, spacious listening interface rather than a browsing page.\nPersistent header has a small lime audio-bar mark, lowercase \"guess the song\", navigation \"Discover\", \"Daily\", \"Party\", \"Leaderboard\", avatar \"You\". Current context uses \"Back to Discover\", \"CLASSIC\", \"Pop essentials\", \"Round 3 of 10\", \"Score 240\". Headline \"What's this song?\" A large tactile anonymous vinyl record or abstract mystery sleeve with a question mark is integrated with a clear lime play button. No title or artist is revealed. Nearby labels \"Play 1-second clip\" and \"Replay\". Render a simple audio waveform for the unlocked one-second excerpt, then six distinct progress segments labelled \"1s\", \"2s\", \"4s\", \"7s\", \"11s\", \"16s\"; only \"1s\" is available.\nThe answer area is a generous search field \"Search a song or artist\", a quiet disabled \"Submit guess\", and secondary \"Skip · unlock 2s\". Supporting caption \"6 guesses remaining\" and a discreet volume control. No autocomplete results, wrong-answer history, or success state yet. Preserve the mystery. Choose composition and materials freely within the shared role system. Avoid tiny controls, answer leakage, and competing decoration. No device frame, watermark, or annotation."
+      },
+      {
+        "id": "03-party-lobby",
+        "file": "03-party-lobby.png",
+        "purpose": "Desktop party lobby",
+        "signature": "Participants and host setup; sociable medium density",
+        "content": [
+          "room-invite",
+          "players",
+          "party-settings",
+          "start-game"
+        ],
+        "order": 3,
+        "shellRole": "root",
+        "shellChrome": "owner-visible",
+        "deliveryPath": "C:/Users/Ferumm/projects/music/design/2026-10-04/03-party-lobby.png",
+        "dependsOn": [],
+        "anchorOutputId": null,
+        "prompt": "Use case: ui-mockup. Create one high-fidelity desktop FRIENDS PARTY LOBBY screen for a music guessing web game, flat full-bleed viewport preferably 1600 x 1000 landscape.\nUse warm charcoal #151713, subtly lighter olive surfaces, warm white #F3F0E6, acid lime #D7FF3F for the host's main action, crisp thin dividers, restrained corners, bold tightly spaced geometric headings and clean humanist UI text. A shared listening room should feel like friends gathered around records: participants are central, configuration supports them. Choose composition freely, with a sociable medium-density rhythm distinct from solo gameplay.\nPersistent header: small lime audio-bar mark and lowercase \"guess the song\"; \"Discover\", \"Daily\", \"Party\", \"Leaderboard\"; avatar \"You\"; Party active.\nVisible copy and fixtures: \"Play it together.\", \"Invite your friends. Guess the same songs.\", \"Room code\", \"K7M4Q2\", \"Copy invite\", \"4 players\". Present four distinct simple illustrated avatars with exact names/states: \"You\" — \"Host\"; \"Mia\" — \"Ready\"; \"Jay\" — \"Ready\"; \"Alex\" — \"Ready\". Also an unfilled participant slot labelled \"Invite a friend\".\nA compact session setup includes \"Playlist\" with selected \"Global mix\", \"Rounds\" with selected \"10\", \"Clip length\" with selected \"1 second\", and \"Difficulty\" with selected \"Mixed\". A subtle unique playlist-sleeve artwork combines record textures with warm muted coral, olive and lime. The primary button is \"Start game\". Supporting action \"Leave room\".\nKeep every participant and setting readable without a chat feed or live game results. These are illustrative lobby fixtures, not real people or a live room. Avoid unsupported badges or service claims, overpacked panels, and decoration competing with participants. No device frame, watermark, or annotation."
+      },
+      {
+        "id": "04-mobile-round",
+        "file": "04-mobile-round.png",
+        "purpose": "Mobile active round",
+        "signature": "Same round meaning; vertical touch-first flow; low density",
+        "content": [
+          "round-context",
+          "mystery-player",
+          "clip-progress",
+          "guess-input"
+        ],
+        "order": 4,
+        "shellRole": "root",
+        "shellChrome": "owner-visible",
+        "deliveryPath": "C:/Users/Ferumm/projects/music/design/2026-10-04/04-mobile-round.png",
+        "dependsOn": [],
+        "anchorOutputId": null,
+        "prompt": "Use case: ui-mockup. Create one high-fidelity MOBILE ACTIVE GUESSING ROUND screen for the same music guessing web game. Flat edge-to-edge portrait app viewport, preferred proportion 9:19.5, approximately 430 x 932 logical UI scale, rendered sharply. No phone hardware frame or surrounding scenery.\nVisual system: warm charcoal #151713, subtly lighter olive panels, warm white #F3F0E6, acid lime #D7FF3F for listening, crisp thin rules, restrained corners, tightly spaced bold geometric headings and clean humanist interface text. Translate the focused listening ritual into a comfortable one-handed vertical flow. Choose the composition freely while preserving large readable text and thumb-friendly controls.\nCompact header contains a small lime audio-bar mark and lowercase \"guess the song\", back affordance, and quiet volume icon. Context \"Pop essentials\", \"Round 3 of 10\", \"Score 240\". Headline \"What's this song?\" Show an anonymous vinyl or mystery sleeve with a question mark, integrated with a large lime play button. No song name or artist is exposed.\nLabels \"Play 1-second clip\" and \"Replay\"; a compact audio waveform. Six clear progress segments labelled \"1s\", \"2s\", \"4s\", \"7s\", \"11s\", \"16s\", only the first unlocked. Search field \"Search a song or artist\", quiet disabled \"Submit guess\", separate secondary action \"Skip · unlock 2s\", caption \"6 guesses remaining\". Keep all these in the visible portrait viewport without an on-screen keyboard.\nThis is the same illustrative round as the desktop concept. Keep the interface calm and controls comfortably separated. Avoid answer leakage, tiny typography, or desktop navigation squeezed onto mobile. No watermark, captions, or extra screens."
+      }
+    ]
+  },
+  "direction": {
+    "schemaVersion": 1,
+    "conceptThesis": "A recognizable record collection turns into a hidden track during play, so browsing expresses musical taste and guessing expresses recognition.",
+    "brandPosture": "Inviting, music-first, confident and accessible; provisional identity using the descriptive working title guess the song.",
+    "visualTension": "Colorful collection breadth versus a quiet, anonymous listening focus.",
+    "signatureMove": "Record-sleeve identity becomes a mystery vinyl during a round, with lime highlighting the next meaningful action.",
+    "hierarchyPrinciples": [
+      "Lead with the immediate play/listen action.",
+      "Browsing filters belong to discovery; listening progress belongs to the round.",
+      "Participants lead the lobby; configuration supports the host."
+    ],
+    "densityRhythm": "Discovery moderately dense; round deliberately quiet; lobby sociable medium density; mobile vertical and touch-friendly.",
+    "typographyRoles": [
+      "Geometric display headings express musical confidence.",
+      "Humanist interface labels remain clear and comfortably readable.",
+      "Numerical progress uses stable readable figures."
+    ],
+    "colorRoles": [
+      "Warm charcoal and olive recede as backgrounds.",
+      "Warm white carries primary reading contrast.",
+      "Acid lime denotes primary action and current progress.",
+      "Artwork can use restrained coral and olive to distinguish packs."
+    ],
+    "surfaceLanguage": "Matte record sleeves, subtle vinyl texture, quiet tonal grouping, thin dividers, restrained corners.",
+    "motionTone": "No animation is being validated in these bitmaps; any future motion should support listening feedback.",
+    "imageryRole": "Distinct original music-pack artwork conveys catalog variety; anonymous art protects the active answer.",
+    "preserveFromProjectDNA": [
+      "Short-clip song guessing.",
+      "Solo, daily and friends entry points.",
+      "Progressive listening stages.",
+      "Song search and skip."
+    ],
+    "intentionalDepartures": [
+      "Separate music discovery from active gameplay.",
+      "Replace competing side panels with a focused listening ritual.",
+      "Use explicit text navigation rather than crowded emoji modes.",
+      "Expose genre, decade and language browsing."
+    ],
+    "redesignBoundary": {
+      "mode": "greenfield",
+      "preserveRegions": [],
+      "replaceRegions": [
+        {
+          "regionId": "music-game-experience",
+          "sourceRef": "https://guessdatsong.com/",
+          "mustChange": [
+            "macro-layout",
+            "information-hierarchy",
+            "module-topology",
+            "typography-scale",
+            "surface-language",
+            "imagery-role"
+          ],
+          "minimumChangedDimensions": 4
+        }
+      ],
+      "forbiddenCarryover": [
+        "Crowded emoji toolbar.",
+        "Simultaneous difficulty and settings sidebars surrounding the player.",
+        "Competing cyan-purple gradient actions."
+      ]
+    },
+    "contentDistribution": {
+      "strategy": "multi-surface",
+      "firstViewportRule": "Show the immediate task at readable viewport scale; these are independent representative screens, not a full-scroll site.",
+      "bands": [
+        {
+          "id": "discover",
+          "placement": "first-viewport",
+          "responsibilities": [
+            "Play entry",
+            "Representative pack discovery"
+          ],
+          "contentIds": [
+            "home-copy",
+            "play-entry",
+            "daily-entry",
+            "catalog-filters",
+            "four-packs"
+          ]
+        },
+        {
+          "id": "round-desktop",
+          "placement": "first-viewport",
+          "responsibilities": [
+            "Listening",
+            "Guess entry",
+            "Progress"
+          ],
+          "contentIds": [
+            "round-context",
+            "mystery-player",
+            "clip-progress",
+            "guess-input"
+          ]
+        },
+        {
+          "id": "party",
+          "placement": "first-viewport",
+          "responsibilities": [
+            "Invite",
+            "Participants",
+            "Host setup"
+          ],
+          "contentIds": [
+            "room-invite",
+            "players",
+            "party-settings",
+            "start-game"
+          ]
+        },
+        {
+          "id": "round-mobile",
+          "placement": "first-viewport",
+          "responsibilities": [
+            "Touch-first representation of the same illustrative round"
+          ],
+          "contentIds": [
+            "round-context",
+            "mystery-player",
+            "clip-progress",
+            "guess-input"
+          ]
+        }
+      ],
+      "sharedContentIds": [
+        "round-context",
+        "mystery-player",
+        "clip-progress",
+        "guess-input"
+      ],
+      "mustRemainReachable": [
+        "Classic",
+        "Daily",
+        "Party",
+        "Chart",
+        "Blitz",
+        "Duel",
+        "Leaderboard",
+        "Sound and volume controls",
+        "Song preview versus start choice",
+        "Difficulty choice"
+      ]
+    },
+    "avoid": [
+      "Visible artist or title before a guess.",
+      "Crowded competing primary actions.",
+      "Invented catalog counts or live-availability claims."
+    ],
+    "evidence": [
+      {
+        "sourceType": "user-input",
+        "sourceRef": "Current chat request, 2026-10-04",
+        "observation": "User requested imagegen screen concepts for a better music guessing game with more songs; immediate authority is design preview."
+      },
+      {
+        "sourceType": "website",
+        "sourceRef": "https://guessdatsong.com/",
+        "observation": "Functional reference inspected live on 2026-10-04; source undated. Direct screenshot shows dark game player, seven emoji-led modes, difficulty and settings sidebars, song-duration stages and intrusive ads. Style and branding are not renderer inputs. Actual song catalog size unverified."
+      },
+      {
+        "sourceType": "website",
+        "sourceRef": "https://bandle.app/daily",
+        "observation": "Comparable maintained public application inspected live on 2026-10-04; source undated. Current menu accessible and daily round rendered. Direct UI observation: progressive steps, player, Skip and Guess controls; support focused listen/progress/answer hierarchy. Not used as a style or asset reference."
+      }
+    ]
+  }
+}
