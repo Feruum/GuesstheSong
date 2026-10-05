@@ -1,0 +1,13 @@
+"use client";
+import * as React from "react";
+import { Command as Primitive } from "cmdk";
+import { cn } from "@/lib/utils";
+export const Command = React.forwardRef<React.ComponentRef<typeof Primitive>, React.ComponentPropsWithoutRef<typeof Primitive>>(({ className, ...props }, ref) => <Primitive ref={ref} className={cn("overflow-hidden rounded-xl border border-border bg-panel text-cream", className)} {...props} />);
+Command.displayName = "Command";
+export const CommandInput = React.forwardRef<React.ComponentRef<typeof Primitive.Input>, React.ComponentPropsWithoutRef<typeof Primitive.Input>>(({ className, ...props }, ref) => <Primitive.Input ref={ref} className={cn("min-h-14 w-full border-0 bg-transparent px-4 py-3 text-base outline-none placeholder:text-muted", className)} {...props} />);
+CommandInput.displayName = "CommandInput";
+export const CommandList = Primitive.List;
+export const CommandEmpty = Primitive.Empty;
+export const CommandGroup = Primitive.Group;
+export const CommandItem = React.forwardRef<React.ComponentRef<typeof Primitive.Item>, React.ComponentPropsWithoutRef<typeof Primitive.Item>>(({ className, ...props }, ref) => <Primitive.Item ref={ref} className={cn("flex min-h-14 cursor-pointer items-center gap-3 rounded-lg px-3 py-2 outline-none data-[selected=true]:bg-cream/10 data-[disabled=true]:opacity-40", className)} {...props} />);
+CommandItem.displayName = "CommandItem";
