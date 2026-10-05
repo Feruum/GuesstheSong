@@ -1,0 +1,1 @@
+ALTER TABLE tracks ADD COLUMN IF NOT EXISTS popularity_score integer NOT NULL DEFAULT 0;
