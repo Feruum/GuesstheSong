@@ -1,0 +1,13 @@
+"use client";
+import * as React from "react";
+import * as Primitive from "@radix-ui/react-select";
+import { Check, ChevronDown, ChevronUp } from "lucide-react";
+import { cn } from "@/lib/utils";
+export const Select = Primitive.Root;
+export const SelectValue = Primitive.Value;
+export const SelectTrigger = React.forwardRef<React.ComponentRef<typeof Primitive.Trigger>, React.ComponentPropsWithoutRef<typeof Primitive.Trigger>>(({ className, children, ...props }, ref) => <Primitive.Trigger ref={ref} className={cn("flex min-h-12 w-full items-center justify-between gap-3 rounded-lg border border-border bg-panel/50 px-4 py-3 text-left text-sm text-cream focus:outline-none focus:ring-2 focus:ring-lime disabled:opacity-50 [&>span]:truncate", className)} {...props}>{children}<Primitive.Icon><ChevronDown className="size-4 text-muted" /></Primitive.Icon></Primitive.Trigger>);
+SelectTrigger.displayName = "SelectTrigger";
+export const SelectContent = React.forwardRef<React.ComponentRef<typeof Primitive.Content>, React.ComponentPropsWithoutRef<typeof Primitive.Content>>(({ className, children, ...props }, ref) => <Primitive.Portal><Primitive.Content ref={ref} position="popper" sideOffset={6} className={cn("z-50 max-h-72 min-w-[var(--radix-select-trigger-width)] overflow-hidden rounded-lg border border-border bg-panel shadow-xl", className)} {...props}><Primitive.ScrollUpButton className="flex justify-center py-2"><ChevronUp className="size-4" /></Primitive.ScrollUpButton><Primitive.Viewport className="p-1">{children}</Primitive.Viewport><Primitive.ScrollDownButton className="flex justify-center py-2"><ChevronDown className="size-4" /></Primitive.ScrollDownButton></Primitive.Content></Primitive.Portal>);
+SelectContent.displayName = "SelectContent";
+export const SelectItem = React.forwardRef<React.ComponentRef<typeof Primitive.Item>, React.ComponentPropsWithoutRef<typeof Primitive.Item>>(({ className, children, ...props }, ref) => <Primitive.Item ref={ref} className={cn("relative flex min-h-11 cursor-default select-none items-center rounded-md py-2 pl-3 pr-8 text-sm outline-none data-[highlighted]:bg-lime data-[highlighted]:text-charcoal data-[disabled]:opacity-40", className)} {...props}><Primitive.ItemText>{children}</Primitive.ItemText><Primitive.ItemIndicator className="absolute right-2"><Check className="size-4" /></Primitive.ItemIndicator></Primitive.Item>);
+SelectItem.displayName = "SelectItem";
