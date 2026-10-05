@@ -2,9 +2,9 @@
 
 A complete local music guessing game: Next.js App Router, React, Tailwind CSS, Radix/shadcn-style controls, and a Bun/Hono backend. PostgreSQL stores the catalog and saved results; Redis owns live games, room revisions, matchmaking, presence and rate limits.
 
-**This delivery runs locally and has not been deployed to Vercel.** Open the running app at **http://127.0.0.1:3000**. It binds to this computer only. Private rooms work between separate browser profiles on this computer.
+**The complete game runs locally.** Start it at **http://127.0.0.1:3000** using the instructions below. The GitHub repository is connected to Vercel, but public gameplay requires cloud PostgreSQL, Redis and session configuration; the 2026-10-06 production check found `DATABASE_URL` missing.
 
-For a future Vercel import, follow the [deployment instructions](docs/vercel-deployment.md). Cloud PostgreSQL/Redis and catalog initialization are required; the local WebSocket proxy still needs a hosted adapter. Private-local Deezer previews are automatically disabled for public hosting.
+Follow the [deployment instructions](docs/vercel-deployment.md). A configured Vercel deployment now automatically creates the schema and seeds a new database with 1,500 public Audius tracks. Local data is preserved separately. The local WebSocket proxy still needs a hosted adapter. Private-local Deezer previews are automatically disabled for public hosting.
 
 ## Included
 

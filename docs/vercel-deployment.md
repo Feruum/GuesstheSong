@@ -1,10 +1,10 @@
 # Deploying this repository to Vercel
 
-This repository contains the complete local application. Publishing it to GitHub does not transfer the local database, guest profiles or Redis state. A Vercel production deployment has not been verified.
+The GitHub repository is connected to Vercel. Publishing code does not transfer the local database, guest profiles or Redis state. On 2026-10-06 the public deployment returned `503 NOT_CONFIGURED` because `DATABASE_URL` was missing; live gameplay remains unverified until cloud configuration is connected.
 
 ## Project and runtime
 
-Import `Feruum/GuesstheSong` into Vercel with the Next.js preset and the repository root as the project directory. The committed `vercel.json` uses `bunVersion: "1.4.x"`, `bun install --frozen-lockfile` and `bun run build`. These settings follow the [official Bun runtime documentation](https://vercel.com/docs/functions/runtimes/bun). Keep the committed lockfile.
+Import `Feruum/GuesstheSong` into Vercel with the Next.js preset and the repository root as the project directory. The committed `vercel.json` uses `bunVersion: "1.4.x"`, `bun install --frozen-lockfile` and `bun run deploy:prepare && bun run build`. These settings follow the [official Bun runtime documentation](https://vercel.com/docs/functions/runtimes/bun). Keep the committed lockfile and remove any dashboard override that bypasses the preparation command.
 
 Vercel runs Next.js functions itself. `bun run start` is the local coordinator for a Next.js process and a separate Bun WebSocket process; it is not a Vercel startup command.
 
@@ -22,7 +22,7 @@ Configure these in Vercel's environment settings:
 
 | Variable | Production value |
 | --- | --- |
-| `DATABASE_URL` | Cloud PostgreSQL connection string |
+| `DATABASE_URL` | Cloud PostgreSQL connection string with `sslmode=require` or certificate verification |
 | `REDIS_URL` | Cloud Redis TCP/TLS connection string |
 | `APP_URL` | Exact HTTPS production origin, including the final domain |
 | `SESSION_SECRET` | Fresh random secret, at least 32 characters |
@@ -35,19 +35,17 @@ Configure these in Vercel's environment settings:
 
 Do not commit environment values or the admin password. `.env.example` documents names and local placeholders only. Use separate databases, Redis namespaces and session secrets for preview environments; set each preview's `APP_URL` to its own exact origin. Mutations validate the browser's origin.
 
+`DATABASE_URL`, `REDIS_URL`, `APP_URL` and `SESSION_SECRET` are required by deployment preparation. It rejects missing values, loopback/private development addresses, a REST Redis URL and insecure connection protocols before opening connections. It then checks actual PostgreSQL and Redis connectivity. Missing configuration fails the deployment with variable names in the build log; secrets are never printed. `ADMIN_PASSWORD_HASH_BASE64` and `CRON_SECRET` are also needed for their respective protected features.
+
 ## Initialize the production catalog
 
-On a trusted development computer, use a separate checkout with `.env.local` pointing to the production databases and the final `APP_URL`. Do not replace this project's existing local settings merely to deploy. Then run:
+After connecting cloud environment values, push or redeploy. `deploy:prepare` applies the repeatable SQL migrations and initializes a new, empty database from [the public starter catalog](../catalog/README.md): **1,500 Audius recordings**, organized by verified genre and release-year metadata. It stores metadata only; audio still comes from the provider through session-bound clips.
 
-```powershell
-bun install --frozen-lockfile
-bun run db:migrate
-bun run catalog:import 1500
-```
+Schema creation, the initial import and automatic pack membership run in one PostgreSQL transaction with an advisory lock, so concurrent deployment workers cannot seed twice. A completion record makes the import run once per database. Existing catalogs are preserved, including disabled recordings, administrative corrections, guest stats and manual packs. Failed initialization rolls back and can be retried. Redis readiness is checked before any migration.
 
-Migrations are repeatable. The importer contacts Audius, reports the actual available total and organizes supported genre and decade collections. It preserves disabled recordings and existing administrative metadata. Run this before directing public users to the app; importing is a CLI initialization task, not part of every build. The local database and its 5,000-song total are not bundled into this repository.
+The existing `db:migrate`, `catalog:import 1500` and admin importer remain available for maintenance. For CLI access to production, use an isolated checkout and production-specific ignored environment file, keeping this computer's development configuration intact. `bun run build` by itself remains a local build and does not initialize cloud services.
 
-The 3,500 familiar-artist Deezer previews in the current local database are restricted to private, noncommercial loopback play. Public configuration hides them and rejects their audio even if copied into the database. See the [source details](../README.md#familiar-songs-for-private-local-play) and [official provider terms](https://developers.deezer.com/termsofuse). Public familiar-hit gameplay requires an independently authorized music source.
+The 3,500 familiar-artist Deezer previews in the local database are excluded from the committed starter snapshot and restricted to private, noncommercial loopback play. Public configuration hides them and rejects their audio even if copied into the database. See the [source details](../README.md#familiar-songs-for-private-local-play) and [official provider terms](https://developers.deezer.com/termsofuse). Public familiar-hit gameplay requires an independently authorized music source.
 
 ## Multiplayer integration still required
 

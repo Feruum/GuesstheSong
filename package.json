@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "bun scripts/dev.ts",
     "dev:vercel": "bunx vercel dev",
+    "deploy:prepare": "bun scripts/prepare-deployment.ts",
     "build": "bun run --bun next build --webpack",
     "start": "bun scripts/dev.ts --production",
     "typecheck": "tsc --noEmit",
