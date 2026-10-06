@@ -55,6 +55,8 @@ Local provider availability can differ from the hosting region. Initial hosted c
 
 The final manifest imports **500/500 active selected recordings with 100/100 artist coverage**. The last import added five verified Bon Jovi recordings and reused 495 existing selections without failures. The selected pack contains 500 songs; the wider production library contains 2,002 available recordings, including 1,500 Audius songs and the retained Metallica previews. Genre and decade packs use actual provider album metadata and curated genre fallbacks.
 
+The final hosted check played a bounded clip from **all 500 selected recordings, with zero unavailable responses**. A complete Classic test saved 910 points once, verified all six stages for Drake's “God's Plan,” and rejected audio access from other guests. See the [production verification report and browser screenshots](public-hits-verification.md) and [dated per-recording playback results](../data/featured-hitmakers-playback.json).
+
 ## Original private verification — 2026-10-06
 
 - Metadata preparation completed with **100 artists and 500 distinct selected recordings**.
