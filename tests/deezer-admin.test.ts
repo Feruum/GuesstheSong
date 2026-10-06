@@ -8,6 +8,15 @@ const enabled = { APP_URL: "https://music.example.com", DEEZER_PUBLIC_PREVIEWS_A
 const track: Track = { id: "deezer-123", providerId: "deezer-123", title: "Original recording", artist: "Artist", artworkUrl: null, duration: 30, genre: "Pop", releaseYear: 2010, language: null, playCount: 0, popularityScore: 800000, clipStartSec: 0, sourceUrl: "https://www.deezer.com/track/123", license: "Official Deezer preview", available: true };
 
 describe("deployment preview verification", () => {
+  test("pages provider searches without accepting unbounded offsets", async () => {
+    const lookup = spyOn(provider, "deezerGet").mockResolvedValue({ data: [] });
+    try {
+      expect(await searchDeezerPreviews("Metallica", 50)).toEqual([]);
+      expect(lookup).toHaveBeenCalledWith("search", { q: "Metallica", limit: 50, index: 50 });
+      await expect(searchDeezerPreviews("Metallica", 2001)).rejects.toThrow();
+      expect(lookup).toHaveBeenCalledTimes(1);
+    } finally { lookup.mockRestore(); }
+  });
   test("search exposes canonical artist IDs and metadata without CDN URLs or unreadable recordings", async () => {
     const raw = { id: 123, title: "Original recording", title_short: "Original recording", duration: 200, readable: true, preview: "https://cdnt-preview.dzcdn.net/api/song.mp3?signature=private", rank: 800000, artist: { id: 42, name: "Artist" }, album: { id: 99 } };
     const lookup = spyOn(provider, "deezerGet").mockResolvedValue({ data: [raw, { ...raw, id: 124, readable: false }, { ...raw, id: 125, preview: "https://evil.example/song.mp3" }] });

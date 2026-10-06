@@ -26,10 +26,11 @@ export async function checkDeezerPreviews(ids: string[], env: Record<string, str
   return result;
 }
 
-export async function searchDeezerPreviews(query: string) {
+export async function searchDeezerPreviews(query: string, offset = 0) {
   if (!deezerPreviewsEnabled()) throw new ProviderError("This music source is disabled for this application.");
   const q = z.string().trim().min(2).max(100).parse(query);
-  const response = z.object({ data: z.array(z.unknown()) }).parse(await deezerGet("search", { q, limit: 50 }));
+  const index = z.number().int().min(0).max(2000).parse(offset);
+  const response = z.object({ data: z.array(z.unknown()) }).parse(await deezerGet("search", { q, limit: 50, ...index ? { index } : {} }));
   return response.data.flatMap(raw => {
     const track = normalizeDeezerTrack(raw);
     const artist = z.object({ artist: z.object({ id: z.number().int().positive() }), album: z.object({ id: z.number().int().positive() }), title_short: z.string().optional() }).safeParse(raw);

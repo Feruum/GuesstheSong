@@ -54,6 +54,8 @@ describe("catalog mutations through the admin API", () => {
       const valid = await app.request("http://127.0.0.1:3000/api/v1/admin/deezer/check", { method: "POST", headers: fixture.headers, body: JSON.stringify({ trackIds: ["deezer-123"] }) });
       expect(valid.status).toBe(200);
       expect((await valid.json()).results[0].playable).toBe(true);
+      const invalidPage = await app.request("http://127.0.0.1:3000/api/v1/admin/deezer/search?q=Artist&offset=2001", { headers: fixture.headers });
+      expect(invalidPage.status).toBe(400);
       for (const ids of [["https://example.com/audio"], Array.from({ length: 21 }, (_, i) => `deezer-${i + 1}`)]) {
         const invalid = await app.request("http://127.0.0.1:3000/api/v1/admin/deezer/check", { method: "POST", headers: fixture.headers, body: JSON.stringify({ trackIds: ids }) });
         expect(invalid.status).toBe(400);

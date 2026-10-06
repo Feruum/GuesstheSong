@@ -45,6 +45,11 @@ describe("recognizable hitmaker roster and selection", () => {
   test("accepts all 100 canonical artists with five distinct recordings each", () => {
     expect(completeFeaturedManifest(collection()).artists.reduce((count, artist) => count + artist.songs.length, 0)).toBe(500);
   });
+  test("accepts a metadata-only hosted verification list without activating other installations", () => {
+    const manifest = completeFeaturedManifest({ ...collection(), playbackScope: "metadata-only" });
+    expect(manifest.artists).toHaveLength(100);
+    expect(manifest.productionActivated).toBe(false);
+  });
   test("rejects tampered artist credits, identities, track IDs and source links", () => {
     for (const change of [
       (input: ReturnType<typeof collection>) => { input.artists[0].songs[0].artist = "Tribute Band"; },

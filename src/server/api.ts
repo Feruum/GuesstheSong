@@ -70,7 +70,7 @@ app.get("/admin/audius", async c => {
   const query = z.string().trim().min(2).max(100).parse(c.req.query("q"));
   return c.json({ tracks: await searchAudius(query, 25) });
 });
-app.get("/admin/deezer/search", async c => c.json({ tracks: await searchDeezerPreviews(c.req.query("q") || "") }));
+app.get("/admin/deezer/search", async c => c.json({ tracks: await searchDeezerPreviews(c.req.query("q") || "", z.coerce.number().int().min(0).max(2000).default(0).parse(c.req.query("offset"))) }));
 app.post("/admin/deezer/check", async c => {
   const input = previewCheckSchema.parse(await c.req.json());
   return c.json({ results: await checkDeezerPreviews(input.trackIds) });

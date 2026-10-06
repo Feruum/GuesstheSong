@@ -67,7 +67,7 @@ async function prepare() {
   }
   const complete = artists.every(artist => !artist.error);
   const manifest = { generatedAt: new Date().toISOString(), selection: "Editorial international hitmakers; not an official Top 100 chart", artistChartSource: SPOTIFY_ARTIST_SOURCE,
-    productionActivated: false, playbackScope: "private-local", songsPerArtist: perArtist, complete, artists, deferredArtists,
+    productionActivated: false, playbackScope: "metadata-only", songsPerArtist: perArtist, complete, artists, deferredArtists,
   };
   if (complete) completeFeaturedManifest(manifest);
   await mkdir(dirname(output), { recursive: true });

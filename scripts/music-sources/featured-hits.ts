@@ -7,7 +7,7 @@ const rawSongSchema = z.object({ id: z.number().int().positive(), title: z.strin
 export const featuredSongSchema = z.object({ id: z.string().regex(/^deezer-\d+$/), providerId: z.number().int().positive(), title: z.string().min(1).max(300), artist: z.string().min(1), artistId: z.number().int().positive(), albumId: z.number().int().positive(), popularityScore: z.number().min(100000), sourceUrl: z.string().url() });
 export type FeaturedSong = z.infer<typeof featuredSongSchema>;
 const selectedArtistSchema = z.object({ name: z.string(), genre: z.string(), artistId: z.number().int().positive(), songs: z.array(featuredSongSchema) });
-export const featuredManifestSchema = z.object({ generatedAt: z.string().optional(), complete: z.literal(true), productionActivated: z.literal(false), playbackScope: z.literal("private-local"), songsPerArtist: z.number().int().min(5).max(20), artists: z.array(selectedArtistSchema) });
+export const featuredManifestSchema = z.object({ generatedAt: z.string().optional(), complete: z.literal(true), productionActivated: z.literal(false), playbackScope: z.enum(["private-local", "metadata-only"]), songsPerArtist: z.number().int().min(5).max(20), artists: z.array(selectedArtistSchema) });
 
 export function resolveFeaturedArtist(target: FeaturedArtist, input: unknown): z.infer<typeof artistSchema> | null {
   if (!Array.isArray(input)) return null;
