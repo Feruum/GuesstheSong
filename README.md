@@ -2,9 +2,9 @@
 
 A complete local music guessing game: Next.js App Router, React, Tailwind CSS, Radix/shadcn-style controls, and a Bun/Hono backend. PostgreSQL stores the catalog and saved results; Redis owns live games, room revisions, matchmaking, presence and rate limits.
 
-**The complete game runs locally.** Start it at **http://127.0.0.1:3000** using the instructions below. The GitHub repository is connected to Vercel, but public gameplay requires cloud PostgreSQL, Redis and session configuration; the 2026-10-06 production check found `DATABASE_URL` missing.
+**Play the public game at [guessthesong-rust.vercel.app](https://guessthesong-rust.vercel.app).** Production uses Neon PostgreSQL and Upstash Redis on their free plans. The 2026-10-06 deployment initialized 1,500 public Audius recordings; real Classic audio, keyboard search, scoring and saved progress were verified in the browser. Start the local game at **http://127.0.0.1:3000** using the instructions below.
 
-Follow the [deployment instructions](docs/vercel-deployment.md). A configured Vercel deployment now automatically creates the schema and seeds a new database with 1,500 public Audius tracks. Local data is preserved separately. The local WebSocket proxy still needs a hosted adapter. Private-local Deezer previews are automatically disabled for public hosting.
+Follow the [deployment instructions](docs/vercel-deployment.md). A configured Vercel deployment automatically creates the schema and seeds a new database with 1,500 public Audius tracks. Party/Duel use the Vercel WebSocket adapter in production and the native Bun bridge locally, sharing the same Redis-backed room logic. Local data is preserved separately. Private-local Deezer previews are automatically disabled for public hosting. See the [production verification record](docs/production-verification.md) for the checks actually completed.
 
 ## Included
 
@@ -105,7 +105,7 @@ bun run db:migrate
 bun run catalog:hits 3500
 ```
 
-This is opt-in for strictly private, noncommercial listening. Review the [official Deezer developer terms](https://developers.deezer.com/termsofuse). A public `APP_URL` automatically hides these previews from catalog/search/game pools and rejects their audio, including previously cached clips. Public hosting needs an independently authorized source; it is outside this local delivery.
+This is opt-in for strictly private, noncommercial listening. Review the [official Deezer developer terms](https://developers.deezer.com/termsofuse). A public `APP_URL` automatically hides these previews from catalog/search/game pools and rejects their audio, including previously cached clips. The public deployment uses Audius; public familiar-hit gameplay needs an independently authorized source.
 
 The repeatable importer resolves an explicit editorial list of established artists to their canonical provider IDs, includes associated original recordings/official collaborations, filters karaokes/tributes/live demos, removes repeated editions, spaces requests and retries quota responses. Metadata is cached for one day under ignored `.data/deezer-metadata`; signed preview URLs remain server-side and are resolved fresh during playback. The result is in `.data/hits-import-report.json`. A target is an upper bound; the command reports the actual total and skipped artists.
 
@@ -179,7 +179,7 @@ $env:TEST_SOCKETS='1'
 bun test tests/sockets.test.ts --env-file=.env.local
 ```
 
-The crash test spawns its own third server on an OS-assigned port and terminates only that child. Playwright covers scoring/results, real audio and a nonzero excerpt, failure/retry, saved Daily progress, guest editing, administration, room access and reconnects on desktop and 375px mobile. Controlled state fixtures accelerate clocks and choose known answers; Audius playback/import and Deezer preview playback checks use the real providers. The latest core run passed 129 tests with the three optional socket checks skipped. The full browser suite passed 48 tests; after the final provider/Daily fixes, all 16 relevant desktop/mobile catalog, hits and Daily checks passed again. See the dated reports for coverage and limitations.
+The crash test spawns its own third server on an OS-assigned port and terminates only that child. Playwright covers scoring/results, real audio and a nonzero excerpt, failure/retry, saved Daily progress, guest editing, administration, room access and reconnects on desktop and 375px mobile. Controlled state fixtures accelerate clocks and choose known answers; Audius playback/import and Deezer preview playback checks use the real providers. On 2026-10-06 all 146 service/unit/socket tests passed with `TEST_SOCKETS=1`, including 24 players, cross-instance reconnects and crash recovery. The new hosted-adapter tests exercise real HTTP upgrades through the installed Vercel SDK with local PostgreSQL/Redis; actual hosting is checked separately. The earlier full browser suite passed 48 tests; after the provider/Daily fixes, all 16 relevant desktop/mobile catalog, hits and Daily checks passed again. See the dated reports for coverage and limitations.
 
 ## Source and API
 
@@ -188,7 +188,8 @@ The crash test spawns its own third server on an OS-assigned port and terminates
 - `src/shared/contracts.ts`: shared Zod request contracts and public metadata types.
 - `src/server/game-engine.ts`: deterministic rules, score/deadline calculations and privacy projections.
 - `src/server/game-service.ts`: authorization, atomic transitions, Daily persistence, matchmaking and statistics.
-- `src/server/socket-server.ts`, `presence.ts`: authenticated room connections, shared events and disconnect recovery.
+- `src/app/api/ws/route.ts`: Vercel Next.js WebSocket route, authenticated before upgrading and bounded by function deadlines.
+- `src/server/socket-server.ts`, `room-sockets.ts`, `presence.ts`: native Bun transport, shared authenticated room events, presence and disconnect recovery.
 - `src/server/audio-clips.ts`: server-bounded MPEG clips and byte-range handling; no full source track is sent to players.
 - `migrations/0001_initial.sql`, `migrations/0002_popularity_score.sql`, `src/server/schema.ts`: SQL migrations and Drizzle schema.
 - `src/server/deezer.ts`, `scripts/import-hits.ts`: private-local official previews and repeatable familiar-artist imports.

@@ -6,7 +6,7 @@ const config: NextConfig = {
   serverExternalPackages: ["pg", "ioredis", "ws"],
   poweredByHeader: false,
   async rewrites() {
-    return { beforeFiles: [{ source: "/api/ws", destination: `http://127.0.0.1:${process.env.SOCKET_PORT || 3001}/api/ws` }], afterFiles: [], fallback: [] };
+    return { beforeFiles: process.env.VERCEL ? [] : [{ source: "/api/ws", destination: `http://127.0.0.1:${process.env.SOCKET_PORT || 3001}/api/ws` }], afterFiles: [], fallback: [] };
   },
   images: {
     remotePatterns: [{ protocol: "https", hostname: "**.audius.co" }, { protocol: "https", hostname: "**.audiuscdn.co" }],

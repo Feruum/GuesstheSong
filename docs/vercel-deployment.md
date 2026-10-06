@@ -1,6 +1,6 @@
 # Deploying this repository to Vercel
 
-The GitHub repository is connected to Vercel. Publishing code does not transfer the local database, guest profiles or Redis state. On 2026-10-06 the public deployment returned `503 NOT_CONFIGURED` because `DATABASE_URL` was missing; live gameplay remains unverified until cloud configuration is connected.
+The GitHub repository is connected to Vercel and publishes to [guessthesong-rust.vercel.app](https://guessthesong-rust.vercel.app). On 2026-10-06 Neon PostgreSQL and Upstash Redis were connected on their free plans, production settings were saved and deployment initialized 1,500 public Audius tracks. Publishing code does not transfer the separate local database, guest profiles or Redis state. See the [production verification record](production-verification.md).
 
 ## Project and runtime
 
@@ -47,16 +47,16 @@ The existing `db:migrate`, `catalog:import 1500` and admin importer remain avail
 
 The 3,500 familiar-artist Deezer previews in the local database are excluded from the committed starter snapshot and restricted to private, noncommercial loopback play. Public configuration hides them and rejects their audio even if copied into the database. See the [source details](../README.md#familiar-songs-for-private-local-play) and [official provider terms](https://developers.deezer.com/termsofuse). Public familiar-hit gameplay requires an independently authorized music source.
 
-## Multiplayer integration still required
+## Multiplayer transport
 
-The committed Party/Duel transport is the verified local Bun server at `src/server/socket-server.ts`. `next.config.ts` proxies `/api/ws` to its localhost port. That second process does not exist inside a normal Vercel Next.js deployment, so the current local rewrite is not a production multiplayer integration.
+`src/app/api/ws/route.ts` implements Party/Duel upgrades with `experimental_upgradeWebSocket` from `@vercel/functions`. `next.config.ts` applies the localhost proxy only outside Vercel; production serves the route directly. Local development still uses the native Bun server at `src/server/socket-server.ts`. Both transports use `src/server/room-sockets.ts` for guest/origin/member checks, command validation, authoritative Redis updates, pubsub and player-specific snapshots.
 
-Vercel documents an experimental Next.js `experimental_upgradeWebSocket` API from `@vercel/functions`; see the [official WebSocket guide](https://vercel.com/docs/functions/websockets). Before enabling public Party/Duel, add and deployment-test that route adapter, replace the local proxy only for Vercel, and preserve the existing session authentication, Redis authority/pubsub, presence expiry, rotation and reconnect behavior. The installed dependency contains this API, but the application does not yet implement or verify the Vercel adapter. Keep Fluid compute enabled as required by the provider.
+Keep Fluid compute enabled as required by the [official WebSocket guide](https://vercel.com/docs/functions/websockets). The SDK is experimental. The route stays alive until the socket closes and presence cleanup finishes. Connections request rotation every four minutes, or earlier when the SDK reports an approaching invocation deadline. Clients reconnect and receive full state. A 30-second presence expiry and guarded disconnect updates preserve reconnection grace and protect replacement connections.
 
-Do not assume that a successful build proves WebSocket compatibility. The existing local cross-instance and 24-player tests are the regression baseline; repeat them against the actual hosted adapter, including forced disconnects and function rotation.
+Presence refreshes run at ten-second intervals; remote players' last-seen values are checked together every two seconds. Each hub ignores pubsub events for rooms it does not serve. Redis still performs room-state polling and atomic updates, so monitor the free plan's command quota. A successful build or SDK loopback test does not prove hosted compatibility: validate actual WSS upgrades, multiple clients and forced reconnects after deployment.
 
 ## Verify the deployment
 
-After environment settings, migrations and catalog initialization, deploy and check `/api/v1/health`, discovery, genre packs, Classic, Daily persistence, real bounded Audius playback, result storage and admin authentication. Test preview/production isolation and the cron's bearer secret. Test Party/Duel only after the hosted transport is implemented and verified.
+After environment settings, migrations and catalog initialization, deploy and check `/api/v1/health`, discovery, genre packs, Classic, Daily persistence, real bounded Audius playback, result storage and admin authentication. Verify Party/Duel with real WSS clients and reconnects. Test preview/production isolation and the cron's bearer secret. Production connections in this project are scoped to Production; Preview needs its own databases and secrets.
 
-The dated [local verification](../design/runtime-verification.md) and [familiar-song checks](../design/hits-verification.md) describe what has actually passed. They do not establish a verified public deployment.
+The dated [local verification](../design/runtime-verification.md), [familiar-song checks](../design/hits-verification.md) and [production verification](production-verification.md) distinguish local regression coverage from actual public checks.
