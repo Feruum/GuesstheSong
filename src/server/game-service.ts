@@ -5,7 +5,7 @@ import { catalogTrack, selectPool } from "./catalog";
 import { getRedis, redisKey } from "./redis";
 import { makeAudioToken, stableDailyGameId, utcDate } from "./security";
 import { createSoloGame, applySoloCommand, advanceSoloGame, publicSoloGame, currentSoloTrack, createRoom, applyRoomCommand, advanceRoom, publicRoom, currentRoomTrack, replaceRoomTracks, GameError, type SoloGameState, type RoomState } from "./game-engine";
-import type { GuestView, SoloMode } from "../shared/contracts";
+import { DAILY_PACK_ID, type GuestView, type SoloMode, type Track } from "../shared/contracts";
 import type { z } from "zod";
 import type { startGameSchema, soloCommandSchema, createRoomSchema, roomCommandSchema } from "../shared/contracts";
 import { deezerPreviewsEnabled } from "./deezer";
@@ -21,7 +21,8 @@ function assertSoloSource(game: SoloGameState) {
 }
 export async function startSolo(guest: GuestView, input: z.infer<typeof startGameSchema>) {
   const now = Date.now();
-  let pool = await selectPool(input.packId, input.difficulty, { audiusOnly: input.mode === "chart" });
+  let pool: Track[];
+  let packId = input.packId;
   let dailyDate: string | null = null;
   let id: string = randomUUID();
   if (input.mode === "daily") {
@@ -35,18 +36,26 @@ export async function startSolo(guest: GuestView, input: z.infer<typeof startGam
       const restored = await getStore().create(soloKey(id), saved.state as SoloSession, 86400, saved.revision);
       return soloReply(restored, guest.id);
     }
-    pool = await selectPool("global-mix");
-    if (!pool.length) throw new GameError("EMPTY_CATALOG", "The daily song is not available yet. Add music to the catalog.", 503);
-    await getPool().query("INSERT INTO daily_challenges(date,track_id) VALUES($1,$2) ON CONFLICT DO NOTHING", [dailyDate, pool[0].id]);
-    const challenge = (await getPool().query("SELECT track_id FROM daily_challenges WHERE date=$1", [dailyDate])).rows[0];
+    const challengeQuery = `SELECT d.track_id,EXISTS(SELECT 1 FROM pack_tracks p WHERE p.pack_id=$2 AND p.track_id=d.track_id) AS from_hitmakers FROM daily_challenges d WHERE d.date=$1`;
+    let challenge = (await getPool().query(challengeQuery, [dailyDate, DAILY_PACK_ID])).rows[0];
+    if (!challenge) {
+      const candidates = await selectPool(DAILY_PACK_ID);
+      if (!candidates.length) throw new GameError("EMPTY_CATALOG", "Daily needs available songs in 100 hitmakers. Contact the site administrator to restore this collection.", 503);
+      await getPool().query("INSERT INTO daily_challenges(date,track_id) VALUES($1,$2) ON CONFLICT DO NOTHING", [dailyDate, candidates[0].id]);
+      challenge = (await getPool().query(challengeQuery, [dailyDate, DAILY_PACK_ID])).rows[0];
+    }
     const track = await catalogTrack(challenge.track_id);
     if (!track?.available) throw new GameError("AUDIO_UNAVAILABLE", "Today's song is unavailable from the music service. Your progress is saved.", 503);
     if (track.id.startsWith("deezer-") && !deezerPreviewsEnabled()) throw new GameError("PRIVATE_PREVIEW_DISABLED", "Today's song uses a disabled music source. Your progress is saved. Choose an Audius collection; a new Daily arrives at 00:00 UTC.", 503);
     pool = [track];
+    // Keep an already-published shared challenge and every saved attempt unchanged during rollout.
+    packId = challenge.from_hitmakers ? DAILY_PACK_ID : "global-mix";
+  } else {
+    pool = await selectPool(input.packId, input.difficulty, { audiusOnly: input.mode === "chart" });
   }
   // Sample from the full catalog, but keep Redis state and atomic updates bounded.
   pool = pool.slice(0, input.mode === "classic" ? 10 : input.mode === "daily" ? 1 : 300);
-  const game = createSoloGame({ id, playerId: guest.id, mode: input.mode, tracks: pool, now, packId: input.mode === "daily" ? "global-mix" : input.packId, difficulty: input.mode === "daily" ? 0 : input.difficulty, excerptMode: input.mode === "daily" ? "curated" : input.excerptMode });
+  const game = createSoloGame({ id, playerId: guest.id, mode: input.mode, tracks: pool, now, packId, difficulty: input.mode === "daily" ? 0 : input.difficulty, excerptMode: input.mode === "daily" ? "curated" : input.excerptMode });
   const stored = await getStore().create<SoloSession>(soloKey(id), { guestId: guest.id, dailyDate, game });
   await saveSolo(stored);
   return soloReply(stored, guest.id);

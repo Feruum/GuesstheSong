@@ -13,7 +13,7 @@ import { deezerPreviewsEnabled } from "@/server/deezer";
 export const dynamic = "force-dynamic";
 const modes = [
   { id: "classic", name: "Classic", text: "Ten songs. Six guesses each. Find your rhythm.", icon: Disc3, href: "/play/classic" },
-  { id: "daily", name: "Daily", text: "One shared song. A fresh challenge every UTC day.", icon: CalendarDays, href: "/daily" },
+  { id: "daily", name: "Daily", text: "One shared song from 100 hitmakers, every UTC day.", icon: CalendarDays, href: "/daily" },
   { id: "party", name: "Party", text: "Same songs. Your favorite people. Up to 24 players.", icon: Users, href: "/party" },
   { id: "blitz", name: "Blitz", text: "45 seconds. Every correct answer buys you ten more.", icon: Zap, href: "/play/blitz" },
   { id: "duel", name: "Duel", text: "Two listeners. Seven rounds. Be the first to know.", icon: Swords, href: "/duel" },
@@ -68,7 +68,7 @@ export default async function Discover({ searchParams }: { searchParams: Promise
         <h2>One song. <br />Six guesses.</h2>
         <div className="mini-wave" aria-hidden>{Array.from({ length: 29 }, (_, i) => <i key={i} style={{ height: `${10 + ((i * 17 + 9) % 34)}px` }} />)}</div>
         <Button asChild size="lg"><Link href="/daily"><Play className="fill-current" />Play today’s song</Link></Button>
-        <span className="eyebrow">A fresh song every day</span>
+        <span className="eyebrow">100 hitmakers · New song at 00:00 UTC</span>
       </aside>
     </section>
     <section className="catalog-section" aria-labelledby="catalog-title">

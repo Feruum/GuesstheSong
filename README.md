@@ -9,7 +9,7 @@ Follow the [deployment instructions](docs/vercel-deployment.md). A configured Ve
 ## Included
 
 - Classic: ten songs; six guesses; clips of 1, 2, 4, 7, 11 and 16 seconds; 100/80/60/40/20/10 points. Mixed or five popularity bands, pack selection and curated/song-start excerpts.
-- Daily: one shared song per UTC date; persistent, resumable attempts; streaks and copied results.
+- Daily: one shared song per UTC date, selected only from the `100 hitmakers` / `featured-hits` collection; persistent, resumable attempts; streaks and copied results. Pack, difficulty and excerpt overrides are ignored. An already-published song and saved progress remain unchanged through the end of their UTC day during rollout; new challenges use hitmakers without falling back to the global catalog.
 - Party: private invite codes, 2–24 players, readiness, host settings, 3–30 rounds, 30-second rounds and speed scoring.
 - Blitz: 45 seconds; 16-second listening clips; one point and ten additional seconds for a correct answer.
 - Duel: invitations or random matchmaking; seven 30-second rounds; first correct answer wins a point, plus draws, forfeits and rematches.

@@ -4,7 +4,7 @@ import { bodyLimit } from "hono/body-limit";
 import { z } from "zod";
 import { randomUUID } from "node:crypto";
 import type { ContentfulStatusCode } from "hono/utils/http-status";
-import { adminLoginSchema, createRoomSchema, editPackSchema, editTrackSchema, guestUpdateSchema, importSchema, roomCommandSchema, soloCommandSchema, startGameSchema, type GuestView, type SoloMode } from "../shared/contracts";
+import { DAILY_PACK_ID, adminLoginSchema, createRoomSchema, editPackSchema, editTrackSchema, guestUpdateSchema, importSchema, roomCommandSchema, soloCommandSchema, startGameSchema, type GuestView, type SoloMode } from "../shared/contracts";
 import { ADMIN_COOKIE, GUEST_COOKIE, createGuest, findAdmin, findGuest, loginAdmin, logoutAdmin, updateGuest } from "./sessions";
 import { assertImportTarget, CatalogError, catalogFilters, catalogTrack, importTracks, listPacks, refreshCatalog, searchCatalog, attachToPack, removePackTrack, updateCatalogTrack } from "./catalog";
 import { getAudiusPlaylistTracks, getAudiusTrack, ProviderError, searchAudius } from "./audius";
@@ -118,7 +118,7 @@ app.get("/leaderboards", async c => { const input = z.object({ mode: z.enum(["cl
 app.post("/games", async c => c.json(await startSolo(c.get("guest"), startGameSchema.parse(await c.req.json())), 201));
 app.get("/games/:id", async c => c.json(await getSolo(z.string().uuid().parse(c.req.param("id")), c.get("guest").id)));
 app.post("/games/:id/commands", async c => c.json(await commandSolo(z.string().uuid().parse(c.req.param("id")), c.get("guest").id, soloCommandSchema.parse(await c.req.json()))));
-app.get("/daily", async c => c.json(await startSolo(c.get("guest"), { mode: "daily", packId: "global-mix", difficulty: 0, excerptMode: "curated" })));
+app.get("/daily", async c => c.json(await startSolo(c.get("guest"), { mode: "daily", packId: DAILY_PACK_ID, difficulty: 0, excerptMode: "curated" })));
 app.post("/rooms", async c => c.json(await newRoom(c.get("guest"), createRoomSchema.parse(await c.req.json())), 201));
 app.get("/rooms/:code", async c => c.json(await getRoom(z.string().regex(/^[A-Za-z0-9]{6}$/).parse(c.req.param("code")), c.get("guest").id)));
 app.post("/rooms/:code/commands", async c => c.json(await commandRoom(z.string().regex(/^[A-Za-z0-9]{6}$/).parse(c.req.param("code")), c.get("guest"), roomCommandSchema.parse(await c.req.json()))));

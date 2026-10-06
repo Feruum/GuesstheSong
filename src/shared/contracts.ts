@@ -6,6 +6,7 @@ export type SoloMode = "classic" | "daily" | "blitz" | "chart";
 export type RoomMode = "party" | "duel";
 export const CLIP_STAGES = [1, 2, 4, 7, 11, 16] as const;
 export const CLIP_SCORES = [100, 80, 60, 40, 20, 10] as const;
+export const DAILY_PACK_ID = "featured-hits";
 export const nicknameSchema = z.string().trim().min(2, "Use at least 2 characters.").max(24, "Use 24 characters or fewer.").regex(/^[\p{L}\p{N} ._\-]+$/u, "Use letters, numbers, spaces, dots, hyphens, or underscores.");
 export const guestUpdateSchema = z.object({ nickname: nicknameSchema, avatar: z.number().int().min(0).max(7).default(0) });
 export const startGameSchema = z.object({ mode: z.enum(["classic", "daily", "blitz", "chart"]), packId: z.string().max(80).default("global-mix"), difficulty: z.number().int().min(0).max(5).default(0), excerptMode: z.enum(["curated", "start"]).default("curated") });
