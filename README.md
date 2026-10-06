@@ -193,11 +193,14 @@ The crash test spawns its own third server on an OS-assigned port and terminates
 - `src/server/audio-clips.ts`: server-bounded MPEG clips and byte-range handling; no full source track is sent to players.
 - `migrations/0001_initial.sql`, `migrations/0002_popularity_score.sql`, `src/server/schema.ts`: SQL migrations and Drizzle schema.
 - `src/server/deezer.ts`, `scripts/import-hits.ts`: private-local official previews and repeatable familiar-artist imports.
+- `scripts/featured-hits.ts`, `src/shared/featured-artists.ts`: a verified 100-artist selection, JSON/Markdown song list, private-local importer, and the automatic `100 hitmakers` pack.
 - `scripts/local-pgwire-queue.ts`: local development PostgreSQL bridge with query-cycle and transaction ownership.
 
 Hono is mounted at `/api/v1`. Routes include `/guest`, `/packs`, `/catalog/search`, `/games`, `/games/:id/commands`, `/daily`, `/rooms`, `/rooms/:code/commands`, `/matchmaking`, `/stats`, `/leaderboards`, `/audio/:token` and protected `/admin/*`. See `src/server/api.ts` for validation and error contracts. Guesses use catalog IDs; the API derives player identity from the browser cookie and never accepts scores or deadlines from clients. Command UUIDs deduplicate retries.
 
 ## Music and attribution
+
+`bun run catalog:stars` prepares five original recordings for each of 100 recognizable artists, including Kanye West, Drake, Eminem, Rihanna and The Weeknd. It rejects incomplete collections, lookalike artists, unreadable previews and unsupported editions. `bun run catalog:stars --import` requires private-local preview opt-in and preserves disabled tracks and admin metadata. The [full 100-artist/500-song selection](data/featured-hitmakers.md) and [setup, availability and verification report](docs/featured-hitmakers.md) explain the source boundary. This selection is editorial, not an official worldwide Top 100. The public deployment still uses Audius; these private previews are not enabled on Vercel.
 
 Free music discovery is available with `bun run music:discover`: publisher JSON/HTML parsing for Incompetech and API adapters for Wikimedia Commons, ccMixter and Openverse. It exports genre metadata, attribution, exact licenses and optional bounded audio checks without database credentials. See the [free API comparison, commands and actual availability results](docs/free-music-apis.md). These exports are candidates for review; they do not change the deployed Audius catalog.
 

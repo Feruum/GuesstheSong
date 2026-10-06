@@ -20,6 +20,7 @@
     "catalog:hits": "bun run --env-file=.env.local scripts/import-hits.ts",
     "catalog:organize": "bun run --env-file=.env.local scripts/organize-catalog.ts",
     "music:discover": "bun scripts/discover-music.ts",
+    "catalog:stars": "bun run --env-file=.env.local scripts/featured-hits.ts",
     "admin:password": "bun scripts/admin-password.ts"
   },
   "dependencies": {

@@ -32,7 +32,7 @@ async function memoryCatalog() {
 describe("automatic catalog pack definitions", () => {
   test("keeps the starter pack IDs and adds distinct genre, decade, and popularity packs", () => {
     expect(DEFAULT_PACKS.map(pack => pack.id)).toEqual([
-      "global-mix", "electronic", "hip-hop", "indie", "pop", "rock", "2010s", "2020s", "popular", "hits", "hits-2010s", "rnb", "house", "jazz", "latin", "metal", "country", "reggae", "classical", "1980s", "1990s", "2000s",
+      "global-mix", "electronic", "hip-hop", "indie", "pop", "rock", "2010s", "2020s", "popular", "hits", "hits-2010s", "rnb", "house", "jazz", "latin", "metal", "country", "reggae", "classical", "1980s", "1990s", "2000s", "featured-hits",
     ]);
     expect(DEFAULT_PACKS.find(pack => pack.id === "pop")?.genre).toBe("Pop");
     expect(DEFAULT_PACKS.find(pack => pack.id === "rock")?.genre).toBe("Rock");

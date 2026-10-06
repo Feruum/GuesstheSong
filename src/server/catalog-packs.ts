@@ -1,7 +1,8 @@
 import type { PackSummary, Track } from "../shared/contracts";
+import { artistIdentity, featuredArtistNames } from "../shared/featured-artists";
 
 export type CatalogPackKind = "mix" | "genre" | "decade";
-export type CatalogPackId = "global-mix" | "electronic" | "hip-hop" | "indie" | "pop" | "rock" | "rnb" | "house" | "jazz" | "latin" | "metal" | "country" | "reggae" | "classical" | "1980s" | "1990s" | "2000s" | "2010s" | "2020s" | "popular" | "hits" | "hits-2010s";
+export type CatalogPackId = "global-mix" | "electronic" | "hip-hop" | "indie" | "pop" | "rock" | "rnb" | "house" | "jazz" | "latin" | "metal" | "country" | "reggae" | "classical" | "1980s" | "1990s" | "2000s" | "2010s" | "2020s" | "popular" | "hits" | "hits-2010s" | "featured-hits";
 export interface CatalogPackDefinition extends PackSummary { id: CatalogPackId; kind: CatalogPackKind }
 
 export const DEFAULT_PACKS: CatalogPackDefinition[] = [
@@ -25,11 +26,12 @@ export const DEFAULT_PACKS: CatalogPackDefinition[] = [
   { id: "reggae", slug: "reggae", name: "Reggae", description: "Reggae recordings, using provider genre metadata.", genre: "Reggae", coverArt: "electronic", count: 0, kind: "genre" },
   { id: "classical", slug: "classical", name: "Classical", description: "Classical recordings, using provider genre metadata.", genre: "Classical", coverArt: "indie", count: 0, kind: "genre" },
   ...([1980, 1990, 2000] as const).map(year => ({ id: `${year}s` as CatalogPackId, slug: `${year}s`, name: `${year}s discoveries`, description: `Songs with provider release dates from ${year} to ${year + 9}. Reissues follow their edition’s release date.`, genre: null, coverArt: "global" as const, count: 0, kind: "decade" as const })),
+  { id: "featured-hits", slug: "featured-hits", name: "100 hitmakers", description: "A curated selection of major pop, rap, rock, electronic and Latin artists. Official previews for private local listening.", genre: null, coverArt: "global", count: 0, kind: "mix" },
 ];
 
 export const AUTO_PACK_IDS = DEFAULT_PACKS.filter(pack => pack.id !== "global-mix").map(pack => pack.id);
 
-export type CatalogPackTrack = Pick<Track, "id" | "genre" | "releaseYear" | "playCount" | "available">;
+export type CatalogPackTrack = Pick<Track, "id" | "genre" | "releaseYear" | "playCount" | "available"> & { artist?: string };
 const genreTags: Partial<Record<CatalogPackId, ReadonlySet<string>>> = {
   pop: new Set(["Pop"]),
   rock: new Set(["Rock"]),
@@ -62,6 +64,7 @@ export function selectPackTracks<T extends CatalogPackTrack>(packId: string, inp
     if (packId === "global-mix") return true;
     if (packId === "popular") return !track.id.startsWith("deezer-");
     if (packId === "hits") return track.id.startsWith("deezer-");
+    if (packId === "featured-hits") return track.id.startsWith("deezer-") && !!track.artist && featuredArtistNames.has(artistIdentity(track.artist));
     if (packId === "hits-2010s" && !track.id.startsWith("deezer-")) return false;
     if (tags) return track.genre !== null && tags.has(track.genre);
     return startYear !== null && track.releaseYear !== null && Number.isInteger(track.releaseYear)
