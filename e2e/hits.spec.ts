@@ -9,7 +9,7 @@ test("familiar artists, explicit genres, deep catalog pagination, and the primar
   for (const name of ["Pop", "Hip-hop", "Rock", "Indie & alternative", "R&B & soul", "Jazz", "Latin", "Metal", "Country", "Reggae", "Classical", "House"]) {
     await expect(genres.getByRole("heading", { name, exact: true })).toBeVisible();
   }
-  await expect(page.locator('a[href="/packs/hits"]')).toContainText("Hits & familiar artists");
+  await expect(page.locator('a[href="/packs/featured-hits"]')).toContainText("100 hitmakers");
   const catalog = await (await page.request.get("/api/v1/catalog/search?packId=hits&offset=2001&limit=10")).json();
   expect(catalog.tracks).toHaveLength(10);
   expect(catalog.tracks.every((track: { id: string }) => track.id.startsWith("deezer-"))).toBe(true);
@@ -19,11 +19,11 @@ test("familiar artists, explicit genres, deep catalog pagination, and the primar
   await genres.scrollIntoViewIfNeeded();
   await page.screenshot({ path: `design/runtime-genres-${info.project.name}.png`, fullPage: true });
   await page.getByRole("link", { name: "Start guessing", exact: true }).click();
-  await expect(page).toHaveURL(/pack=hits/);
-  await expect(page.getByRole("combobox", { name: "Music pack", exact: true })).toContainText("Hits & familiar artists");
+  await expect(page).toHaveURL(/pack=featured-hits/);
+  await expect(page.getByRole("combobox", { name: "Music pack", exact: true })).toContainText("100 hitmakers");
   const started = page.waitForResponse(response => response.url().endsWith("/api/v1/games") && response.request().method() === "POST");
   await page.getByRole("button", { name: "Let's play" }).click();
-  expect((await (await started).json()).game.packId).toBe("hits");
+  expect((await (await started).json()).game.packId).toBe("featured-hits");
   await expect(page.getByTestId("solo-game")).toHaveAttribute("data-state", "playing");
 });
 

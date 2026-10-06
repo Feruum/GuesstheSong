@@ -71,7 +71,7 @@ export class DeezerMissingError extends ProviderError {
   constructor() { super("This recording is no longer available from the preview service.", 404); }
 }
 export async function deezerGet(path: string, params: Record<string, string | number> = {}): Promise<unknown> {
-  if (!/^(?:artist|album|track|search\/artist|genre)(?:\/\d+)?(?:\/top)?$/.test(path)) throw new ProviderError("Invalid music request.", 400);
+  if (!/^(?:artist|album|track|search(?:\/artist)?|genre)(?:\/\d+)?(?:\/top)?$/.test(path)) throw new ProviderError("Invalid music request.", 400);
   const url = new URL(`https://api.deezer.com/${path}`);
   for (const [key, value] of Object.entries(params)) url.searchParams.set(key, String(value));
   try {

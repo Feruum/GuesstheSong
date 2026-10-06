@@ -8,6 +8,7 @@ import { app } from "../src/server/api";
 import { getStore } from "../src/server/atomic-store";
 import { organizeCatalog, searchCatalog } from "../src/server/catalog";
 import * as provider from "../src/server/audius";
+import * as deezerAdmin from "../src/server/deezer-admin";
 import * as database from "../src/server/db";
 import { getPool } from "../src/server/db";
 import { createSoloGame } from "../src/server/game-engine";
@@ -42,6 +43,24 @@ async function catalogApiFixture() {
 }
 
 describe("catalog mutations through the admin API", () => {
+  test("deployment preview checks require admin authentication and validate bounded provider IDs", async () => {
+    const unauthorized = await app.request("http://127.0.0.1:3000/api/v1/admin/deezer/search?q=Artist");
+    expect(unauthorized.status).toBe(401);
+    const noSession = await app.request("http://127.0.0.1:3000/api/v1/admin/deezer/check", { method: "POST", headers: { Origin: "http://127.0.0.1:3000", "Content-Type": "application/json" }, body: JSON.stringify({ trackIds: ["deezer-123"] }) });
+    expect(noSession.status).toBe(401);
+    const fixture = await catalogApiFixture();
+    const check = spyOn(deezerAdmin, "checkDeezerPreviews").mockResolvedValue([{ id: "deezer-123", playable: true, track: catalogSong("deezer-123") }]);
+    try {
+      const valid = await app.request("http://127.0.0.1:3000/api/v1/admin/deezer/check", { method: "POST", headers: fixture.headers, body: JSON.stringify({ trackIds: ["deezer-123"] }) });
+      expect(valid.status).toBe(200);
+      expect((await valid.json()).results[0].playable).toBe(true);
+      for (const ids of [["https://example.com/audio"], Array.from({ length: 21 }, (_, i) => `deezer-${i + 1}`)]) {
+        const invalid = await app.request("http://127.0.0.1:3000/api/v1/admin/deezer/check", { method: "POST", headers: fixture.headers, body: JSON.stringify({ trackIds: ids }) });
+        expect(invalid.status).toBe(400);
+      }
+      expect(check).toHaveBeenCalledTimes(1);
+    } finally { check.mockRestore(); await fixture.close(); }
+  }, 30000);
   test("imports into the global mix also populate genre and decade collections", async () => {
     const fixture = await catalogApiFixture();
     const providerFixture = spyOn(provider, "getAudiusTrack").mockResolvedValue(catalogSong("imported-rock", { genre: "Rock", releaseYear: 2015 }));

@@ -47,6 +47,10 @@ Do not run the local `catalog:stars` shortcut against production. Import fetches
 
 Playback continues to require readable official previews, a permitted HTTPS provider CDN, fresh URLs and authenticated, session-bound clips. No signed CDN URLs or audio recordings are committed. Source links and attribution appear on reveal. Availability and region restrictions still apply.
 
+Catalog managers can use `GET /api/v1/admin/deezer/search?q=...` and `POST /api/v1/admin/deezer/check` with `{ "trackIds": ["deezer-123"] }`. Both require an existing authenticated admin session; verification accepts at most twenty provider IDs and checks fresh metadata plus a real one-second server-bounded clip from the deployment itself. Search exposes canonical artist/album IDs and metadata, never signed CDN URLs. Confirm canonical artists and eligible editions before importing returned metadata. A failed check grants no playable status and must not re-enable an admin-disabled record.
+
+Local provider availability can differ from the hosting region. Initial hosted checks found **445 playable clips and 55 unavailable editions** in the 500-record local selection. Those editions were disabled in the production catalog; replacement recordings are checked from Vercel before import. This is a provider availability boundary, not a reason to bypass region restrictions.
+
 ## Actual verification — 2026-10-06
 
 - Metadata preparation completed with **100 artists and 500 distinct selected recordings**.

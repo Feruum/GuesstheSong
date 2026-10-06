@@ -15,6 +15,7 @@ import { getRedis, rateLimit, redisKey } from "./redis";
 import { MissingStateError } from "./atomic-store";
 import { audioTrack, cancelMatch, commandRoom, commandSolo, getRoom, getSolo, guestStats, leaderboard, matchmaking, newRoom, startSolo } from "./game-service";
 import { validOrigin, verifyAudioToken } from "./security";
+import { checkDeezerPreviews, previewCheckSchema, searchDeezerPreviews } from "./deezer-admin";
 
 type Variables = { guest: GuestView };
 export const app = new Hono<{ Variables: Variables }>().basePath("/api/v1");
@@ -68,6 +69,11 @@ app.get("/admin/catalog", async c => c.json({ tracks: await searchCatalog({ quer
 app.get("/admin/audius", async c => {
   const query = z.string().trim().min(2).max(100).parse(c.req.query("q"));
   return c.json({ tracks: await searchAudius(query, 25) });
+});
+app.get("/admin/deezer/search", async c => c.json({ tracks: await searchDeezerPreviews(c.req.query("q") || "") }));
+app.post("/admin/deezer/check", async c => {
+  const input = previewCheckSchema.parse(await c.req.json());
+  return c.json({ results: await checkDeezerPreviews(input.trackIds) });
 });
 app.post("/admin/import", async c => {
   const input = importSchema.parse(await c.req.json());
