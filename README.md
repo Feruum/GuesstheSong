@@ -199,6 +199,8 @@ Hono is mounted at `/api/v1`. Routes include `/guest`, `/packs`, `/catalog/searc
 
 ## Music and attribution
 
+Free music discovery is available with `bun run music:discover`: publisher JSON/HTML parsing for Incompetech and API adapters for Wikimedia Commons, ccMixter and Openverse. It exports genre metadata, attribution, exact licenses and optional bounded audio checks without database credentials. See the [free API comparison, commands and actual availability results](docs/free-music-apis.md). These exports are candidates for review; they do not change the deployed Audius catalog.
+
 Audius provides a [free streaming API](https://docs.audius.co/). Imports exclude gated, private, deleted, unavailable, unstreamable and unsupported-license tracks. The app displays artist, song source and applicable licensing information when revealing songs. It follows the provider's [licensing update](https://blog.audius.co/posts/audius-terms-of-service-update) and [Open Music License](https://audius.org/open-music-license.pdf). Imported rights metadata is retained, and administrative disabling takes effect on audio requests.
 
 Provider outages produce a retry state without consuming a guess. Short MP3 clips contain only complete frames within the unlocked stage and strip answer-bearing metadata; byte ranges are restricted to that clip. Track availability can change after import. Audius artists own their music; no music files are committed to this repository.
