@@ -55,6 +55,8 @@ Keep Fluid compute enabled as required by the [official WebSocket guide](https:/
 
 Presence refreshes run at ten-second intervals; remote players' last-seen values are checked together every two seconds. Each hub ignores pubsub events for rooms it does not serve. Redis still performs room-state polling and atomic updates, so monitor the free plan's command quota. A successful build or SDK loopback test does not prove hosted compatibility: validate actual WSS upgrades, multiple clients and forced reconnects after deployment.
 
+Keep `@vercel/functions` in `serverExternalPackages`. Webpack's dynamic CommonJS namespace conversion can omit `ws.WebSocketServer`; the SDK must load `ws` through its native import. After a Vercel-mode build, run `TEST_BUILT_SOCKETS=1 bun test tests/hosted-sockets.test.ts --env-file=.env.local` to exercise the actual compiled route against real local upgrade sockets.
+
 ## Verify the deployment
 
 After environment settings, migrations and catalog initialization, deploy and check `/api/v1/health`, discovery, genre packs, Classic, Daily persistence, real bounded Audius playback, result storage and admin authentication. Verify Party/Duel with real WSS clients and reconnects. Test preview/production isolation and the cron's bearer secret. Production connections in this project are scoped to Production; Preview needs its own databases and secrets.

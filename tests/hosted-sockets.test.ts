@@ -1,5 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from "bun:test";
 import { AsyncLocalStorage } from "node:async_hooks";
+import { createRequire } from "node:module";
 import { createServer, type IncomingMessage } from "node:http";
 import type { Socket } from "node:net";
 import { randomUUID } from "node:crypto";
@@ -24,17 +25,19 @@ const roomCodes: string[] = [];
 const sockets: WebSocket[] = [];
 const origin = process.env.APP_URL || "http://127.0.0.1:3000";
 let port = 0;
+let builtGET: typeof GET | undefined;
+const handler = (req: IncomingMessage) => req.url?.startsWith("/built/") && builtGET ? builtGET : GET;
 const pendingHandlers = new Set<Promise<unknown>>();
 function webRequest(req: IncomingMessage) {
   return new Request(`http://127.0.0.1:${port}${req.url}`, { headers: { origin: req.headers.origin || "", cookie: req.headers.cookie || "", upgrade: req.headers.upgrade || "" } });
 }
 const server = createServer(async (req, res) => {
-  const response = await GET(webRequest(req));
+  const response = await handler(req)(webRequest(req));
   res.writeHead(response.status); res.end(await response.text());
 });
 server.on("upgrade", (req, socket, head) => {
   const handled = context.run({ upgradeWebSocket: () => ({ req, socket: socket as Socket, head }) }, async () => {
-    const response = await GET(webRequest(req));
+    const response = await handler(req)(webRequest(req));
     if (response.status !== 204 && !socket.destroyed) socket.end(`HTTP/1.1 ${response.status} Rejected\r\nConnection: close\r\n\r\n`);
   });
   pendingHandlers.add(handled);
@@ -58,9 +61,10 @@ afterAll(async () => {
   }
 });
 type Frame = { type: string; commandId?: string; room?: Awaited<ReturnType<typeof getRoom>>["room"] };
-function connect(code: string, token: string) {
-  const socket = new WebSocket(`ws://127.0.0.1:${port}/api/ws?room=${code}`, { headers: { Cookie: `gts_guest=${token}`, Origin: origin } });
+function connect(code: string, token: string, built = false) {
+  const socket = new WebSocket(`ws://127.0.0.1:${port}${built ? "/built" : ""}/api/ws?room=${code}`, { headers: { Cookie: `gts_guest=${token}`, Origin: origin } });
   sockets.push(socket);
+  socket.on("error", () => { /* receive() reports a failed connection. */ });
   const frames: Frame[] = [];
   socket.on("message", message => frames.push(JSON.parse(message.toString())));
   const closed = new Promise<{ code: number; reason: string }>(resolve => socket.once("close", (code, reason) => resolve({ code, reason: reason.toString() })));
@@ -78,6 +82,18 @@ function connect(code: string, token: string) {
 async function session() { const value = await createGuest(); sessions.push(value); return value; }
 
 describe("hosted Next.js socket adapter", () => {
+  test.skipIf(process.env.TEST_BUILT_SOCKETS !== "1")("the actual production bundle upgrades a real socket", async () => {
+    const bundle = createRequire(import.meta.url)("../.next/server/app/api/ws/route.js");
+    await bundle.routeModule.ensureUserland();
+    builtGET = bundle.routeModule.userland.GET;
+    const host = await session();
+    const { room } = await newRoom(host.guest, { mode: "duel", settings: { packId: "global-mix", rounds: 7, timeLimitSec: 30, startClipSec: 1, excerptMode: "curated" } });
+    roomCodes.push(room.code);
+    const client = connect(room.code, host.token, true);
+    expect((await client.receive(frame => frame.type === "snapshot")).room?.code).toBe(room.code);
+    client.socket.send(JSON.stringify({ type: "ping" }));
+    expect((await client.receive(frame => frame.type === "pong")).type).toBe("pong");
+  }, 15000);
   test("authenticates origin and room membership before a WebSocket upgrade", async () => {
     const host = await session(); const stranger = await session();
     const { room } = await newRoom(host.guest, { mode: "duel", settings: { packId: "global-mix", rounds: 7, timeLimitSec: 30, startClipSec: 1, excerptMode: "curated" } });

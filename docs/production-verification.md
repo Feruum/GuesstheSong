@@ -31,7 +31,7 @@ The first configured deployment still returned HTTP 404 for `/api/ws`. The fix a
 
 Before publication, **146 tests passed, zero failed**, with `TEST_SOCKETS=1`. These include 24 players across two native server instances, reconnect synchronization, simultaneous/deduplicated commands, and abrupt instance-crash detection after the 30-second grace period. New tests verify the Vercel SDK against real Node HTTP upgrades and local PostgreSQL/Redis, including origin/member rejection, replacement-connection presence, revocation after leaving, abandoned-lobby cleanup and delayed-disconnect grace handling. TypeScript, ESLint and the Vercel-mode production build passed.
 
-Actual production WebSocket verification is pending deployment of the route. Local SDK tests do not establish Vercel runtime compatibility. Earlier Playwright reports cover local desktop/mobile behavior and are linked from the repository README.
+The first route deployment exposed a Webpack interoperability issue: the bundled SDK's dynamic import of the CommonJS `ws` function omitted the named `WebSocketServer` export and returned HTTP 503 on upgrade. A regression test against the actual `.next` production route reproduced the exact runtime error. Keeping `@vercel/functions` external preserves its native dynamic import; this fix is being deployment-verified. Local source-level SDK tests do not establish built or hosted compatibility. Earlier Playwright reports cover local desktop/mobile behavior and are linked from the repository README.
 
 ## Reproduce local verification
 
@@ -44,6 +44,8 @@ $env:TEST_SOCKETS='1'
 bun test tests --env-file=.env.local
 $env:VERCEL='1'
 bun run build
+$env:TEST_BUILT_SOCKETS='1'
+bun test tests/hosted-sockets.test.ts --env-file=.env.local
 ```
 
 Do not run service tests against production: their fixtures create and remove their own test identities in the configured database. Production credentials and the admin password are stored only in ignored local files and Vercel environment settings.
