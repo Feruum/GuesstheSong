@@ -38,7 +38,8 @@ export function useRoom(code: string) {
     return () => { stopped = true; clearTimeout(timer); clearInterval(ping); window.removeEventListener("online", online); document.removeEventListener("visibilitychange", visible); current?.close(1000, "Leaving page"); socket.current = null; };
   }, [code, joined, client, update]);
   const mutation = useMutation({ mutationFn: async (command: RoomCommandInput) => {
-    if (command.kind !== "join" && socket.current?.readyState === WebSocket.OPEN) {
+    // Leaving revokes the socket immediately, so acknowledge it through HTTP.
+    if (command.kind !== "join" && command.kind !== "leave" && socket.current?.readyState === WebSocket.OPEN) {
       const active = socket.current;
       const acknowledged = await new Promise<LiveRoom | null>(resolve => { const timeout = setTimeout(() => { pending.current.delete(command.id); resolve(null); }, 1800); pending.current.set(command.id, room => { clearTimeout(timeout); resolve(room); }); active.send(json(command)); });
       if (acknowledged) return { room: acknowledged };

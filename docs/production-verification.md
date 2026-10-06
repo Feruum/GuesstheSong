@@ -52,6 +52,10 @@ Manual browser Party checks additionally covered a second player joining, ready 
 
 Manual QA found that a listener leaving a completed room disappeared from its final table. The subsequent fix preserves match participants in standings while checking current membership separately for HTTP/audio/upgrades. A Party unit test and a real PostgreSQL/Redis Duel test cover participant retention and HTTP rejection after leaving; the 59 relevant engine/service/adapter checks passed before publication.
 
+The standings fix was then verified on production commit `44083e2`: the existing manual Party result again displayed both listeners, and a new Duel kept both participants while returning HTTP 403 for the departed listener's room read and upgrade request. Manual exit also exposed a socket acknowledgement race; the client now sends leave commands over HTTP because leaving revokes its socket immediately.
+
+Production Web Analytics displayed four visitors and eleven page views, with Classic, Daily, Party and the checked room among its tracked paths.
+
 ## Reproduce local verification
 
 Use development PostgreSQL/Redis and native socket servers on ports 3001 and 3002:

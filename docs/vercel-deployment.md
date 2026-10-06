@@ -12,7 +12,7 @@ Vercel runs Next.js functions itself. `bun run start` is the local coordinator f
 
 `@vercel/analytics` is installed and locked with Bun. The root layout imports `Analytics` from `@vercel/analytics/next` and renders it once on Vercel; local development does not request Vercel-only analytics endpoints. It tracks page navigation using the official Next.js integration, without adding custom game events or player identities.
 
-In the Vercel project dashboard, open Web Analytics and click Enable, then deploy this commit and visit the site. Verify page views in the dashboard; content blockers can prevent collection. The component is wired into the application, but collection in a hosted dashboard has not yet been verified. Follow the [official Web Analytics quickstart](https://vercel.com/docs/analytics/quickstart?framework=nextjs).
+For a new project, open Web Analytics and click Enable, then deploy and visit the site. Collection in this project's production dashboard was verified on 2026-10-06: four visitors and eleven page views, including the manually checked Classic, Daily and Party routes. Content blockers can prevent collection. Follow the [official Web Analytics quickstart](https://vercel.com/docs/analytics/quickstart?framework=nextjs).
 
 ## Cloud database and secrets
 
