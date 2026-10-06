@@ -11,7 +11,7 @@ import { PackArtwork } from "./pack-card";
 import { Button } from "./ui/button";
 
 export function TrackAttribution({ track }: { track: Track }) {
-  if (musicSource(track) === "Deezer") return <p className="attribution">{track.artist} · <a href={track.sourceUrl} target="_blank" rel="noreferrer">Listen on Deezer ↗</a><br />Official preview · Private noncommercial listening</p>;
+  if (musicSource(track) === "Deezer") return <p className="attribution">{track.artist} · <a href={track.sourceUrl} target="_blank" rel="noreferrer">Listen on Deezer ↗</a><br />Official Deezer preview</p>;
   const license = track.license || "Open Music License";
   return <p className="attribution">© {track.artist} · Music from <a href={track.sourceUrl} target="_blank" rel="noreferrer">Audius ↗</a><br />{!track.license || /OML|Open Music/i.test(license) ? <a href="https://audius.org/open-music-license.pdf" target="_blank" rel="noreferrer">Open Music License</a> : <span>{license}</span>}</p>;
 }

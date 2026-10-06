@@ -31,6 +31,8 @@ Configure these in Vercel's environment settings:
 | `AUDIUS_APP_NAME` | `guess-the-song` |
 | `AUDIUS_API_KEY` | Optional provider key, if available |
 | `DEEZER_PRIVATE_PREVIEWS` | `false` for public hosting |
+| `DEEZER_PUBLIC_PREVIEWS_APPROVED` | `true` only after provider approval for this application; default `false` |
+| `DEEZER_PUBLIC_PREVIEWS_ORIGIN` | Exact approved HTTPS origin matching `APP_URL`; leave empty when disabled |
 | `REDIS_NAMESPACE` | A distinct value, such as `gts-production` |
 
 Do not commit environment values or the admin password. `.env.example` documents names and local placeholders only. Use separate databases, Redis namespaces and session secrets for preview environments; set each preview's `APP_URL` to its own exact origin. Mutations validate the browser's origin.
@@ -45,7 +47,7 @@ Schema creation, the initial import and automatic pack membership run in one Pos
 
 The existing `db:migrate`, `catalog:import 1500` and admin importer remain available for maintenance. For CLI access to production, use an isolated checkout and production-specific ignored environment file, keeping this computer's development configuration intact. `bun run build` by itself remains a local build and does not initialize cloud services.
 
-The 3,500 familiar-artist Deezer previews in the local database are excluded from the committed starter snapshot and restricted to private, noncommercial loopback play. Public configuration hides them and rejects their audio even if copied into the database. See the [source details](../README.md#familiar-songs-for-private-local-play) and [official provider terms](https://developers.deezer.com/termsofuse). Public familiar-hit gameplay requires an independently authorized music source.
+Local familiar-artist Deezer previews are excluded from the committed starter snapshot. Public playback is disabled by default and requires provider approval plus `DEEZER_PUBLIC_PREVIEWS_APPROVED=true` with `DEEZER_PUBLIC_PREVIEWS_ORIGIN` matching `APP_URL`. This project's operator reports approval for the production domain; it does not transfer to forks. Import the prepared 100-artist/500-song shortlist using the [approved-public instructions](featured-hitmakers.md#approved-public-playback). Local databases are not copied to production; existing Audius tracks, guest profiles and admin corrections are preserved.
 
 ## Multiplayer transport
 

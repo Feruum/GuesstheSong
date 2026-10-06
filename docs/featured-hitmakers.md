@@ -6,7 +6,7 @@ See the [complete list of 100 artists and 500 selected recordings](../data/featu
 
 ## Prepare and import
 
-Use the existing local PostgreSQL/Redis setup described in the project README. Private preview playback requires `DEEZER_PRIVATE_PREVIEWS=true` and a loopback `APP_URL`, such as `http://127.0.0.1:3000`. A public hostname cannot enable this source.
+Use the existing local PostgreSQL/Redis setup described in the project README. Private preview playback requires `DEEZER_PRIVATE_PREVIEWS=true` and a loopback `APP_URL`, such as `http://127.0.0.1:3000`. That flag cannot enable a public hostname; approved public playback has a separate configuration below.
 
 ```powershell
 bun run catalog:stars
@@ -20,7 +20,32 @@ Preparation resolves exact canonical artist names or explicit aliases with an es
 
 Only a complete manifest with 100 unique artists and the configured number of songs per artist can be imported. New records receive actual provider album genres and release dates; an editorial artist genre is used only when the provider supplies no genre. Existing disabled records and admin corrections remain intact. All derived packs are organized once after the batch, including genre and decade collections. Reissue dates remain the provider edition dates.
 
-The automatic **100 hitmakers** pack includes all active official previews by the selected artist identities, including records from earlier imports. Its total can exceed the 500-song shortlist. Existing genre packs remain available; Chart Clash continues to use Audius play counts and excludes private previews.
+The automatic **100 hitmakers** pack includes all active official previews by the selected artist identities, including records from earlier imports. Its total can exceed the 500-song shortlist. Existing genre packs remain available; Chart Clash continues to use Audius play counts and excludes all Deezer previews.
+
+## Approved public playback
+
+On 2026-10-06 the operator reported obtaining provider approval for the public game at `https://guessthesong-rust.vercel.app`. The application does not independently verify that agreement. Open-source code does not license the recordings or transfer that approval to other installations.
+
+For an application with the necessary provider approval, set these values only in its Production environment:
+
+```dotenv
+APP_URL=https://guessthesong-rust.vercel.app
+DEEZER_PRIVATE_PREVIEWS=false
+DEEZER_PUBLIC_PREVIEWS_APPROVED=true
+DEEZER_PUBLIC_PREVIEWS_ORIGIN=https://guessthesong-rust.vercel.app
+```
+
+The approval origin must match the exact HTTPS application origin, without credentials, a path, query or fragment. A missing or mismatched approval disables catalog selection and audio, even when clips are cached. Deployment preparation reports an invalid enabled configuration before starting the build. Preview environments and forks remain disabled by default.
+
+Use the prepared metadata shortlist with a separate ignored environment file containing the intended production database and configuration:
+
+```powershell
+bun run --env-file=.data/production-deployment/production.env scripts/featured-hits.ts --import
+```
+
+Do not run the local `catalog:stars` shortcut against production. Import fetches fresh provider metadata for new records, preserves disabled tracks and admin corrections, and reports actual imported totals under ignored `.data/featured-hits/import-report.json`. The manifest's `productionActivated: false` and `playbackScope: private-local` describe its original preparation state; the manifest itself grants no permission and does not control environment activation. The import report records the configured playback scope; live deployment still requires verification.
+
+Playback continues to require readable official previews, a permitted HTTPS provider CDN, fresh URLs and authenticated, session-bound clips. No signed CDN URLs or audio recordings are committed. Source links and attribution appear on reveal. Availability and region restrictions still apply.
 
 ## Actual verification — 2026-10-06
 
@@ -37,7 +62,7 @@ Local import and audio reports are under ignored `.data/featured-hits/`. They ar
 
 The initial artist selection only returned 457 eligible records: twelve artists did not have five readable primary-artist previews in the provider response. Those names, including Ed Sheeran, Dua Lipa, Bruno Mars and Coldplay, appear in the manifest's `deferredArtists` section with the actual latest counts. They were replaced in the selected 100 by other recognizable artists with available originals; covers and incorrectly relabeled collaborations were not used. This records observed availability, not a claim about why particular catalogs are missing.
 
-Deezer's [developer terms](https://developers.deezer.com/termsofuse) restrict content streaming and use to private family use and require advance review for uses outside the described scope. The preview endpoint being technically accessible does not authorize public game playback. Consequently, **these previews are not enabled on Vercel**; the public catalog/search/audio restrictions remain in place. Public famous-hit gameplay still needs an authorized source or provider approval.
+Deezer's [developer terms](https://developers.deezer.com/termsofuse) restrict content streaming and use to private family use and require advance review for uses outside the described scope. The preview endpoint being technically accessible does not authorize public game playback. Public activation relies on the operator's reported provider approval for this application, using the explicit settings above.
 
 ## Verification commands
 

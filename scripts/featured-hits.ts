@@ -4,7 +4,7 @@ import { parseArgs } from "node:util";
 import { z } from "zod";
 import { FEATURED_ARTISTS, DEFERRED_FEATURED_ARTISTS, SPOTIFY_ARTIST_SOURCE, artistIdentity, type FeaturedArtist } from "../src/shared/featured-artists";
 import { completeFeaturedManifest, resolveFeaturedArtist, selectFeaturedSongs, type FeaturedSong } from "./music-sources/featured-hits";
-import { deezerGet, getDeezerTrack, privatePreviewsEnabled } from "../src/server/deezer";
+import { deezerGet, deezerPreviewsEnabled, getDeezerTrack, publicPreviewsEnabled } from "../src/server/deezer";
 import { importTracks, organizeCatalog } from "../src/server/catalog";
 import { getPool } from "../src/server/db";
 
@@ -73,13 +73,13 @@ async function prepare() {
   await mkdir(dirname(output), { recursive: true });
   await writeFile(output, `${JSON.stringify(manifest, null, 2)}\n`);
   const document = output.replace(/\.json$/, ".md");
-  await writeFile(document, `# 100 hitmakers — полный список\n\nМетаданные проверены ${manifest.generatedAt}. ${artists.length} выбранных артистов, ${artists.reduce((total, artist) => total + artist.songs.length, 0)} записей. Полнота: ${complete ? "100/100" : "есть недоступные записи, см. строки ниже"}. Доступность аудио может меняться независимо от этих метаданных.\n\nЭто подборка для игры, не официальный мировой Top 100. В неё включены доступные исполнители из [списка самых слушаемых артистов Spotify за апрель 2026](${SPOTIFY_ARTIST_SOURCE}) и другие известные исполнители — редакционный выбор с учётом доступных оригиналов. Песни получены из текущих списков Deezer, с точными ID основного исполнителя, без караоке и неофициальных версий. Жанр в этой таблице — редакционная категория артиста; при импорте используются реальные метаданные альбомов.\n\nАудиопревью предназначены для частного локального использования. На публичном Vercel они не активированы. [Условия источника](https://developers.deezer.com/termsofuse).\n\n| № | Артист | Категория | Выбранные песни |\n| --- | --- | --- | --- |\n${artists.map((artist, index) => `| ${index + 1} | ${escape(artist.name)} | ${escape(artist.genre)} | ${artist.songs.map(song => `[${escape(song.title)}](${song.sourceUrl})`).join(" · ")}${artist.error ? ` **${escape(artist.error)}**` : ""} |`).join("\n")}\n\n## Известные артисты, отложенные из-за доступности оригиналов\n\nИх не заменяем каверами и не приписываем им чужие записи. Проверка текущего ответа API:\n\n| Артист | Подходящих записей, максимум ${perArtist} | Статус |\n| --- | --- | --- |\n${deferredArtists.map(artist => `| ${escape(artist.name)} | ${artist.eligibleSongs} | ${escape(artist.reason)} |`).join("\n")}\n`);
+  await writeFile(document, `# 100 hitmakers — полный список\n\nМетаданные проверены ${manifest.generatedAt}. ${artists.length} выбранных артистов, ${artists.reduce((total, artist) => total + artist.songs.length, 0)} записей. Полнота: ${complete ? "100/100" : "есть недоступные записи, см. строки ниже"}. Доступность аудио может меняться независимо от этих метаданных.\n\nЭто подборка для игры, не официальный мировой Top 100. В неё включены доступные исполнители из [списка самых слушаемых артистов Spotify за апрель 2026](${SPOTIFY_ARTIST_SOURCE}) и другие известные исполнители — редакционный выбор с учётом доступных оригиналов. Песни получены из текущих списков Deezer, с точными ID основного исполнителя, без караоке и неофициальных версий. Жанр в этой таблице — редакционная категория артиста; при импорте используются реальные метаданные альбомов.\n\nПодготовка списка не включает аудио. Для воспроизведения нужны локальное включение превью либо согласование источника для конкретного публичного приложения; см. docs/featured-hitmakers.md. [Условия источника](https://developers.deezer.com/termsofuse).\n\n| № | Артист | Категория | Выбранные песни |\n| --- | --- | --- | --- |\n${artists.map((artist, index) => `| ${index + 1} | ${escape(artist.name)} | ${escape(artist.genre)} | ${artist.songs.map(song => `[${escape(song.title)}](${song.sourceUrl})`).join(" · ")}${artist.error ? ` **${escape(artist.error)}**` : ""} |`).join("\n")}\n\n## Известные артисты, отложенные из-за доступности оригиналов\n\nИх не заменяем каверами и не приписываем им чужие записи. Проверка текущего ответа API:\n\n| Артист | Подходящих записей, максимум ${perArtist} | Статус |\n| --- | --- | --- |\n${deferredArtists.map(artist => `| ${escape(artist.name)} | ${artist.eligibleSongs} | ${escape(artist.reason)} |`).join("\n")}\n`);
   console.log(`Saved ${output} and ${document}. ${complete ? "Complete collection." : "Incomplete; import is blocked."}`);
   if (!complete) process.exitCode = 1;
 }
 
 async function importCollection() {
-  if (!privatePreviewsEnabled()) throw new Error("Import requires private local preview opt-in and a loopback APP_URL. Public hosting requires a separately authorized source.");
+  if (!deezerPreviewsEnabled()) throw new Error("Enable private loopback previews or configure provider-approved public previews for this exact APP_URL. See docs/featured-hitmakers.md.");
   const manifest = completeFeaturedManifest(JSON.parse(await readFile(output, "utf8")));
   const pool = getPool();
   let imported = 0, reused = 0;
@@ -117,13 +117,13 @@ async function importCollection() {
     });
     const selectedIds = manifest.artists.flatMap(artist => artist.songs.map(song => song.id));
     const selectedActive = (await pool.query<{ count: number }>("SELECT count(*)::integer AS count FROM tracks t JOIN pack_tracks p ON p.track_id=t.id WHERE p.pack_id='featured-hits' AND t.available=true AND t.id=ANY($1::text[])", [selectedIds])).rows[0].count;
-    const report = { checkedAt: new Date().toISOString(), imported, reused, failures, selectedActive, expectedSelected: selectedIds.length, completeArtists: coverage.filter(row => row.tracks >= manifest.songsPerArtist).length, coverage, pack: packs.find(pack => pack.id === "featured-hits"), productionActivated: false };
+    const report = { checkedAt: new Date().toISOString(), imported, reused, failures, selectedActive, expectedSelected: selectedIds.length, completeArtists: coverage.filter(row => row.tracks >= manifest.songsPerArtist).length, coverage, pack: packs.find(pack => pack.id === "featured-hits"), playbackScope: publicPreviewsEnabled() ? "approved-public" : "private-local" };
     await mkdir(".data/featured-hits", { recursive: true });
     await writeFile(".data/featured-hits/import-report.json", `${JSON.stringify(report, null, 2)}\n`);
-    console.log(`Imported ${imported}; reused ${reused}; selected active ${selectedActive}/${selectedIds.length}; artist coverage ${report.completeArtists}/100; local pack ${report.pack?.count ?? 0} songs.`);
+    console.log(`Imported ${imported}; reused ${reused}; selected active ${selectedActive}/${selectedIds.length}; artist coverage ${report.completeArtists}/100; ${report.playbackScope} pack ${report.pack?.count ?? 0} songs.`);
     if (failures.length || report.completeArtists !== 100 || selectedActive !== selectedIds.length) process.exitCode = 1;
   } finally { await pool.end(); }
 }
 
-if (values.help) console.log("bun run catalog:stars [--per-artist 5] [--output data/featured-hitmakers.json]\nbun run catalog:stars --import  # requires the private local database/configuration\nPreparation exports metadata only; no signed CDN URLs or full audio files.");
+if (values.help) console.log("bun run catalog:stars [--per-artist 5] [--output data/featured-hitmakers.json]\nbun run catalog:stars --import  # requires enabled previews and the intended database/configuration\nPreparation exports metadata only; no signed CDN URLs or full audio files.");
 else (values.import ? importCollection() : prepare()).catch(error => { console.error(error instanceof Error ? error.message : "Featured collection failed."); process.exitCode = 1; });

@@ -4,6 +4,7 @@ import type { getDatabase } from "../src/server/db";
 import { tracks } from "../src/server/schema";
 import { organizeCatalog } from "../src/server/catalog";
 import type { Track } from "../src/shared/contracts";
+import { publicPreviewsEnabled } from "../src/server/deezer";
 
 function publicUrl(value: string | undefined): URL | null {
   try {
@@ -27,6 +28,9 @@ export function deploymentConfigurationIssues(env: Record<string, string | undef
   const app = publicUrl(env.APP_URL);
   if (!app || app.protocol !== "https:" || app.username || app.password || app.search || app.hash || app.pathname !== "/") {
     issues.push("APP_URL must be the exact public HTTPS origin.");
+  }
+  if (env.DEEZER_PUBLIC_PREVIEWS_APPROVED === "true" && !publicPreviewsEnabled(env)) {
+    issues.push("DEEZER_PUBLIC_PREVIEWS_ORIGIN must match the exact HTTPS APP_URL when public previews are approved.");
   }
   return issues;
 }

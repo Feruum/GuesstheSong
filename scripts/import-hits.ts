@@ -1,12 +1,12 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { z } from "zod";
-import { deezerGet, normalizeDeezerTrack, privatePreviewsEnabled } from "../src/server/deezer";
+import { deezerGet, deezerPreviewsEnabled, normalizeDeezerTrack } from "../src/server/deezer";
 import { importTracks, listPacks, organizeCatalog } from "../src/server/catalog";
 import { getPool } from "../src/server/db";
 import type { Track } from "../src/shared/contracts";
 
-if (!privatePreviewsEnabled()) throw new Error("Set DEEZER_PRIVATE_PREVIEWS=true with a loopback APP_URL for private noncommercial listening. Public hosting is disabled for this source.");
+if (!deezerPreviewsEnabled()) throw new Error("Enable private loopback previews or configure provider-approved public previews for this exact APP_URL. See docs/featured-hitmakers.md.");
 const target = Number(process.argv[2] || 3000);
 if (!Number.isInteger(target) || target < 10 || target > 10000) throw new Error("Choose a target between 10 and 10000 official previews.");
 

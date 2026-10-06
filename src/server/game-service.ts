@@ -8,15 +8,15 @@ import { createSoloGame, applySoloCommand, advanceSoloGame, publicSoloGame, curr
 import type { GuestView, SoloMode } from "../shared/contracts";
 import type { z } from "zod";
 import type { startGameSchema, soloCommandSchema, createRoomSchema, roomCommandSchema } from "../shared/contracts";
-import { privatePreviewsEnabled } from "./deezer";
+import { deezerPreviewsEnabled } from "./deezer";
 
 export interface SoloSession { guestId: string; dailyDate: string | null; game: SoloGameState }
 export interface RoomSession { matchId: string; game: RoomState }
 const soloKey = (id: string) => `solo:${id}`;
 export const roomKey = (code: string) => `room:${code.toUpperCase()}`;
 function assertSoloSource(game: SoloGameState) {
-  if (game.status !== "complete" && currentSoloTrack(game)?.id.startsWith("deezer-") && !privatePreviewsEnabled()) {
-    throw new GameError("PRIVATE_PREVIEW_DISABLED", "This game's private preview is disabled. Your progress is saved. Choose an Audius collection or enable private local previews.", 503);
+  if (game.status !== "complete" && currentSoloTrack(game)?.id.startsWith("deezer-") && !deezerPreviewsEnabled()) {
+    throw new GameError("PRIVATE_PREVIEW_DISABLED", "This game's music source is disabled. Your progress is saved. Choose an Audius collection or contact the site administrator.", 503);
   }
 }
 export async function startSolo(guest: GuestView, input: z.infer<typeof startGameSchema>) {
@@ -41,7 +41,7 @@ export async function startSolo(guest: GuestView, input: z.infer<typeof startGam
     const challenge = (await getPool().query("SELECT track_id FROM daily_challenges WHERE date=$1", [dailyDate])).rows[0];
     const track = await catalogTrack(challenge.track_id);
     if (!track?.available) throw new GameError("AUDIO_UNAVAILABLE", "Today's song is unavailable from the music service. Your progress is saved.", 503);
-    if (track.id.startsWith("deezer-") && !privatePreviewsEnabled()) throw new GameError("PRIVATE_PREVIEW_DISABLED", "Today's song uses a disabled private preview. Your progress is saved. Choose an Audius collection; a new Daily arrives at 00:00 UTC.", 503);
+    if (track.id.startsWith("deezer-") && !deezerPreviewsEnabled()) throw new GameError("PRIVATE_PREVIEW_DISABLED", "Today's song uses a disabled music source. Your progress is saved. Choose an Audius collection; a new Daily arrives at 00:00 UTC.", 503);
     pool = [track];
   }
   // Sample from the full catalog, but keep Redis state and atomic updates bounded.

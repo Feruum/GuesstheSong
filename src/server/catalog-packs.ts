@@ -15,8 +15,8 @@ export const DEFAULT_PACKS: CatalogPackDefinition[] = [
   { id: "2010s", slug: "2010s", name: "2010s discoveries", description: "Audius tracks with release years from 2010 to 2019. Popularity reflects current Audius play counts.", genre: null, coverArt: "global", count: 0, kind: "decade" },
   { id: "2020s", slug: "2020s", name: "2020s discoveries", description: "Audius tracks with release years from 2020 to 2029. Popularity reflects current Audius play counts.", genre: null, coverArt: "electronic", count: 0, kind: "decade" },
   { id: "popular", slug: "popular", name: "Popular on Audius", description: "The 200 most-played available tracks in this catalog, ranked by current Audius play counts.", genre: null, coverArt: "hip-hop", count: 0, kind: "mix" },
-  { id: "hits", slug: "hits", name: "Hits & familiar artists", description: "Original recordings and official collaborations from well-known artists. Official Deezer previews for private, noncommercial local listening.", genre: null, coverArt: "global", count: 0, kind: "mix" },
-  { id: "hits-2010s", slug: "hits-2010s", name: "2010s · Familiar artists", description: "Songs by well-known artists with provider release dates from 2010 to 2019. Official Deezer previews for private, noncommercial local listening.", genre: null, coverArt: "hip-hop", count: 0, kind: "decade" },
+  { id: "hits", slug: "hits", name: "Hits & familiar artists", description: "Original recordings and official collaborations from well-known artists. Official Deezer previews.", genre: null, coverArt: "global", count: 0, kind: "mix" },
+  { id: "hits-2010s", slug: "hits-2010s", name: "2010s · Familiar artists", description: "Songs by well-known artists with provider release dates from 2010 to 2019. Official Deezer previews.", genre: null, coverArt: "hip-hop", count: 0, kind: "decade" },
   { id: "rnb", slug: "rnb", name: "R&B & soul", description: "R&B and soul, using provider genre metadata.", genre: "R&B/Soul", coverArt: "hip-hop", count: 0, kind: "genre" },
   { id: "house", slug: "house", name: "House", description: "House, deep house, and tech house tagged by the music provider.", genre: "House", coverArt: "electronic", count: 0, kind: "genre" },
   { id: "jazz", slug: "jazz", name: "Jazz", description: "Jazz recordings, using provider genre metadata.", genre: "Jazz", coverArt: "indie", count: 0, kind: "genre" },
@@ -26,7 +26,7 @@ export const DEFAULT_PACKS: CatalogPackDefinition[] = [
   { id: "reggae", slug: "reggae", name: "Reggae", description: "Reggae recordings, using provider genre metadata.", genre: "Reggae", coverArt: "electronic", count: 0, kind: "genre" },
   { id: "classical", slug: "classical", name: "Classical", description: "Classical recordings, using provider genre metadata.", genre: "Classical", coverArt: "indie", count: 0, kind: "genre" },
   ...([1980, 1990, 2000] as const).map(year => ({ id: `${year}s` as CatalogPackId, slug: `${year}s`, name: `${year}s discoveries`, description: `Songs with provider release dates from ${year} to ${year + 9}. Reissues follow their edition’s release date.`, genre: null, coverArt: "global" as const, count: 0, kind: "decade" as const })),
-  { id: "featured-hits", slug: "featured-hits", name: "100 hitmakers", description: "A curated selection of major pop, rap, rock, electronic and Latin artists. Official previews for private local listening.", genre: null, coverArt: "global", count: 0, kind: "mix" },
+  { id: "featured-hits", slug: "featured-hits", name: "100 hitmakers", description: "A curated selection of major pop, rap, rock, electronic and Latin artists. Official Deezer previews.", genre: null, coverArt: "global", count: 0, kind: "mix" },
 ];
 
 export const AUTO_PACK_IDS = DEFAULT_PACKS.filter(pack => pack.id !== "global-mix").map(pack => pack.id);

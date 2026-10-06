@@ -5,7 +5,7 @@ import { packs, packTracks, tracks } from "./schema";
 import { audiusGet, getAudiusTrack, normalizeAudiusTrack, ProviderError, searchAudius, trendingAudius } from "./audius";
 import { AUTO_PACK_IDS, DEFAULT_PACKS, GENRE_IMPORT_TARGETS, countGenrePacks, selectPackTracks } from "./catalog-packs";
 import type { CatalogFilters, PackSummary, Track } from "../shared/contracts";
-import { getDeezerTrack, privatePreviewsEnabled } from "./deezer";
+import { deezerPreviewsEnabled, getDeezerTrack } from "./deezer";
 export { DEFAULT_PACKS } from "./catalog-packs";
 
 type CatalogDatabase = ReturnType<typeof getDatabase>;
@@ -27,16 +27,27 @@ async function ensureDefaultPacks(db: Pick<CatalogDatabase, "insert">) {
   }))).onConflictDoNothing();
 }
 
+const legacyPreviewDescriptions: Record<string, string> = {
+  hits: "Original recordings and official collaborations from well-known artists. Official Deezer previews for private, noncommercial local listening.",
+  "hits-2010s": "Songs by well-known artists with provider release dates from 2010 to 2019. Official Deezer previews for private, noncommercial local listening.",
+  "featured-hits": "A curated selection of major pop, rap, rock, electronic and Latin artists. Official previews for private local listening.",
+};
+function displayPackDescription(item: { id: string; description: string; previewCount: number }): string {
+  // Adapt only known legacy defaults; never overwrite an admin's description.
+  const description = item.description === legacyPreviewDescriptions[item.id]
+    ? DEFAULT_PACKS.find(pack => pack.id === item.id)?.description || item.description : item.description;
+  if (item.previewCount && item.id === "global-mix" && description === "A little of everything from Audius. Find your next favorite.") return "Independent Audius songs and official previews from familiar artists. Find your next favorite.";
+  if (item.previewCount && ["2010s", "2020s"].includes(item.id) && description.startsWith("Audius tracks with release years")) return description.replace("Audius tracks", "Songs").replace("Popularity reflects current Audius play counts.", "Reissues follow their edition’s release date.");
+  return description;
+}
+
 export async function listPacks(db: CatalogDatabase = getDatabase()): Promise<PackSummary[]> {
   await ensureDefaultPacks(db);
   const data = await db.select({ ...getTableColumns(packs), count: sql<number>`count(${tracks.id})::integer`, chartCount: sql<number>`count(${tracks.id}) filter (where ${tracks.id} not like 'deezer-%')::integer`, previewCount: sql<number>`count(${tracks.id}) filter (where ${tracks.id} like 'deezer-%')::integer` }).from(packs)
-    .leftJoin(packTracks, eq(packTracks.packId, packs.id)).leftJoin(tracks, and(eq(tracks.id, packTracks.trackId), eq(tracks.available, true), privatePreviewsEnabled() ? undefined : notLike(tracks.id, "deezer-%")))
+    .leftJoin(packTracks, eq(packTracks.packId, packs.id)).leftJoin(tracks, and(eq(tracks.id, packTracks.trackId), eq(tracks.available, true), deezerPreviewsEnabled() ? undefined : notLike(tracks.id, "deezer-%")))
     .groupBy(packs.id).orderBy(asc(packs.id));
   return data.map(item => ({ ...item,
-    description: item.previewCount && item.id === "global-mix" && item.description === "A little of everything from Audius. Find your next favorite."
-      ? "Independent Audius songs and official previews from familiar artists. Find your next favorite."
-      : item.previewCount && ["2010s", "2020s"].includes(item.id) && item.description.startsWith("Audius tracks with release years")
-        ? item.description.replace("Audius tracks", "Songs").replace("Popularity reflects current Audius play counts.", "Reissues follow their edition’s release date.") : item.description,
+    description: displayPackDescription(item),
     genre: item.genre || null, coverArt: item.coverArt as PackSummary["coverArt"], membership: item.id === "global-mix" || isDerivedPack(item.id) ? "automatic" : "manual" }));
 }
 
@@ -58,14 +69,14 @@ export async function organizeCatalog(db: CatalogDatabase = getDatabase()): Prom
   return listPacks(db);
 }
 export async function catalogFilters(): Promise<CatalogFilters> {
-  const rows = await getDatabase().select({ genre: tracks.genre, year: tracks.releaseYear, language: tracks.language }).from(tracks).where(and(eq(tracks.available, true), privatePreviewsEnabled() ? undefined : notLike(tracks.id, "deezer-%")));
+  const rows = await getDatabase().select({ genre: tracks.genre, year: tracks.releaseYear, language: tracks.language }).from(tracks).where(and(eq(tracks.available, true), deezerPreviewsEnabled() ? undefined : notLike(tracks.id, "deezer-%")));
   return { genres: [...new Set(rows.map(row => row.genre).filter((value): value is string => !!value))].sort(), decades: [...new Set(rows.map(row => row.year ? Math.floor(row.year / 10) * 10 : null).filter((value): value is number => value !== null))].sort((a, b) => b - a), languages: [...new Set(rows.map(row => row.language).filter((value): value is string => !!value))].sort() };
 }
 export interface SearchFilters { query?: string; packId?: string; genre?: string; decade?: number; language?: string; limit?: number; offset?: number; includeUnavailable?: boolean; audiusOnly?: boolean; sort?: "popularity" | "title" }
 export async function searchCatalog(options: SearchFilters = {}, db: CatalogDatabase = getDatabase()): Promise<Track[]> {
   const conditions = [];
   if (!options.includeUnavailable) conditions.push(eq(tracks.available, true));
-  if (options.audiusOnly || (!options.includeUnavailable && !privatePreviewsEnabled())) conditions.push(notLike(tracks.id, "deezer-%"));
+  if (options.audiusOnly || (!options.includeUnavailable && !deezerPreviewsEnabled())) conditions.push(notLike(tracks.id, "deezer-%"));
   if (options.query) conditions.push(or(ilike(tracks.title, `%${options.query}%`), ilike(tracks.artist, `%${options.query}%`)));
   if (options.genre) conditions.push(eq(tracks.genre, options.genre));
   if (options.language) conditions.push(eq(tracks.language, options.language));
@@ -230,7 +241,7 @@ export async function refreshCatalog(limit = 50, offset = 0, options: { db?: Cat
   let checked = 0;
   try {
     for (const track of batch) {
-      if (track.id.startsWith("deezer-") && !privatePreviewsEnabled() && !options.getTrack) continue;
+      if (track.id.startsWith("deezer-") && !deezerPreviewsEnabled() && !options.getTrack) continue;
       const current = await (options.getTrack ? getTrack(track.providerId) : track.id.startsWith("deezer-") ? getDeezerTrack(track.providerId) : getTrack(track.providerId));
       await db.update(tracks).set(current ? { playCount: current.playCount, popularityScore: current.popularityScore ?? 0, license: current.license, updatedAt: new Date() } : { available: false, updatedAt: new Date() }).where(eq(tracks.id, track.id));
       checked++;

@@ -145,7 +145,7 @@ describe("large and private catalogs", () => {
     } finally { await fixture.client.close(); }
   });
 
-  test("a public configuration hides private previews from public catalog counts and search", async () => {
+  test("a public configuration without approval hides previews from public catalog counts and search", async () => {
     const fixture = await memoryCatalog();
     const before = { APP_URL: process.env.APP_URL, DEEZER_PRIVATE_PREVIEWS: process.env.DEEZER_PRIVATE_PREVIEWS };
     try {
@@ -158,6 +158,30 @@ describe("large and private catalogs", () => {
     } finally {
       if (before.APP_URL === undefined) delete process.env.APP_URL; else process.env.APP_URL = before.APP_URL;
       if (before.DEEZER_PRIVATE_PREVIEWS === undefined) delete process.env.DEEZER_PRIVATE_PREVIEWS; else process.env.DEEZER_PRIVATE_PREVIEWS = before.DEEZER_PRIVATE_PREVIEWS;
+      await fixture.client.close();
+    }
+  });
+
+  test("approved public previews appear in hit and genre packs while Chart Clash remains Audius-only", async () => {
+    const fixture = await memoryCatalog();
+    const keys = ["APP_URL", "DEEZER_PRIVATE_PREVIEWS", "DEEZER_PUBLIC_PREVIEWS_APPROVED", "DEEZER_PUBLIC_PREVIEWS_ORIGIN"] as const;
+    const before = Object.fromEntries(keys.map(key => [key, process.env[key]]));
+    try {
+      Object.assign(process.env, { APP_URL: "https://music.example.com", DEEZER_PRIVATE_PREVIEWS: "false", DEEZER_PUBLIC_PREVIEWS_APPROVED: "true", DEEZER_PUBLIC_PREVIEWS_ORIGIN: "https://music.example.com" });
+      await fixture.db.insert(tracks).values([song("audius-allowed", { genre: "Pop" }), song("deezer-123", { artist: "Kanye West", genre: "Hip-Hop/Rap", playCount: 0, popularityScore: 900000 })]);
+      await fixture.db.insert(packs).values({ id: "featured-hits", slug: "featured-hits", name: "100 hitmakers", description: "A curated selection of major pop, rap, rock, electronic and Latin artists. Official previews for private local listening.", coverArt: "global" });
+      const summaries = await organizeCatalog(fixture.catalogDb);
+      expect(summaries.find(pack => pack.id === "global-mix")).toMatchObject({ count: 2, chartCount: 1, previewCount: 1 });
+      expect(summaries.find(pack => pack.id === "featured-hits")).toMatchObject({ count: 1, previewCount: 1 });
+      expect(summaries.find(pack => pack.id === "featured-hits")?.description).not.toContain("private local");
+      expect(summaries.find(pack => pack.id === "hip-hop")?.count).toBe(1);
+      expect(ids(await searchCatalog({ query: "Kanye" }, fixture.catalogDb))).toEqual(["deezer-123"]);
+      expect(ids(await selectPool("global-mix", 0, { db: fixture.catalogDb, audiusOnly: true }))).toEqual(["audius-allowed"]);
+      process.env.DEEZER_PUBLIC_PREVIEWS_APPROVED = "false";
+      expect(await searchCatalog({ query: "Kanye" }, fixture.catalogDb)).toEqual([]);
+      expect((await listPacks(fixture.catalogDb)).find(pack => pack.id === "featured-hits")?.count).toBe(0);
+    } finally {
+      for (const key of keys) { if (before[key] === undefined) delete process.env[key]; else process.env[key] = before[key]; }
       await fixture.client.close();
     }
   });

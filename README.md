@@ -4,7 +4,7 @@ A complete local music guessing game: Next.js App Router, React, Tailwind CSS, R
 
 **Play the public game at [guessthesong-rust.vercel.app](https://guessthesong-rust.vercel.app).** Production uses Neon PostgreSQL and Upstash Redis on their free plans, with 1,500 public Audius recordings. On 2026-10-06 all six modes saved production results, and 24 hosted WebSocket players completed Party, reconnected and rotated their connections. Classic, Daily and Party were also checked through the browser, including real audio, keyboard guesses and saved progress. Start the local game at **http://127.0.0.1:3000** using the instructions below.
 
-Follow the [deployment instructions](docs/vercel-deployment.md). A configured Vercel deployment automatically creates the schema and seeds a new database with 1,500 public Audius tracks. Party/Duel use the Vercel WebSocket adapter in production and the native Bun bridge locally, sharing the same Redis-backed room logic. Local data is preserved separately. Private-local Deezer previews are automatically disabled for public hosting. See the [production verification record](docs/production-verification.md) for the checks actually completed.
+Follow the [deployment instructions](docs/vercel-deployment.md). A configured Vercel deployment automatically creates the schema and seeds a new database with 1,500 public Audius tracks. Party/Duel use the Vercel WebSocket adapter in production and the native Bun bridge locally, sharing the same Redis-backed room logic. Local data is preserved separately. Deezer public playback requires explicit provider approval and an opt-in bound to the exact application origin; private-local settings alone cannot enable public playback. See the [production verification record](docs/production-verification.md) for the checks actually completed.
 
 ## Included
 
@@ -105,11 +105,11 @@ bun run db:migrate
 bun run catalog:hits 3500
 ```
 
-This is opt-in for strictly private, noncommercial listening. Review the [official Deezer developer terms](https://developers.deezer.com/termsofuse). A public `APP_URL` automatically hides these previews from catalog/search/game pools and rejects their audio, including previously cached clips. The public deployment uses Audius; public familiar-hit gameplay needs an independently authorized source.
+This setting is opt-in for strictly private, noncommercial listening. Review the [official Deezer developer terms](https://developers.deezer.com/termsofuse). Public playback is disabled by default, including previously cached clips. An operator who has obtained provider approval for their application can separately set `DEEZER_PUBLIC_PREVIEWS_APPROVED=true` and `DEEZER_PUBLIC_PREVIEWS_ORIGIN` to the exact HTTPS `APP_URL`. Other domains and preview deployments remain disabled. The operator of this project reports approval for `https://guessthesong-rust.vercel.app`; that statement does not grant music rights to forks or make recordings open source. See [the public setup](docs/featured-hitmakers.md#approved-public-playback).
 
 The repeatable importer resolves an explicit editorial list of established artists to their canonical provider IDs, includes associated original recordings/official collaborations, filters karaokes/tributes/live demos, removes repeated editions, spaces requests and retries quota responses. Metadata is cached for one day under ignored `.data/deezer-metadata`; signed preview URLs remain server-side and are resolved fresh during playback. The result is in `.data/hits-import-report.json`. A target is an upper bound; the command reports the actual total and skipped artists.
 
-Deezer supplies a thirty-second excerpt, which may begin in the middle of the original song. The game serves only the unlocked 1/2/4/7/11/16 seconds, strips MP3 answer tags and displays the original artist and Deezer link on reveal. Its saved duration/excerpt offsets refer to the preview; Audius retains original-song excerpt support. Missing provider recordings are disabled during availability refresh. Disabling private previews gives saved games an explicit unavailable state and preserves their progress.
+Deezer supplies a thirty-second excerpt, which may begin in the middle of the original song. The game serves only the unlocked 1/2/4/7/11/16 seconds, strips MP3 answer tags and displays the original artist and Deezer link on reveal. Its saved duration/excerpt offsets refer to the preview; Audius retains original-song excerpt support. Missing provider recordings are disabled during availability refresh. Disabling the source gives saved games an explicit unavailable state and preserves their progress.
 
 ## Docker alternative
 
@@ -192,15 +192,15 @@ The crash test spawns its own third server on an OS-assigned port and terminates
 - `src/server/socket-server.ts`, `room-sockets.ts`, `presence.ts`: native Bun transport, shared authenticated room events, presence and disconnect recovery.
 - `src/server/audio-clips.ts`: server-bounded MPEG clips and byte-range handling; no full source track is sent to players.
 - `migrations/0001_initial.sql`, `migrations/0002_popularity_score.sql`, `src/server/schema.ts`: SQL migrations and Drizzle schema.
-- `src/server/deezer.ts`, `scripts/import-hits.ts`: private-local official previews and repeatable familiar-artist imports.
-- `scripts/featured-hits.ts`, `src/shared/featured-artists.ts`: a verified 100-artist selection, JSON/Markdown song list, private-local importer, and the automatic `100 hitmakers` pack.
+- `src/server/deezer.ts`, `scripts/import-hits.ts`: gated official previews and repeatable familiar-artist imports.
+- `scripts/featured-hits.ts`, `src/shared/featured-artists.ts`: a verified 100-artist selection, JSON/Markdown song list, gated importer, and the automatic `100 hitmakers` pack.
 - `scripts/local-pgwire-queue.ts`: local development PostgreSQL bridge with query-cycle and transaction ownership.
 
 Hono is mounted at `/api/v1`. Routes include `/guest`, `/packs`, `/catalog/search`, `/games`, `/games/:id/commands`, `/daily`, `/rooms`, `/rooms/:code/commands`, `/matchmaking`, `/stats`, `/leaderboards`, `/audio/:token` and protected `/admin/*`. See `src/server/api.ts` for validation and error contracts. Guesses use catalog IDs; the API derives player identity from the browser cookie and never accepts scores or deadlines from clients. Command UUIDs deduplicate retries.
 
 ## Music and attribution
 
-`bun run catalog:stars` prepares five original recordings for each of 100 recognizable artists, including Kanye West, Drake, Eminem, Rihanna and The Weeknd. It rejects incomplete collections, lookalike artists, unreadable previews and unsupported editions. `bun run catalog:stars --import` requires private-local preview opt-in and preserves disabled tracks and admin metadata. The [full 100-artist/500-song selection](data/featured-hitmakers.md) and [setup, availability and verification report](docs/featured-hitmakers.md) explain the source boundary. This selection is editorial, not an official worldwide Top 100. The public deployment still uses Audius; these private previews are not enabled on Vercel.
+`bun run catalog:stars` prepares five original recordings for each of 100 recognizable artists, including Kanye West, Drake, Eminem, Rihanna and The Weeknd. It rejects incomplete collections, lookalike artists, unreadable previews and unsupported editions. Import requires either private-local opt-in or approved public configuration, and preserves disabled tracks and admin metadata. The [full 100-artist/500-song selection](data/featured-hitmakers.md) and [setup, availability and verification report](docs/featured-hitmakers.md) explain the source boundary. This selection is editorial, not an official worldwide Top 100. Production imports use an explicit production environment file, rather than the local `catalog:stars` package shortcut.
 
 Free music discovery is available with `bun run music:discover`: publisher JSON/HTML parsing for Incompetech and API adapters for Wikimedia Commons, ccMixter and Openverse. It exports genre metadata, attribution, exact licenses and optional bounded audio checks without database credentials. See the [free API comparison, commands and actual availability results](docs/free-music-apis.md). These exports are candidates for review; they do not change the deployed Audius catalog.
 

@@ -11,26 +11,27 @@ const guests: GuestView[] = [];
 async function listener() { const guest = (await createGuest()).guest; guests.push(guest); return guest; }
 afterAll(async () => { for (const guest of guests) { await getPool().query("DELETE FROM game_results WHERE guest_id=$1", [guest.id]); await getPool().query("DELETE FROM daily_entries WHERE guest_id=$1", [guest.id]); await getPool().query("DELETE FROM guests WHERE id=$1", [guest.id]); } });
 describe("authoritative saved game service", () => {
-  test("disabled private previews cannot resume from cached or persisted Daily state or accept guesses", async () => {
+  test("revoked public approval blocks cached and persisted Daily state and guesses", async () => {
     const guest = await listener();
-    const before = process.env.DEEZER_PRIVATE_PREVIEWS;
+    const keys = ["APP_URL", "DEEZER_PRIVATE_PREVIEWS", "DEEZER_PUBLIC_PREVIEWS_APPROVED", "DEEZER_PUBLIC_PREVIEWS_ORIGIN"] as const;
+    const before = Object.fromEntries(keys.map(key => [key, process.env[key]]));
     let id: string | undefined;
     try {
-      process.env.DEEZER_PRIVATE_PREVIEWS = "true";
+      Object.assign(process.env, { APP_URL: "https://music.example.com", DEEZER_PRIVATE_PREVIEWS: "false", DEEZER_PUBLIC_PREVIEWS_APPROVED: "true", DEEZER_PUBLIC_PREVIEWS_ORIGIN: "https://music.example.com" });
       const preview = (await searchCatalog({ packId: "hits", limit: 1 }))[0];
       expect(preview).toBeTruthy();
       const { game } = await startSolo(guest, { mode: "daily", packId: "global-mix", difficulty: 0, excerptMode: "curated" });
       id = game.id;
       await getStore().update<SoloSession>(`solo:${id}`, value => ({ ...value, game: { ...value.game, tracks: [preview] } }));
       await getSolo(id, guest.id); // Persist only this test guest's own Daily state.
-      process.env.DEEZER_PRIVATE_PREVIEWS = "false";
+      process.env.DEEZER_PUBLIC_PREVIEWS_APPROVED = "false";
       await expect(getSolo(id, guest.id)).rejects.toMatchObject({ code: "PRIVATE_PREVIEW_DISABLED" });
       await expect(commandSolo(id, guest.id, { id: randomUUID(), kind: "skip" })).rejects.toMatchObject({ code: "PRIVATE_PREVIEW_DISABLED" });
       await expect(startSolo(guest, { mode: "daily", packId: "global-mix", difficulty: 0, excerptMode: "curated" })).rejects.toMatchObject({ code: "PRIVATE_PREVIEW_DISABLED" });
       await getStore().remove(`solo:${id}`);
       await expect(startSolo(guest, { mode: "daily", packId: "global-mix", difficulty: 0, excerptMode: "curated" })).rejects.toMatchObject({ code: "PRIVATE_PREVIEW_DISABLED" });
     } finally {
-      if (before === undefined) delete process.env.DEEZER_PRIVATE_PREVIEWS; else process.env.DEEZER_PRIVATE_PREVIEWS = before;
+      for (const key of keys) { if (before[key] === undefined) delete process.env[key]; else process.env[key] = before[key]; }
       if (id) await getStore().remove(`solo:${id}`);
     }
   });

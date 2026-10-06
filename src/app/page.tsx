@@ -8,7 +8,7 @@ import { TrackThumbnail } from "@/components/game-results";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { number } from "@/lib/utils";
-import { privatePreviewsEnabled } from "@/server/deezer";
+import { deezerPreviewsEnabled } from "@/server/deezer";
 
 export const dynamic = "force-dynamic";
 const modes = [
@@ -26,6 +26,7 @@ const collectionGroups: { kind: CatalogPackKind; title: string; text: string }[]
 ];
 const packKinds = new Map<string, CatalogPackKind>(DEFAULT_PACKS.map(pack => [pack.id, pack.kind]));
 const packOrder = new Map<string, number>(DEFAULT_PACKS.map((pack, index) => [pack.id, index]));
+const discoveryRank = (id: string) => id === "featured-hits" ? -2 : id === "hits" ? -1 : packOrder.get(id) ?? 100;
 
 export default async function Discover({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;
@@ -44,11 +45,11 @@ export default async function Discover({ searchParams }: { searchParams: Promise
       q || genre || decade || language ? searchCatalog({ query: q, genre: genre || undefined, decade, language: language || undefined, limit: 24 }) : Promise.resolve([]),
     ]);
   } catch { unavailable = true; }
-  const playablePacks = packs.filter(pack => pack.count >= 10).sort((a, b) => (a.id === "hits" ? -1 : packOrder.get(a.id) ?? 100) - (b.id === "hits" ? -1 : packOrder.get(b.id) ?? 100) || a.name.localeCompare(b.name));
+  const playablePacks = packs.filter(pack => pack.count >= 10).sort((a, b) => discoveryRank(a.id) - discoveryRank(b.id) || a.name.localeCompare(b.name));
   const hasTracks = playablePacks.length > 0;
   const filtered = !!(q || genre || decade || language);
   const total = packs.find(pack => pack.id === "global-mix")?.count || 0;
-  const hasHits = playablePacks.some(pack => pack.id === "hits");
+  const featuredPack = playablePacks.find(pack => pack.id === "featured-hits") || playablePacks.find(pack => pack.id === "hits");
   return <div className="page-container" data-testid="discover-page" data-state={unavailable ? "error" : hasTracks ? "ready" : "empty"}>
     <section className="hero-grid">
       <div className="hero-copy">
@@ -56,7 +57,7 @@ export default async function Discover({ searchParams }: { searchParams: Promise
         <h1 className="display-title">Know it<br />in a beat.</h1>
         <p>Hear a clip. Find the song.<br />Your next favorite is waiting.</p>
         <div className="hero-actions">
-          <Button asChild size="lg"><Link href={hasHits ? "/play/classic?pack=hits" : "/play/classic"}><Play className="fill-current" />Start guessing</Link></Button>
+          <Button asChild size="lg"><Link href={featuredPack ? `/play/classic?pack=${featuredPack.id}` : "/play/classic"}><Play className="fill-current" />Start guessing</Link></Button>
           <Button asChild variant="outline" size="lg"><Link href="/party"><Users />Play with friends</Link></Button>
         </div>
         <p className="!mt-5 !text-xs text-muted">{total ? `${number(total)} songs. Six ways to play.` : "Independent sounds. Six ways to play."}</p>
@@ -73,7 +74,7 @@ export default async function Discover({ searchParams }: { searchParams: Promise
     <section className="catalog-section" aria-labelledby="catalog-title">
       <div className="catalog-top">
         <div><h2 id="catalog-title" className="section-title">Find your sound.</h2><p>Choose a genre, revisit a decade, or explore the whole mix.</p></div>
-        <span className="eyebrow mt-3">{privatePreviewsEnabled() ? "Music from Audius & Deezer" : "Music from Audius"}</span>
+        <span className="eyebrow mt-3">{deezerPreviewsEnabled() ? "Music from Audius & Deezer" : "Music from Audius"}</span>
       </div>
       <form key={JSON.stringify([q, genre, decade, language])} action="/" method="get" className="catalog-filters" role="search">
         <label><span className="sr-only">Search songs or artists</span><Input name="q" placeholder="Search songs or artists" defaultValue={q} maxLength={100} /></label>

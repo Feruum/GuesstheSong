@@ -65,6 +65,14 @@ describe("production deployment preparation", () => {
     })).toEqual([]);
   });
 
+  test("rejects approved public playback with a missing or mismatched origin before connecting", () => {
+    const env = { DATABASE_URL: "postgresql://user:password@database.neon.tech/music?sslmode=require", REDIS_URL: "rediss://default:password@redis.upstash.io:6379", SESSION_SECRET: "a-secure-random-value-over-32-characters", APP_URL: "https://music.vercel.app", DEEZER_PUBLIC_PREVIEWS_APPROVED: "true" };
+    const message = "DEEZER_PUBLIC_PREVIEWS_ORIGIN must match the exact HTTPS APP_URL when public previews are approved.";
+    expect(deploymentConfigurationIssues(env)).toEqual([message]);
+    expect(deploymentConfigurationIssues({ ...env, DEEZER_PUBLIC_PREVIEWS_ORIGIN: "https://preview.vercel.app" })).toEqual([message]);
+    expect(deploymentConfigurationIssues({ ...env, DEEZER_PUBLIC_PREVIEWS_ORIGIN: env.APP_URL })).toEqual([]);
+  });
+
   test("rejects private previews and restricted or malformed starter metadata", () => {
     expect(parsePublicCatalog(starter)).toEqual(starter.tracks);
     for (const invalid of [

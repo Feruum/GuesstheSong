@@ -2,14 +2,30 @@ import { z } from "zod";
 import type { Track } from "../shared/contracts";
 import { ProviderError } from "./audius";
 
-// Public deployment must use a separately authorized music source. These official
-// previews are opt-in for the current private, noncommercial loopback application.
+// Private loopback listening and operator-approved public playback are separate
+// opt-ins. An approval for one application must not silently enable other origins.
 export function privatePreviewsEnabled(env: Record<string, string | undefined> = process.env): boolean {
   if (env.DEEZER_PRIVATE_PREVIEWS !== "true" || !env.APP_URL) return false;
   try {
     const url = new URL(env.APP_URL);
     return ["http:", "https:"].includes(url.protocol) && ["localhost", "127.0.0.1", "[::1]"].includes(url.hostname) && !url.username && !url.password;
   } catch { return false; }
+}
+
+export function publicPreviewsEnabled(env: Record<string, string | undefined> = process.env): boolean {
+  if (env.DEEZER_PUBLIC_PREVIEWS_APPROVED !== "true" || !env.APP_URL || !env.DEEZER_PUBLIC_PREVIEWS_ORIGIN) return false;
+  try {
+    const app = new URL(env.APP_URL);
+    const approved = new URL(env.DEEZER_PUBLIC_PREVIEWS_ORIGIN);
+    const exactOrigin = (url: URL) => url.protocol === "https:" && !url.username && !url.password
+      && url.pathname === "/" && !url.search && !url.hash
+      && !["localhost", "127.0.0.1", "[::1]"].includes(url.hostname);
+    return exactOrigin(app) && exactOrigin(approved) && app.origin === approved.origin;
+  } catch { return false; }
+}
+
+export function deezerPreviewsEnabled(env: Record<string, string | undefined> = process.env): boolean {
+  return privatePreviewsEnabled(env) || publicPreviewsEnabled(env);
 }
 
 export function safeDeezerPreviewUrl(value: unknown): string | null {
@@ -46,7 +62,7 @@ export function normalizeDeezerTrack(raw: unknown, album?: unknown): Track | nul
     artworkUrl, duration: Math.min(30, Math.floor(song.duration)), genre: genre ? genreMap[genre] || genre : null,
     releaseYear: year && year >= 1900 && year <= 2100 ? year : null, language: null,
     playCount: 0, popularityScore: Math.floor(song.rank || 0), clipStartSec: 0,
-    sourceUrl: `https://www.deezer.com/track/${song.id}`, license: "Official preview · Private noncommercial listening", available: true,
+    sourceUrl: `https://www.deezer.com/track/${song.id}`, license: "Official Deezer preview", available: true,
   };
 }
 
@@ -82,7 +98,7 @@ export async function deezerGet(path: string, params: Record<string, string | nu
 }
 
 export async function getDeezerTrack(providerId: string): Promise<Track | null> {
-  if (!privatePreviewsEnabled() || !/^deezer-\d+$/.test(providerId)) return null;
+  if (!deezerPreviewsEnabled() || !/^deezer-\d+$/.test(providerId)) return null;
   let raw: unknown;
   try { raw = await deezerGet(`track/${providerId.slice(7)}`); }
   catch (error) { if (error instanceof DeezerMissingError) return null; throw error; }
@@ -95,7 +111,7 @@ export async function getDeezerTrack(providerId: string): Promise<Track | null> 
 }
 
 export async function streamDeezerPreview(providerId: string, range?: string): Promise<Response> {
-  if (!privatePreviewsEnabled() || !/^deezer-\d+$/.test(providerId)) throw new ProviderError("This preview is only enabled for the private local game.");
+  if (!deezerPreviewsEnabled() || !/^deezer-\d+$/.test(providerId)) throw new ProviderError("This music source is disabled for this application.");
   // Resolve fresh signed CDN URLs on the server; never expose a provider URL or
   // accept one from the client. No authentication, DRM, or geographic bypass.
   const raw = await deezerGet(`track/${providerId.slice(7)}`);

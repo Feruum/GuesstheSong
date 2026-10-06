@@ -1,6 +1,6 @@
 import { streamAudius, ProviderError } from "./audius";
 import { getRedis, redisKey } from "./redis";
-import { privatePreviewsEnabled, streamDeezerPreview } from "./deezer";
+import { deezerPreviewsEnabled, streamDeezerPreview } from "./deezer";
 
 // Audius exposes MPEG audio. Copy complete Layer III frames, excluding metadata.
 // Frame boundaries keep the emitted clip at or below the unlocked listening time.
@@ -44,7 +44,7 @@ export async function boundedAudiusClip(id: string, start: number, duration: num
 }
 export async function boundedMusicClip(id: string, start: number, duration: number): Promise<Buffer> {
   const preview = id.startsWith("deezer-");
-  if (preview && !privatePreviewsEnabled()) throw new ProviderError("This preview is only enabled for the private local game.");
+  if (preview && !deezerPreviewsEnabled()) throw new ProviderError("This music source is disabled for this application.");
   if (!Number.isFinite(start) || start < 0 || duration < 1 || duration > 16) throw new ProviderError("This excerpt is unavailable.");
   const key = redisKey(`audio:${id}:${start}:${duration}`);
   const cached = await getRedis().getBuffer(key);
