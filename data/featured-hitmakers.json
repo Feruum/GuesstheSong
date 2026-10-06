@@ -1,11 +1,13 @@
 {
-  "generatedAt": "2026-10-06T15:45:53.050Z",
+  "generatedAt": "2026-10-06T17:45:35.881Z",
   "selection": "Editorial international hitmakers; not an official Top 100 chart",
   "artistChartSource": "https://newsroom.spotify.com/2026-04-23/spotify-20-most-streamed-music-podcasts-audiobooks/",
   "productionActivated": false,
-  "playbackScope": "private-local",
+  "playbackScope": "metadata-only",
   "songsPerArtist": 5,
   "complete": true,
+  "verifiedOrigin": "https://guessthesong-rust.vercel.app",
+  "verifiedClipSeconds": 1,
   "artists": [
     {
       "name": "Taylor Swift",
@@ -281,14 +283,14 @@
           "sourceUrl": "https://www.deezer.com/track/2690050002"
         },
         {
-          "id": "deezer-83844556",
-          "providerId": 83844556,
-          "title": "Love Me Harder",
+          "id": "deezer-1375215242",
+          "providerId": 1375215242,
+          "title": "Into You",
           "artist": "Ariana Grande",
           "artistId": 1562681,
-          "albumId": 8436154,
-          "popularityScore": 915377,
-          "sourceUrl": "https://www.deezer.com/track/83844556"
+          "albumId": 230827242,
+          "popularityScore": 907086,
+          "sourceUrl": "https://www.deezer.com/track/1375215242"
         }
       ]
     },
@@ -297,16 +299,6 @@
       "genre": "Pop",
       "artistId": 288166,
       "songs": [
-        {
-          "id": "deezer-37027991",
-          "providerId": 37027991,
-          "title": "Beauty And A Beat",
-          "artist": "Justin Bieber",
-          "artistId": 288166,
-          "albumId": 3602971,
-          "popularityScore": 979804,
-          "sourceUrl": "https://www.deezer.com/track/37027991"
-        },
         {
           "id": "deezer-3454558661",
           "providerId": 3454558661,
@@ -346,6 +338,16 @@
           "albumId": 786280691,
           "popularityScore": 797835,
           "sourceUrl": "https://www.deezer.com/track/3454558671"
+        },
+        {
+          "id": "deezer-5606967",
+          "providerId": 5606967,
+          "title": "Baby",
+          "artist": "Justin Bieber",
+          "artistId": 288166,
+          "albumId": 512013,
+          "popularityScore": 878036,
+          "sourceUrl": "https://www.deezer.com/track/5606967"
         }
       ]
     },
@@ -784,16 +786,6 @@
           "sourceUrl": "https://www.deezer.com/track/925106"
         },
         {
-          "id": "deezer-62376291",
-          "providerId": 62376291,
-          "title": "Stay",
-          "artist": "Rihanna",
-          "artistId": 564,
-          "albumId": 6120369,
-          "popularityScore": 957868,
-          "sourceUrl": "https://www.deezer.com/track/62376291"
-        },
-        {
           "id": "deezer-60978718",
           "providerId": 60978718,
           "title": "Diamonds",
@@ -802,6 +794,16 @@
           "albumId": 5969396,
           "popularityScore": 955912,
           "sourceUrl": "https://www.deezer.com/track/60978718"
+        },
+        {
+          "id": "deezer-14525574",
+          "providerId": 14525574,
+          "title": "We Found Love",
+          "artist": "Rihanna",
+          "artistId": 564,
+          "albumId": 1335314,
+          "popularityScore": 983931,
+          "sourceUrl": "https://www.deezer.com/track/14525574"
         }
       ]
     },
@@ -821,16 +823,6 @@
           "sourceUrl": "https://www.deezer.com/track/2783963122"
         },
         {
-          "id": "deezer-446082632",
-          "providerId": 446082632,
-          "title": "All The Stars (From \"Black Panther: The Album\")",
-          "artist": "Kendrick Lamar",
-          "artistId": 525046,
-          "albumId": 54317602,
-          "popularityScore": 896962,
-          "sourceUrl": "https://www.deezer.com/track/446082632"
-        },
-        {
           "id": "deezer-52735971",
           "providerId": 52735971,
           "title": "Swimming Pools (Drank)",
@@ -841,16 +833,6 @@
           "sourceUrl": "https://www.deezer.com/track/52735971"
         },
         {
-          "id": "deezer-67929157",
-          "providerId": 67929157,
-          "title": "Money Trees",
-          "artist": "Kendrick Lamar",
-          "artistId": 525046,
-          "albumId": 6651488,
-          "popularityScore": 821397,
-          "sourceUrl": "https://www.deezer.com/track/67929157"
-        },
-        {
           "id": "deezer-350171311",
           "providerId": 350171311,
           "title": "HUMBLE.",
@@ -859,6 +841,26 @@
           "albumId": 39949511,
           "popularityScore": 816161,
           "sourceUrl": "https://www.deezer.com/track/350171311"
+        },
+        {
+          "id": "deezer-350171301",
+          "providerId": 350171301,
+          "title": "PRIDE.",
+          "artist": "Kendrick Lamar",
+          "artistId": 525046,
+          "albumId": 39949511,
+          "popularityScore": 809285,
+          "sourceUrl": "https://www.deezer.com/track/350171301"
+        },
+        {
+          "id": "deezer-3106586681",
+          "providerId": 3106586681,
+          "title": "tv off",
+          "artist": "Kendrick Lamar",
+          "artistId": 525046,
+          "albumId": 673968231,
+          "popularityScore": 793695,
+          "sourceUrl": "https://www.deezer.com/track/3106586681"
         }
       ]
     },
@@ -1039,16 +1041,6 @@
       "artistId": 145,
       "songs": [
         {
-          "id": "deezer-2553265",
-          "providerId": 2553265,
-          "title": "Halo",
-          "artist": "Beyoncé",
-          "artistId": 145,
-          "albumId": 250046,
-          "popularityScore": 944434,
-          "sourceUrl": "https://www.deezer.com/track/2553265"
-        },
-        {
           "id": "deezer-609244",
           "providerId": 609244,
           "title": "Crazy In Love (feat. JAŸ-Z)",
@@ -1079,14 +1071,24 @@
           "sourceUrl": "https://www.deezer.com/track/2485118"
         },
         {
-          "id": "deezer-2455091",
-          "providerId": 2455091,
-          "title": "If I Were a Boy",
+          "id": "deezer-90408879",
+          "providerId": 90408879,
+          "title": "Partition",
           "artist": "Beyoncé",
           "artistId": 145,
-          "albumId": 241429,
-          "popularityScore": 837525,
-          "sourceUrl": "https://www.deezer.com/track/2455091"
+          "albumId": 9163719,
+          "popularityScore": 690371,
+          "sourceUrl": "https://www.deezer.com/track/90408879"
+        },
+        {
+          "id": "deezer-4131547751",
+          "providerId": 4131547751,
+          "title": "MORNING DEW (DONK)",
+          "artist": "Beyoncé",
+          "artistId": 145,
+          "albumId": 1020773921,
+          "popularityScore": 835109,
+          "sourceUrl": "https://www.deezer.com/track/4131547751"
         }
       ]
     },
@@ -1126,16 +1128,6 @@
           "sourceUrl": "https://www.deezer.com/track/3214169391"
         },
         {
-          "id": "deezer-11747933",
-          "providerId": 11747933,
-          "title": "Judas",
-          "artist": "Lady Gaga",
-          "artistId": 75491,
-          "albumId": 1075407,
-          "popularityScore": 914968,
-          "sourceUrl": "https://www.deezer.com/track/11747933"
-        },
-        {
           "id": "deezer-134525904",
           "providerId": 134525904,
           "title": "Million Reasons",
@@ -1144,6 +1136,16 @@
           "albumId": 14344820,
           "popularityScore": 801554,
           "sourceUrl": "https://www.deezer.com/track/134525904"
+        },
+        {
+          "id": "deezer-561856742",
+          "providerId": 561856742,
+          "title": "Shallow",
+          "artist": "Lady Gaga",
+          "artistId": 75491,
+          "albumId": 74434962,
+          "popularityScore": 968235,
+          "sourceUrl": "https://www.deezer.com/track/561856742"
         }
       ]
     },
@@ -1210,16 +1212,6 @@
       "artistId": 75798,
       "songs": [
         {
-          "id": "deezer-8086130",
-          "providerId": 8086130,
-          "title": "Set Fire to the Rain",
-          "artist": "Adele",
-          "artistId": 75798,
-          "albumId": 746059,
-          "popularityScore": 972317,
-          "sourceUrl": "https://www.deezer.com/track/8086130"
-        },
-        {
           "id": "deezer-82715364",
           "providerId": 82715364,
           "title": "Skyfall",
@@ -1230,34 +1222,44 @@
           "sourceUrl": "https://www.deezer.com/track/82715364"
         },
         {
-          "id": "deezer-8086126",
-          "providerId": 8086126,
-          "title": "Rolling in the Deep",
+          "id": "deezer-1522223672",
+          "providerId": 1522223672,
+          "title": "Easy On Me",
           "artist": "Adele",
           "artistId": 75798,
-          "albumId": 746059,
-          "popularityScore": 937444,
-          "sourceUrl": "https://www.deezer.com/track/8086126"
+          "albumId": 265655342,
+          "popularityScore": 920837,
+          "sourceUrl": "https://www.deezer.com/track/1522223672"
         },
         {
-          "id": "deezer-8086135",
-          "providerId": 8086135,
-          "title": "Lovesong",
+          "id": "deezer-1557137132",
+          "providerId": 1557137132,
+          "title": "Oh My God",
           "artist": "Adele",
           "artistId": 75798,
-          "albumId": 746059,
-          "popularityScore": 928868,
-          "sourceUrl": "https://www.deezer.com/track/8086135"
+          "albumId": 273425942,
+          "popularityScore": 813212,
+          "sourceUrl": "https://www.deezer.com/track/1557137132"
         },
         {
-          "id": "deezer-138546009",
-          "providerId": 138546009,
-          "title": "Love In The Dark",
+          "id": "deezer-1557137152",
+          "providerId": 1557137152,
+          "title": "I Drink Wine",
           "artist": "Adele",
           "artistId": 75798,
-          "albumId": 14880539,
-          "popularityScore": 905665,
-          "sourceUrl": "https://www.deezer.com/track/138546009"
+          "albumId": 273425942,
+          "popularityScore": 776980,
+          "sourceUrl": "https://www.deezer.com/track/1557137152"
+        },
+        {
+          "id": "deezer-1557137142",
+          "providerId": 1557137142,
+          "title": "Can I Get It",
+          "artist": "Adele",
+          "artistId": 75798,
+          "albumId": 273425942,
+          "popularityScore": 658261,
+          "sourceUrl": "https://www.deezer.com/track/1557137142"
         }
       ]
     },
@@ -1780,16 +1782,6 @@
       "artistId": 292185,
       "songs": [
         {
-          "id": "deezer-109169058",
-          "providerId": 109169058,
-          "title": "Same Old Love",
-          "artist": "Selena Gomez",
-          "artistId": 292185,
-          "albumId": 11375172,
-          "popularityScore": 798904,
-          "sourceUrl": "https://www.deezer.com/track/109169058"
-        },
-        {
           "id": "deezer-66404487",
           "providerId": 66404487,
           "title": "Come & Get It",
@@ -1828,6 +1820,16 @@
           "albumId": 6774102,
           "popularityScore": 746485,
           "sourceUrl": "https://www.deezer.com/track/69122686"
+        },
+        {
+          "id": "deezer-847637202",
+          "providerId": 847637202,
+          "title": "Lose You To Love Me",
+          "artist": "Selena Gomez",
+          "artistId": 292185,
+          "albumId": 125608742,
+          "popularityScore": 742557,
+          "sourceUrl": "https://www.deezer.com/track/847637202"
         }
       ]
     },
@@ -2008,26 +2010,6 @@
       "artistId": 3469,
       "songs": [
         {
-          "id": "deezer-79587580",
-          "providerId": 79587580,
-          "title": "Chandelier",
-          "artist": "Sia",
-          "artistId": 3469,
-          "albumId": 7927592,
-          "popularityScore": 937345,
-          "sourceUrl": "https://www.deezer.com/track/79587580"
-        },
-        {
-          "id": "deezer-79587594",
-          "providerId": 79587594,
-          "title": "Elastic Heart",
-          "artist": "Sia",
-          "artistId": 3469,
-          "albumId": 7927592,
-          "popularityScore": 889574,
-          "sourceUrl": "https://www.deezer.com/track/79587594"
-        },
-        {
           "id": "deezer-134533250",
           "providerId": 134533250,
           "title": "The Greatest",
@@ -2048,14 +2030,34 @@
           "sourceUrl": "https://www.deezer.com/track/134533214"
         },
         {
-          "id": "deezer-913858",
-          "providerId": 913858,
-          "title": "Breathe Me",
+          "id": "deezer-117708444",
+          "providerId": 117708444,
+          "title": "Unstoppable",
           "artist": "Sia",
           "artistId": 3469,
-          "albumId": 102947,
-          "popularityScore": 829595,
-          "sourceUrl": "https://www.deezer.com/track/913858"
+          "albumId": 12222290,
+          "popularityScore": 916433,
+          "sourceUrl": "https://www.deezer.com/track/117708444"
+        },
+        {
+          "id": "deezer-118986142",
+          "providerId": 118986142,
+          "title": "Cheap Thrills (feat. Sean Paul)",
+          "artist": "Sia",
+          "artistId": 3469,
+          "albumId": 12382986,
+          "popularityScore": 893834,
+          "sourceUrl": "https://www.deezer.com/track/118986142"
+        },
+        {
+          "id": "deezer-2414222995",
+          "providerId": 2414222995,
+          "title": "Gimme Love (Reasonable Woman Version)",
+          "artist": "Sia",
+          "artistId": 3469,
+          "albumId": 477119765,
+          "popularityScore": 807803,
+          "sourceUrl": "https://www.deezer.com/track/2414222995"
         }
       ]
     },
@@ -2179,26 +2181,6 @@
       "artistId": 1188,
       "songs": [
         {
-          "id": "deezer-12724819",
-          "providerId": 12724819,
-          "title": "Moves Like Jagger (Studio Recording From \"The Voice\" Performance)",
-          "artist": "Maroon 5",
-          "artistId": 1188,
-          "albumId": 1167403,
-          "popularityScore": 949565,
-          "sourceUrl": "https://www.deezer.com/track/12724819"
-        },
-        {
-          "id": "deezer-38934641",
-          "providerId": 38934641,
-          "title": "Payphone",
-          "artist": "Maroon 5",
-          "artistId": 1188,
-          "albumId": 3791241,
-          "popularityScore": 919280,
-          "sourceUrl": "https://www.deezer.com/track/38934641"
-        },
-        {
           "id": "deezer-83124206",
           "providerId": 83124206,
           "title": "Animals",
@@ -2227,6 +2209,26 @@
           "albumId": 236529752,
           "popularityScore": 878180,
           "sourceUrl": "https://www.deezer.com/track/1400843202"
+        },
+        {
+          "id": "deezer-1165301",
+          "providerId": 1165301,
+          "title": "This Love",
+          "artist": "Maroon 5",
+          "artistId": 1188,
+          "albumId": 124797,
+          "popularityScore": 870649,
+          "sourceUrl": "https://www.deezer.com/track/1165301"
+        },
+        {
+          "id": "deezer-100052792",
+          "providerId": 100052792,
+          "title": "Maps",
+          "artist": "Maroon 5",
+          "artistId": 1188,
+          "albumId": 10244008,
+          "popularityScore": 862946,
+          "sourceUrl": "https://www.deezer.com/track/100052792"
         }
       ]
     },
@@ -2235,16 +2237,6 @@
       "genre": "Pop",
       "artistId": 416239,
       "songs": [
-        {
-          "id": "deezer-63510361",
-          "providerId": 63510361,
-          "title": "Demons",
-          "artist": "Imagine Dragons",
-          "artistId": 416239,
-          "albumId": 6240279,
-          "popularityScore": 958755,
-          "sourceUrl": "https://www.deezer.com/track/63510361"
-        },
         {
           "id": "deezer-579893072",
           "providerId": 579893072,
@@ -2284,6 +2276,16 @@
           "albumId": 241237372,
           "popularityScore": 893704,
           "sourceUrl": "https://www.deezer.com/track/1420768152"
+        },
+        {
+          "id": "deezer-528330441",
+          "providerId": 528330441,
+          "title": "Believer",
+          "artist": "Imagine Dragons",
+          "artistId": 416239,
+          "albumId": 68346981,
+          "popularityScore": 946141,
+          "sourceUrl": "https://www.deezer.com/track/528330441"
         }
       ]
     },
@@ -2301,16 +2303,6 @@
           "albumId": 321440247,
           "popularityScore": 910746,
           "sourceUrl": "https://www.deezer.com/track/1764283667"
-        },
-        {
-          "id": "deezer-916829",
-          "providerId": 916829,
-          "title": "Apologize",
-          "artist": "OneRepublic",
-          "artistId": 74398,
-          "albumId": 103293,
-          "popularityScore": 902473,
-          "sourceUrl": "https://www.deezer.com/track/916829"
         },
         {
           "id": "deezer-1843890157",
@@ -2341,6 +2333,16 @@
           "albumId": 227970052,
           "popularityScore": 762996,
           "sourceUrl": "https://www.deezer.com/track/1364016952"
+        },
+        {
+          "id": "deezer-4236629122",
+          "providerId": 4236629122,
+          "title": "Pay That Toll",
+          "artist": "OneRepublic",
+          "artistId": 74398,
+          "albumId": 1059276012,
+          "popularityScore": 739903,
+          "sourceUrl": "https://www.deezer.com/track/4236629122"
         }
       ]
     },
@@ -2675,14 +2677,14 @@
           "sourceUrl": "https://www.deezer.com/track/1162676"
         },
         {
-          "id": "deezer-44586841",
-          "providerId": 44586841,
-          "title": "Sacrifice",
+          "id": "deezer-1457025872",
+          "providerId": 1457025872,
+          "title": "Cold Heart (PNAU Remix)",
           "artist": "Elton John",
           "artistId": 413,
-          "albumId": 4397541,
-          "popularityScore": 824887,
-          "sourceUrl": "https://www.deezer.com/track/44586841"
+          "albumId": 249925992,
+          "popularityScore": 906302,
+          "sourceUrl": "https://www.deezer.com/track/1457025872"
         }
       ]
     },
@@ -2712,34 +2714,34 @@
           "sourceUrl": "https://www.deezer.com/track/122450802"
         },
         {
-          "id": "deezer-596589",
-          "providerId": 596589,
-          "title": "Get Right",
+          "id": "deezer-3862691491",
+          "providerId": 3862691491,
+          "title": "Save Me Tonight",
           "artist": "Jennifer Lopez",
           "artistId": 45,
-          "albumId": 76181,
-          "popularityScore": 753131,
-          "sourceUrl": "https://www.deezer.com/track/596589"
+          "albumId": 925678121,
+          "popularityScore": 990284,
+          "sourceUrl": "https://www.deezer.com/track/3862691491"
         },
         {
-          "id": "deezer-618284",
-          "providerId": 618284,
+          "id": "deezer-15475937",
+          "providerId": 15475937,
           "title": "Let's Get Loud",
           "artist": "Jennifer Lopez",
           "artistId": 45,
-          "albumId": 77815,
-          "popularityScore": 706139,
-          "sourceUrl": "https://www.deezer.com/track/618284"
+          "albumId": 1430160,
+          "popularityScore": 765438,
+          "sourceUrl": "https://www.deezer.com/track/15475937"
         },
         {
-          "id": "deezer-618317",
-          "providerId": 618317,
-          "title": "Love Don't Cost a Thing",
+          "id": "deezer-42187651",
+          "providerId": 42187651,
+          "title": "Jenny from the Block (feat. Styles P. & Jadakiss) (Track Masters Remix)",
           "artist": "Jennifer Lopez",
           "artistId": 45,
-          "albumId": 77815,
-          "popularityScore": 676379,
-          "sourceUrl": "https://www.deezer.com/track/618317"
+          "albumId": 4111581,
+          "popularityScore": 743550,
+          "sourceUrl": "https://www.deezer.com/track/42187651"
         }
       ]
     },
@@ -2826,26 +2828,6 @@
           "sourceUrl": "https://www.deezer.com/track/60200381"
         },
         {
-          "id": "deezer-392355262",
-          "providerId": 392355262,
-          "title": "What About Us",
-          "artist": "P!nk",
-          "artistId": 69925,
-          "albumId": 45943192,
-          "popularityScore": 885952,
-          "sourceUrl": "https://www.deezer.com/track/392355262"
-        },
-        {
-          "id": "deezer-2281107",
-          "providerId": 2281107,
-          "title": "So What (Main Version)",
-          "artist": "P!nk",
-          "artistId": 69925,
-          "albumId": 227687,
-          "popularityScore": 842981,
-          "sourceUrl": "https://www.deezer.com/track/2281107"
-        },
-        {
           "id": "deezer-2148022517",
           "providerId": 2148022517,
           "title": "TRUSTFALL",
@@ -2854,6 +2836,26 @@
           "albumId": 407116807,
           "popularityScore": 773816,
           "sourceUrl": "https://www.deezer.com/track/2148022517"
+        },
+        {
+          "id": "deezer-122946174",
+          "providerId": 122946174,
+          "title": "Just Like Fire (From the Original Motion Picture \"Alice Through The Looking Glass\")",
+          "artist": "P!nk",
+          "artistId": 69925,
+          "albumId": 12871946,
+          "popularityScore": 770741,
+          "sourceUrl": "https://www.deezer.com/track/122946174"
+        },
+        {
+          "id": "deezer-547538",
+          "providerId": 547538,
+          "title": "U + Ur Hand",
+          "artist": "P!nk",
+          "artistId": 69925,
+          "albumId": 72125,
+          "popularityScore": 767725,
+          "sourceUrl": "https://www.deezer.com/track/547538"
         }
       ]
     },
@@ -2960,14 +2962,14 @@
           "sourceUrl": "https://www.deezer.com/track/681009752"
         },
         {
-          "id": "deezer-12292154",
-          "providerId": 12292154,
-          "title": "She",
+          "id": "deezer-681009652",
+          "providerId": 681009652,
+          "title": "EARFQUAKE",
           "artist": "Tyler, The Creator",
           "artistId": 1194083,
-          "albumId": 1129652,
-          "popularityScore": 755040,
-          "sourceUrl": "https://www.deezer.com/track/12292154"
+          "albumId": 97140952,
+          "popularityScore": 754729,
+          "sourceUrl": "https://www.deezer.com/track/681009652"
         }
       ]
     },
@@ -3034,16 +3036,6 @@
       "artistId": 74309,
       "songs": [
         {
-          "id": "deezer-63565179",
-          "providerId": 63565179,
-          "title": "Love Me",
-          "artist": "Lil Wayne",
-          "artistId": 74309,
-          "albumId": 6245629,
-          "popularityScore": 883024,
-          "sourceUrl": "https://www.deezer.com/track/63565179"
-        },
-        {
           "id": "deezer-1470212372",
           "providerId": 1470212372,
           "title": "She Will",
@@ -3082,6 +3074,16 @@
           "albumId": 213326,
           "popularityScore": 720368,
           "sourceUrl": "https://www.deezer.com/track/2124739"
+        },
+        {
+          "id": "deezer-127247963",
+          "providerId": 127247963,
+          "title": "Sucker for Pain (with Logic, Ty Dolla $ign & X Ambassadors)",
+          "artist": "Lil Wayne",
+          "artistId": 74309,
+          "albumId": 13420449,
+          "popularityScore": 803892,
+          "sourceUrl": "https://www.deezer.com/track/127247963"
         }
       ]
     },
@@ -3376,26 +3378,6 @@
       "artistId": 66,
       "songs": [
         {
-          "id": "deezer-1141668",
-          "providerId": 1141668,
-          "title": "In Da Club",
-          "artist": "50 Cent",
-          "artistId": 66,
-          "albumId": 122366,
-          "popularityScore": 924879,
-          "sourceUrl": "https://www.deezer.com/track/1141668"
-        },
-        {
-          "id": "deezer-1141674",
-          "providerId": 1141674,
-          "title": "P.I.M.P.",
-          "artist": "50 Cent",
-          "artistId": 66,
-          "albumId": 122366,
-          "popularityScore": 871760,
-          "sourceUrl": "https://www.deezer.com/track/1141674"
-        },
-        {
           "id": "deezer-145429556",
           "providerId": 145429556,
           "title": "Ayo Technology",
@@ -3406,16 +3388,6 @@
           "sourceUrl": "https://www.deezer.com/track/145429556"
         },
         {
-          "id": "deezer-1141667",
-          "providerId": 1141667,
-          "title": "Many Men (Wish Death)",
-          "artist": "50 Cent",
-          "artistId": 66,
-          "albumId": 122366,
-          "popularityScore": 823464,
-          "sourceUrl": "https://www.deezer.com/track/1141667"
-        },
-        {
           "id": "deezer-145429546",
           "providerId": 145429546,
           "title": "Just A Lil Bit",
@@ -3424,6 +3396,36 @@
           "albumId": 15801900,
           "popularityScore": 800051,
           "sourceUrl": "https://www.deezer.com/track/145429546"
+        },
+        {
+          "id": "deezer-145429554",
+          "providerId": 145429554,
+          "title": "Window Shopper",
+          "artist": "50 Cent",
+          "artistId": 66,
+          "albumId": 15801900,
+          "popularityScore": 777180,
+          "sourceUrl": "https://www.deezer.com/track/145429554"
+        },
+        {
+          "id": "deezer-60722948",
+          "providerId": 60722948,
+          "title": "Hate It Or Love It (G-Unit Remix)",
+          "artist": "50 Cent",
+          "artistId": 66,
+          "albumId": 5941967,
+          "popularityScore": 740014,
+          "sourceUrl": "https://www.deezer.com/track/60722948"
+        },
+        {
+          "id": "deezer-145429568",
+          "providerId": 145429568,
+          "title": "Baby By Me",
+          "artist": "50 Cent",
+          "artistId": 66,
+          "albumId": 15801900,
+          "popularityScore": 718303,
+          "sourceUrl": "https://www.deezer.com/track/145429568"
         }
       ]
     },
@@ -3441,26 +3443,6 @@
           "albumId": 14949729,
           "popularityScore": 783386,
           "sourceUrl": "https://www.deezer.com/track/139103331"
-        },
-        {
-          "id": "deezer-1573566",
-          "providerId": 1573566,
-          "title": "I Wanna Fuck You",
-          "artist": "Snoop Dogg",
-          "artistId": 3,
-          "albumId": 161329,
-          "popularityScore": 736417,
-          "sourceUrl": "https://www.deezer.com/track/1573566"
-        },
-        {
-          "id": "deezer-2498752",
-          "providerId": 2498752,
-          "title": "Signs",
-          "artist": "Snoop Dogg",
-          "artistId": 3,
-          "albumId": 245646,
-          "popularityScore": 703582,
-          "sourceUrl": "https://www.deezer.com/track/2498752"
         },
         {
           "id": "deezer-429125352",
@@ -3481,6 +3463,26 @@
           "albumId": 180957372,
           "popularityScore": 691264,
           "sourceUrl": "https://www.deezer.com/track/1116032962"
+        },
+        {
+          "id": "deezer-14954267",
+          "providerId": 14954267,
+          "title": "Young, Wild & Free (feat. Bruno Mars)",
+          "artist": "Snoop Dogg",
+          "artistId": 3,
+          "albumId": 1379031,
+          "popularityScore": 840193,
+          "sourceUrl": "https://www.deezer.com/track/14954267"
+        },
+        {
+          "id": "deezer-10162588",
+          "providerId": 10162588,
+          "title": "Sweat (Snoop Dogg vs David Guetta Remix)",
+          "artist": "Snoop Dogg",
+          "artistId": 3,
+          "albumId": 928987,
+          "popularityScore": 786205,
+          "sourceUrl": "https://www.deezer.com/track/10162588"
         }
       ]
     },
@@ -3889,26 +3891,6 @@
       "artistId": 776,
       "songs": [
         {
-          "id": "deezer-10308117",
-          "providerId": 10308117,
-          "title": "Give Me Everything (feat. Nayer)",
-          "artist": "Pitbull",
-          "artistId": 776,
-          "albumId": 942774,
-          "popularityScore": 940597,
-          "sourceUrl": "https://www.deezer.com/track/10308117"
-        },
-        {
-          "id": "deezer-3731410",
-          "providerId": 3731410,
-          "title": "Hotel Room Service",
-          "artist": "Pitbull",
-          "artistId": 776,
-          "albumId": 350326,
-          "popularityScore": 866124,
-          "sourceUrl": "https://www.deezer.com/track/3731410"
-        },
-        {
           "id": "deezer-12270346",
           "providerId": 12270346,
           "title": "International Love (feat. Chris Brown)",
@@ -3937,6 +3919,26 @@
           "albumId": 382127,
           "popularityScore": 804756,
           "sourceUrl": "https://www.deezer.com/track/4216277"
+        },
+        {
+          "id": "deezer-71403230",
+          "providerId": 71403230,
+          "title": "Timber",
+          "artist": "Pitbull",
+          "artistId": 776,
+          "albumId": 7011813,
+          "popularityScore": 931017,
+          "sourceUrl": "https://www.deezer.com/track/71403230"
+        },
+        {
+          "id": "deezer-12270341",
+          "providerId": 12270341,
+          "title": "Rain Over Me (feat. Marc Anthony)",
+          "artist": "Pitbull",
+          "artistId": 776,
+          "albumId": 1127527,
+          "popularityScore": 754358,
+          "sourceUrl": "https://www.deezer.com/track/12270341"
         }
       ]
     },
@@ -4231,36 +4233,6 @@
       "artistId": 415,
       "songs": [
         {
-          "id": "deezer-13791930",
-          "providerId": 13791930,
-          "title": "Smells Like Teen Spirit",
-          "artist": "Nirvana",
-          "artistId": 415,
-          "albumId": 1262014,
-          "popularityScore": 985641,
-          "sourceUrl": "https://www.deezer.com/track/13791930"
-        },
-        {
-          "id": "deezer-13791932",
-          "providerId": 13791932,
-          "title": "Come As You Are",
-          "artist": "Nirvana",
-          "artistId": 415,
-          "albumId": 1262014,
-          "popularityScore": 956254,
-          "sourceUrl": "https://www.deezer.com/track/13791932"
-        },
-        {
-          "id": "deezer-13791934",
-          "providerId": 13791934,
-          "title": "Lithium",
-          "artist": "Nirvana",
-          "artistId": 415,
-          "albumId": 1262014,
-          "popularityScore": 866064,
-          "sourceUrl": "https://www.deezer.com/track/13791934"
-        },
-        {
           "id": "deezer-70466227",
           "providerId": 70466227,
           "title": "Heart-Shaped Box",
@@ -4271,14 +4243,44 @@
           "sourceUrl": "https://www.deezer.com/track/70466227"
         },
         {
-          "id": "deezer-13791931",
-          "providerId": 13791931,
-          "title": "In Bloom",
+          "id": "deezer-1105736",
+          "providerId": 1105736,
+          "title": "The Man Who Sold The World (Live)",
           "artist": "Nirvana",
           "artistId": 415,
-          "albumId": 1262014,
-          "popularityScore": 804297,
-          "sourceUrl": "https://www.deezer.com/track/13791931"
+          "albumId": 119282,
+          "popularityScore": 896767,
+          "sourceUrl": "https://www.deezer.com/track/1105736"
+        },
+        {
+          "id": "deezer-70466230",
+          "providerId": 70466230,
+          "title": "Dumb",
+          "artist": "Nirvana",
+          "artistId": 415,
+          "albumId": 6916355,
+          "popularityScore": 761348,
+          "sourceUrl": "https://www.deezer.com/track/70466230"
+        },
+        {
+          "id": "deezer-1105733",
+          "providerId": 1105733,
+          "title": "About A Girl (Live)",
+          "artist": "Nirvana",
+          "artistId": 415,
+          "albumId": 119282,
+          "popularityScore": 744640,
+          "sourceUrl": "https://www.deezer.com/track/1105733"
+        },
+        {
+          "id": "deezer-1105746",
+          "providerId": 1105746,
+          "title": "Where Did You Sleep Last Night (Live)",
+          "artist": "Nirvana",
+          "artistId": 415,
+          "albumId": 119282,
+          "popularityScore": 742912,
+          "sourceUrl": "https://www.deezer.com/track/1105746"
         }
       ]
     },
@@ -4287,16 +4289,6 @@
       "genre": "Rock",
       "artistId": 1182,
       "songs": [
-        {
-          "id": "deezer-4315389",
-          "providerId": 4315389,
-          "title": "505",
-          "artist": "Arctic Monkeys",
-          "artistId": 1182,
-          "albumId": 401346,
-          "popularityScore": 955800,
-          "sourceUrl": "https://www.deezer.com/track/4315389"
-        },
         {
           "id": "deezer-70322130",
           "providerId": 70322130,
@@ -4336,6 +4328,16 @@
           "albumId": 6899610,
           "popularityScore": 856906,
           "sourceUrl": "https://www.deezer.com/track/70322132"
+        },
+        {
+          "id": "deezer-70322142",
+          "providerId": 70322142,
+          "title": "I Wanna Be Yours",
+          "artist": "Arctic Monkeys",
+          "artistId": 1182,
+          "albumId": 6899610,
+          "popularityScore": 929035,
+          "sourceUrl": "https://www.deezer.com/track/70322142"
         }
       ]
     },
@@ -4511,59 +4513,59 @@
       ]
     },
     {
-      "name": "Metallica",
+      "name": "Bon Jovi",
       "genre": "Rock",
-      "artistId": 119,
+      "artistId": 637,
       "songs": [
         {
-          "id": "deezer-1483825282",
-          "providerId": 1483825282,
-          "title": "Nothing Else Matters (Remastered 2021)",
-          "artist": "Metallica",
-          "artistId": 119,
-          "albumId": 256250622,
-          "popularityScore": 949142,
-          "sourceUrl": "https://www.deezer.com/track/1483825282"
+          "id": "deezer-538660022",
+          "providerId": 538660022,
+          "title": "Livin' On A Prayer",
+          "artist": "Bon Jovi",
+          "artistId": 637,
+          "albumId": 70200002,
+          "popularityScore": 967801,
+          "sourceUrl": "https://www.deezer.com/track/538660022"
         },
         {
-          "id": "deezer-1483825242",
-          "providerId": 1483825242,
-          "title": "The Unforgiven (Remastered 2021)",
-          "artist": "Metallica",
-          "artistId": 119,
-          "albumId": 256250622,
-          "popularityScore": 849726,
-          "sourceUrl": "https://www.deezer.com/track/1483825242"
+          "id": "deezer-577487242",
+          "providerId": 577487242,
+          "title": "You Give Love A Bad Name",
+          "artist": "Bon Jovi",
+          "artistId": 637,
+          "albumId": 77211342,
+          "popularityScore": 884937,
+          "sourceUrl": "https://www.deezer.com/track/577487242"
         },
         {
-          "id": "deezer-575867572",
-          "providerId": 575867572,
-          "title": "One",
-          "artist": "Metallica",
-          "artistId": 119,
-          "albumId": 76955902,
-          "popularityScore": 810884,
-          "sourceUrl": "https://www.deezer.com/track/575867572"
+          "id": "deezer-577487252",
+          "providerId": 577487252,
+          "title": "It's My Life",
+          "artist": "Bon Jovi",
+          "artistId": 637,
+          "albumId": 77211342,
+          "popularityScore": 876758,
+          "sourceUrl": "https://www.deezer.com/track/577487252"
         },
         {
-          "id": "deezer-136338506",
-          "providerId": 136338506,
-          "title": "Fade To Black (Remastered)",
-          "artist": "Metallica",
-          "artistId": 119,
-          "albumId": 14581762,
-          "popularityScore": 766049,
-          "sourceUrl": "https://www.deezer.com/track/136338506"
+          "id": "deezer-538586982",
+          "providerId": 538586982,
+          "title": "Always",
+          "artist": "Bon Jovi",
+          "artistId": 637,
+          "albumId": 70189822,
+          "popularityScore": 849219,
+          "sourceUrl": "https://www.deezer.com/track/538586982"
         },
         {
-          "id": "deezer-424565232",
-          "providerId": 424565232,
-          "title": "Master Of Puppets",
-          "artist": "Metallica",
-          "artistId": 119,
-          "albumId": 51001312,
-          "popularityScore": 753402,
-          "sourceUrl": "https://www.deezer.com/track/424565232"
+          "id": "deezer-74628110",
+          "providerId": 74628110,
+          "title": "Bed Of Roses",
+          "artist": "Bon Jovi",
+          "artistId": 637,
+          "albumId": 7373436,
+          "popularityScore": 790927,
+          "sourceUrl": "https://www.deezer.com/track/74628110"
         }
       ]
     },
@@ -4573,54 +4575,54 @@
       "artistId": 927,
       "songs": [
         {
-          "id": "deezer-84572613",
-          "providerId": 84572613,
-          "title": "Wonderwall (Remastered)",
+          "id": "deezer-985745702",
+          "providerId": 985745702,
+          "title": "Wonderwall",
           "artist": "Oasis",
           "artistId": 927,
-          "albumId": 8524915,
-          "popularityScore": 846066,
-          "sourceUrl": "https://www.deezer.com/track/84572613"
+          "albumId": 153406392,
+          "popularityScore": 988464,
+          "sourceUrl": "https://www.deezer.com/track/985745702"
         },
         {
-          "id": "deezer-84572615",
-          "providerId": 84572615,
-          "title": "Don't Look Back in Anger (Remastered)",
+          "id": "deezer-985722002",
+          "providerId": 985722002,
+          "title": "Don't Look Back In Anger",
           "artist": "Oasis",
           "artistId": 927,
-          "albumId": 8524915,
-          "popularityScore": 776448,
-          "sourceUrl": "https://www.deezer.com/track/84572615"
+          "albumId": 153399712,
+          "popularityScore": 936806,
+          "sourceUrl": "https://www.deezer.com/track/985722002"
         },
         {
-          "id": "deezer-532435",
-          "providerId": 532435,
-          "title": "Stand by Me",
+          "id": "deezer-985938122",
+          "providerId": 985938122,
+          "title": "Supersonic",
           "artist": "Oasis",
           "artistId": 927,
-          "albumId": 71001,
-          "popularityScore": 665112,
-          "sourceUrl": "https://www.deezer.com/track/532435"
+          "albumId": 153444042,
+          "popularityScore": 851987,
+          "sourceUrl": "https://www.deezer.com/track/985938122"
         },
         {
-          "id": "deezer-84572633",
-          "providerId": 84572633,
-          "title": "Champagne Supernova (Remastered)",
+          "id": "deezer-985721152",
+          "providerId": 985721152,
+          "title": "Stand By Me",
           "artist": "Oasis",
           "artistId": 927,
-          "albumId": 8524915,
-          "popularityScore": 622125,
-          "sourceUrl": "https://www.deezer.com/track/84572633"
+          "albumId": 153399282,
+          "popularityScore": 848004,
+          "sourceUrl": "https://www.deezer.com/track/985721152"
         },
         {
-          "id": "deezer-15596520",
-          "providerId": 15596520,
-          "title": "Whatever",
+          "id": "deezer-985938082",
+          "providerId": 985938082,
+          "title": "Stop Crying Your Heart Out",
           "artist": "Oasis",
           "artistId": 927,
-          "albumId": 1441316,
-          "popularityScore": 561793,
-          "sourceUrl": "https://www.deezer.com/track/15596520"
+          "albumId": 153444022,
+          "popularityScore": 847439,
+          "sourceUrl": "https://www.deezer.com/track/985938082"
         }
       ]
     },
@@ -5096,16 +5098,6 @@
           "sourceUrl": "https://www.deezer.com/track/829185532"
         },
         {
-          "id": "deezer-2465103545",
-          "providerId": 2465103545,
-          "title": "Better Off (Alone, Pt. III)",
-          "artist": "Alan Walker",
-          "artistId": 4999707,
-          "albumId": 490952715,
-          "popularityScore": 730478,
-          "sourceUrl": "https://www.deezer.com/track/2465103545"
-        },
-        {
           "id": "deezer-401358872",
           "providerId": 401358872,
           "title": "The Spectre",
@@ -5134,6 +5126,16 @@
           "albumId": 273641912,
           "popularityScore": 648520,
           "sourceUrl": "https://www.deezer.com/track/1558136692"
+        },
+        {
+          "id": "deezer-140295501",
+          "providerId": 140295501,
+          "title": "Faded",
+          "artist": "Alan Walker",
+          "artistId": 4999707,
+          "albumId": 15103893,
+          "popularityScore": 878556,
+          "sourceUrl": "https://www.deezer.com/track/140295501"
         }
       ]
     },
@@ -5173,16 +5175,6 @@
           "sourceUrl": "https://www.deezer.com/track/99554798"
         },
         {
-          "id": "deezer-79942796",
-          "providerId": 79942796,
-          "title": "Stay The Night (Featuring Hayley Williams Of Paramore)",
-          "artist": "Zedd",
-          "artistId": 1198612,
-          "albumId": 7972412,
-          "popularityScore": 574360,
-          "sourceUrl": "https://www.deezer.com/track/79942796"
-        },
-        {
           "id": "deezer-1872361067",
           "providerId": 1872361067,
           "title": "Make You Say",
@@ -5191,6 +5183,16 @@
           "albumId": 347749007,
           "popularityScore": 327091,
           "sourceUrl": "https://www.deezer.com/track/1872361067"
+        },
+        {
+          "id": "deezer-451254022",
+          "providerId": 451254022,
+          "title": "The Middle",
+          "artist": "Zedd",
+          "artistId": 1198612,
+          "albumId": 55259802,
+          "popularityScore": 715592,
+          "sourceUrl": "https://www.deezer.com/track/451254022"
         }
       ]
     },
@@ -5220,16 +5222,6 @@
           "sourceUrl": "https://www.deezer.com/track/90726629"
         },
         {
-          "id": "deezer-142328215",
-          "providerId": 142328215,
-          "title": "It Ain't Me",
-          "artist": "Kygo",
-          "artistId": 4768753,
-          "albumId": 15383513,
-          "popularityScore": 828386,
-          "sourceUrl": "https://www.deezer.com/track/142328215"
-        },
-        {
           "id": "deezer-2615621912",
           "providerId": 2615621912,
           "title": "Whatever",
@@ -5248,6 +5240,16 @@
           "albumId": 1018193981,
           "popularityScore": 801028,
           "sourceUrl": "https://www.deezer.com/track/4124628921"
+        },
+        {
+          "id": "deezer-3835170251",
+          "providerId": 3835170251,
+          "title": "Save My Love",
+          "artist": "Kygo",
+          "artistId": 4768753,
+          "albumId": 915926511,
+          "popularityScore": 761156,
+          "sourceUrl": "https://www.deezer.com/track/3835170251"
         }
       ]
     },
@@ -5371,16 +5373,6 @@
       "artistId": 434,
       "songs": [
         {
-          "id": "deezer-132560802",
-          "providerId": 132560802,
-          "title": "Adagio For Strings",
-          "artist": "Tiësto",
-          "artistId": 434,
-          "albumId": 14093714,
-          "popularityScore": 696553,
-          "sourceUrl": "https://www.deezer.com/track/132560802"
-        },
-        {
           "id": "deezer-685843722",
           "providerId": 685843722,
           "title": "Ritual",
@@ -5419,6 +5411,16 @@
           "albumId": 55337192,
           "popularityScore": 572957,
           "sourceUrl": "https://www.deezer.com/track/451666062"
+        },
+        {
+          "id": "deezer-1522607422",
+          "providerId": 1522607422,
+          "title": "The Motto",
+          "artist": "Tiësto",
+          "artistId": 434,
+          "albumId": 265749042,
+          "popularityScore": 766245,
+          "sourceUrl": "https://www.deezer.com/track/1522607422"
         }
       ]
     },
@@ -5436,16 +5438,6 @@
           "albumId": 980745831,
           "popularityScore": 990618,
           "sourceUrl": "https://www.deezer.com/track/4015341011"
-        },
-        {
-          "id": "deezer-68473089",
-          "providerId": 68473089,
-          "title": "Waka Waka (This Time for Africa) (feat. Freshlyground)",
-          "artist": "Shakira",
-          "artistId": 160,
-          "albumId": 6706046,
-          "popularityScore": 920103,
-          "sourceUrl": "https://www.deezer.com/track/68473089"
         },
         {
           "id": "deezer-15211178",
@@ -5476,6 +5468,16 @@
           "albumId": 859209172,
           "popularityScore": 874825,
           "sourceUrl": "https://www.deezer.com/track/3663852612"
+        },
+        {
+          "id": "deezer-76066883",
+          "providerId": 76066883,
+          "title": "Can't Remember to Forget You (feat. Rihanna)",
+          "artist": "Shakira",
+          "artistId": 160,
+          "albumId": 7539807,
+          "popularityScore": 863373,
+          "sourceUrl": "https://www.deezer.com/track/76066883"
         }
       ]
     },
@@ -5780,6 +5782,11 @@
       "artistId": 647650,
       "eligibleSongs": 4,
       "reason": "Only 4/5 eligible original previews are available."
+    },
+    {
+      "name": "Metallica",
+      "genre": "Rock",
+      "error": "Only two eligible hosted previews available; Bon Jovi supplies five verified originals. Existing playable Metallica records remain in the library."
     }
   ]
 }

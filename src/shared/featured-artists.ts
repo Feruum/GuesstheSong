@@ -2,11 +2,12 @@ export interface FeaturedArtist { name: string; genre: string; aliases?: readonl
 const roster = (genre: string, names: string[]): FeaturedArtist[] => names.map(name => ({ name, genre }));
 
 // These major artists had fewer than five readable primary-artist previews in
-// the provider response. Keep their absence explicit instead of using covers.
+// the provider response or hosting region. Keep their absence explicit instead
+// of using covers or bypassing regional availability.
 export const DEFERRED_FEATURED_ARTISTS: readonly FeaturedArtist[] = [
   ...roster("Pop", ["Ed Sheeran", "Bruno Mars", "Dua Lipa", "Madonna"]),
   ...roster("Hip-Hop/Rap", ["Lil Uzi Vert", "The Notorious B.I.G.", "Cardi B"]),
-  ...roster("Rock", ["Coldplay", "Linkin Park", "Red Hot Chili Peppers", "Green Day", "Twenty One Pilots"]),
+  ...roster("Rock", ["Coldplay", "Linkin Park", "Red Hot Chili Peppers", "Green Day", "Twenty One Pilots", "Metallica"]),
 ];
 const deferredNames = new Set(DEFERRED_FEATURED_ARTISTS.map(artist => artist.name));
 
@@ -36,7 +37,7 @@ export const FEATURED_ARTISTS: readonly FeaturedArtist[] = [
   ...roster("R&B/Soul", ["Frank Ocean", "USHER", "Alicia Keys"]),
   ...roster("Rock", [
     "Queen", "Nirvana", "Arctic Monkeys", "The Beatles",
-    "The Rolling Stones", "AC/DC", "Metallica", "Oasis", "Radiohead", "Tame Impala",
+    "The Rolling Stones", "AC/DC", "Bon Jovi", "Oasis", "Radiohead", "Tame Impala",
     "The Neighbourhood",
   ]),
   ...roster("Electronic", ["Daft Punk", "Avicii", "Calvin Harris", "David Guetta", "Martin Garrix", "Alan Walker", "Zedd", "Kygo", "Marshmello", "The Chainsmokers", "Tiësto"]),

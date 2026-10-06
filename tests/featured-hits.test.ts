@@ -50,6 +50,16 @@ describe("recognizable hitmaker roster and selection", () => {
     expect(manifest.artists).toHaveLength(100);
     expect(manifest.productionActivated).toBe(false);
   });
+  test("the published shortlist is complete reusable metadata with distinct official recordings", async () => {
+    const input = await Bun.file(new URL("../data/featured-hitmakers.json", import.meta.url)).json();
+    const manifest = completeFeaturedManifest(input);
+    const songs = manifest.artists.flatMap(artist => artist.songs);
+    expect(manifest.playbackScope).toBe("metadata-only");
+    expect(manifest.productionActivated).toBe(false);
+    expect(songs).toHaveLength(500);
+    expect(new Set(songs.map(song => song.id)).size).toBe(500);
+    expect(JSON.stringify(input)).not.toMatch(/cdnt-preview|hdnea|DATABASE_URL|REDIS_URL/);
+  });
   test("rejects tampered artist credits, identities, track IDs and source links", () => {
     for (const change of [
       (input: ReturnType<typeof collection>) => { input.artists[0].songs[0].artist = "Tribute Band"; },
