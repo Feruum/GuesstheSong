@@ -2,7 +2,7 @@
 
 A complete local music guessing game: Next.js App Router, React, Tailwind CSS, Radix/shadcn-style controls, and a Bun/Hono backend. PostgreSQL stores the catalog and saved results; Redis owns live games, room revisions, matchmaking, presence and rate limits.
 
-**Play the public game at [guessthesong-rust.vercel.app](https://guessthesong-rust.vercel.app).** Production uses Neon PostgreSQL and Upstash Redis on their free plans. The 2026-10-06 deployment initialized 1,500 public Audius recordings; real Classic audio, keyboard search, scoring and saved progress were verified in the browser. Start the local game at **http://127.0.0.1:3000** using the instructions below.
+**Play the public game at [guessthesong-rust.vercel.app](https://guessthesong-rust.vercel.app).** Production uses Neon PostgreSQL and Upstash Redis on their free plans, with 1,500 public Audius recordings. On 2026-10-06 all six modes saved production results, and 24 hosted WebSocket players completed Party, reconnected and rotated their connections. Classic, Daily and Party were also checked through the browser, including real audio, keyboard guesses and saved progress. Start the local game at **http://127.0.0.1:3000** using the instructions below.
 
 Follow the [deployment instructions](docs/vercel-deployment.md). A configured Vercel deployment automatically creates the schema and seeds a new database with 1,500 public Audius tracks. Party/Duel use the Vercel WebSocket adapter in production and the native Bun bridge locally, sharing the same Redis-backed room logic. Local data is preserved separately. Private-local Deezer previews are automatically disabled for public hosting. See the [production verification record](docs/production-verification.md) for the checks actually completed.
 

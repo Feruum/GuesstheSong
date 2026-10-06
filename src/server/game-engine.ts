@@ -779,7 +779,7 @@ export function publicRoom(state: RoomState, viewerId: string, now: number): Roo
   return {
     id: current.id, code: current.code, mode: current.mode, status: current.status, hostId: current.hostId,
     settings: current.settings,
-    players: current.players.filter(player => !player.left).map(player => ({
+    players: current.players.filter(player => !player.left || current.status === "complete" && player.inMatch).map(player => ({
       id: player.id, nickname: player.nickname, avatar: player.avatar,
       ready: player.ready, online: player.online, score: player.score, solved: player.solved,
     })),

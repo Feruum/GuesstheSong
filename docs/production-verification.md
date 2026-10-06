@@ -31,7 +31,26 @@ The first configured deployment still returned HTTP 404 for `/api/ws`. The fix a
 
 Before publication, **146 tests passed, zero failed**, with `TEST_SOCKETS=1`. These include 24 players across two native server instances, reconnect synchronization, simultaneous/deduplicated commands, and abrupt instance-crash detection after the 30-second grace period. New tests verify the Vercel SDK against real Node HTTP upgrades and local PostgreSQL/Redis, including origin/member rejection, replacement-connection presence, revocation after leaving, abandoned-lobby cleanup and delayed-disconnect grace handling. TypeScript, ESLint and the Vercel-mode production build passed.
 
-The first route deployment exposed a Webpack interoperability issue: the bundled SDK's dynamic import of the CommonJS `ws` function omitted the named `WebSocketServer` export and returned HTTP 503 on upgrade. A regression test against the actual `.next` production route reproduced the exact runtime error. Keeping `@vercel/functions` external preserves its native dynamic import; this fix is being deployment-verified. Local source-level SDK tests do not establish built or hosted compatibility. Earlier Playwright reports cover local desktop/mobile behavior and are linked from the repository README.
+The first route deployment exposed a Webpack interoperability issue: the bundled SDK's dynamic import of the CommonJS `ws` function omitted the named `WebSocketServer` export and returned HTTP 503 on upgrade. A regression test against the actual `.next` production route reproduced the exact runtime error. Keeping `@vercel/functions` external preserves its native dynamic import. The compiled-route test then passed, followed by successful public WSS verification on commit `22dfd35`. Local source-level SDK tests alone do not establish built or hosted compatibility. Earlier Playwright reports cover local desktop/mobile behavior and are linked from the repository README.
+
+## Actual hosted game and connection checks
+
+The production probe ran from 07:40:57 to 07:45:16 UTC using its own named QA guests and private rooms, with no catalog changes:
+
+- **24 real WSS players** received the Party room, readied, started and played three rounds. All participants received a completed result table.
+- Repeated command IDs did not apply readiness twice. A forced disconnect reconnected to the same round with the player online.
+- All **24 connections rotated automatically** before their function limits, reconnected and received full completed state.
+- Duel simultaneous correct answers awarded exactly one point. Leaving produced a forfeit, and a rematch returned to the lobby.
+- Classic completed ten rounds with 80 points after a first-round skip; repeating the correct command did not duplicate points. Another guest was denied access to that game.
+- Daily restored its skipped stage and game ID, completed with 80 points and returned the same completed challenge.
+- Blitz awarded one point and precisely ten additional seconds, advanced on skip, kept sixteen-second clips, then completed at its server deadline.
+- Chart Clash hid the challenger count, awarded a correct prediction and ended on the next incorrect prediction using its frozen state.
+- PostgreSQL and the public stats API contained results for **all six modes**. The Classic result was stored once.
+- Admin login with the configured password, protected catalog read and logout succeeded. Anonymous catalog access and unauthenticated cron requests were rejected.
+
+Manual browser Party checks additionally covered a second player joining, ready state, starting, real audio, the thirty-second server timer, progressive skips, automatic next rounds, attribution and the final draw table. Browser warning/error logs were empty.
+
+Manual QA found that a listener leaving a completed room disappeared from its final table. The subsequent fix preserves match participants in standings while checking current membership separately for HTTP/audio/upgrades. A Party unit test and a real PostgreSQL/Redis Duel test cover participant retention and HTTP rejection after leaving; the 59 relevant engine/service/adapter checks passed before publication.
 
 ## Reproduce local verification
 

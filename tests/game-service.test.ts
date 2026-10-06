@@ -1,7 +1,7 @@
 import { afterAll, describe, expect, test, spyOn } from "bun:test";
 import { randomUUID } from "node:crypto";
 import { createGuest } from "../src/server/sessions";
-import { startSolo, getSolo, commandSolo, newRoom, commandRoom, roomKey, matchmaking, cancelMatch, type SoloSession, type RoomSession } from "../src/server/game-service";
+import { startSolo, getSolo, commandSolo, newRoom, commandRoom, getRoom, roomKey, matchmaking, cancelMatch, type SoloSession, type RoomSession } from "../src/server/game-service";
 import { getStore } from "../src/server/atomic-store";
 import { getPool } from "../src/server/db";
 import { searchCatalog } from "../src/server/catalog";
@@ -82,6 +82,8 @@ describe("authoritative saved game service", () => {
     await commandRoom(room.code, first, { id: randomUUID(), kind: "start" });
     const old = (await getStore().load<RoomSession>(roomKey(room.code)))!;
     await commandRoom(room.code, second, { id: randomUUID(), kind: "leave" });
+    expect((await getRoom(room.code, first.id)).room.players).toHaveLength(2);
+    await expect(getRoom(room.code, second.id)).rejects.toMatchObject({ code: "FORBIDDEN" });
     expect((await getPool().query("SELECT guest_id FROM game_results WHERE game_id=$1", [old.value.matchId])).rows.length).toBe(2);
     const rematchCommand = { id: randomUUID(), kind: "rematch" as const };
     await commandRoom(room.code, first, rematchCommand);

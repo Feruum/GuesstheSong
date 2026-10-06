@@ -464,6 +464,15 @@ describe("Party rooms", () => {
     expect(state.hostId).toBe(host.id);
   });
 
+  test("completed Party standings retain listeners who leave after the match", () => {
+    const completed = advanceRoom(startedRoom(), 99_000);
+    const left = applyRoomCommand(completed, { id: commandId(), playerId: guest.id, kind: "leave" }, 99_001);
+    const result = publicRoom(left, host.id, 99_001);
+    expect(result.players.map(player => player.id)).toEqual([host.id, guest.id]);
+    expect(result.players.find(player => player.id === guest.id)?.score).toBe(0);
+    expect(result.winnerIds).toEqual(completed.winnerIds);
+  });
+
   test("heartbeat or join reconnects without extending a disconnect's grace", () => {
     const original = join(room());
     const disconnected = applyRoomCommand(original, { id: commandId(), playerId: host.id, kind: "disconnect" }, 0);

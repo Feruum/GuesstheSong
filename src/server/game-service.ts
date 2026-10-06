@@ -96,8 +96,7 @@ export async function newRoom(guest: GuestView, input: z.infer<typeof createRoom
 async function ownedRoom(code: string, guestId: string, allowJoin = false) {
   const stored = await getStore().load<RoomSession>(roomKey(code));
   if (!stored) throw new MissingStateError();
-  const view = publicRoom(stored.value.game, guestId, Date.now());
-  if (!allowJoin && !view.players.some(player => player.id === guestId)) throw new GameError("FORBIDDEN", "Join this room before opening it.", 403);
+  if (!allowJoin && !stored.value.game.players.some(player => player.id === guestId && !player.left)) throw new GameError("FORBIDDEN", "Join this room before opening it.", 403);
   return stored;
 }
 export async function getRoom(code: string, guestId: string) { await ownedRoom(code, guestId); return roomReply(await tickRoom(code), guestId); }
