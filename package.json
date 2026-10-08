@@ -21,6 +21,7 @@
     "catalog:organize": "bun run --env-file=.env.local scripts/organize-catalog.ts",
     "music:discover": "bun scripts/discover-music.ts",
     "catalog:stars": "bun run --env-file=.env.local scripts/featured-hits.ts",
+    "catalog:artists": "bun run --env-file=.env.local scripts/import-artist-packs.ts",
     "admin:password": "bun scripts/admin-password.ts"
   },
   "dependencies": {

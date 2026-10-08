@@ -1,8 +1,10 @@
 import type { PackSummary, Track } from "../shared/contracts";
 import { artistIdentity, featuredArtistNames } from "../shared/featured-artists";
+import { CURATED_ARTIST_PACKS, curatedPackArtists } from "../shared/expanded-artists";
 
 export type CatalogPackKind = "mix" | "genre" | "decade";
-export type CatalogPackId = "global-mix" | "electronic" | "hip-hop" | "indie" | "pop" | "rock" | "rnb" | "house" | "jazz" | "latin" | "metal" | "country" | "reggae" | "classical" | "1980s" | "1990s" | "2000s" | "2010s" | "2020s" | "popular" | "hits" | "hits-2010s" | "featured-hits";
+export type CatalogPackId = "global-mix" | "electronic" | "hip-hop" | "indie" | "pop" | "rock" | "rnb" | "house" | "jazz" | "latin" | "metal" | "country" | "reggae" | "classical" | "1980s" | "1990s" | "2000s" | "2010s" | "2020s" | "popular" | "hits" | "hits-2010s" | "featured-hits" | CuratedArtistPackId;
+type CuratedArtistPackId = (typeof CURATED_ARTIST_PACKS)[number]["id"];
 export interface CatalogPackDefinition extends PackSummary { id: CatalogPackId; kind: CatalogPackKind }
 
 export const DEFAULT_PACKS: CatalogPackDefinition[] = [
@@ -27,6 +29,7 @@ export const DEFAULT_PACKS: CatalogPackDefinition[] = [
   { id: "classical", slug: "classical", name: "Classical", description: "Classical recordings, using provider genre metadata.", genre: "Classical", coverArt: "indie", count: 0, kind: "genre" },
   ...([1980, 1990, 2000] as const).map(year => ({ id: `${year}s` as CatalogPackId, slug: `${year}s`, name: `${year}s discoveries`, description: `Songs with provider release dates from ${year} to ${year + 9}. Reissues follow their edition’s release date.`, genre: null, coverArt: "global" as const, count: 0, kind: "decade" as const })),
   { id: "featured-hits", slug: "featured-hits", name: "100 hitmakers", description: "A curated selection of major pop, rap, rock, electronic and Latin artists. Official Deezer previews.", genre: null, coverArt: "global", count: 0, kind: "mix" },
+  ...CURATED_ARTIST_PACKS.map(({ id, name, description, genre, coverArt }) => ({ id, slug: id, name, description, genre, coverArt, count: 0, kind: "genre" as const })),
 ];
 
 export const AUTO_PACK_IDS = DEFAULT_PACKS.filter(pack => pack.id !== "global-mix").map(pack => pack.id);
@@ -58,6 +61,7 @@ export const GENRE_IMPORT_TARGETS = [
 
 export function selectPackTracks<T extends CatalogPackTrack>(packId: string, input: readonly T[]): T[] {
   const tags = Object.hasOwn(genreTags, packId) ? genreTags[packId as CatalogPackId] : undefined;
+  const curatedArtists = curatedPackArtists.get(packId);
   const startYear = /^(1980|1990|2000|2010|2020)s$/.test(packId) ? Number(packId.slice(0, 4)) : packId === "hits-2010s" ? 2010 : null;
   const matches = input.filter(track => {
     if (!track.available) return false;
@@ -65,6 +69,7 @@ export function selectPackTracks<T extends CatalogPackTrack>(packId: string, inp
     if (packId === "popular") return !track.id.startsWith("deezer-");
     if (packId === "hits") return track.id.startsWith("deezer-");
     if (packId === "featured-hits") return track.id.startsWith("deezer-") && !!track.artist && featuredArtistNames.has(artistIdentity(track.artist));
+    if (curatedArtists) return track.id.startsWith("deezer-") && !!track.artist && curatedArtists.has(artistIdentity(track.artist));
     if (packId === "hits-2010s" && !track.id.startsWith("deezer-")) return false;
     if (tags) return track.genre !== null && tags.has(track.genre);
     return startYear !== null && track.releaseYear !== null && Number.isInteger(track.releaseYear)

@@ -1,0 +1,2795 @@
+{
+  "checkedAt": "2026-10-08T06:40:58.807Z",
+  "verifiedOrigin": "https://guessthesong-rust.vercel.app",
+  "verifiedClipSeconds": 1,
+  "songsPerArtist": 10,
+  "selection": "Curated original artist recordings; not a chart ranking",
+  "playbackScope": "metadata-only",
+  "artists": [
+    {
+      "name": "New Order",
+      "category": "Alternative",
+      "artistId": 2016,
+      "songs": [
+        {
+          "id": "deezer-706051",
+          "title": "Blue Monday '88",
+          "artist": "New Order",
+          "albumId": 84572,
+          "genre": "Pop",
+          "releaseYear": 1994,
+          "sourceUrl": "https://www.deezer.com/track/706051",
+          "verifiedAt": "2026-10-08T06:35:52.307Z"
+        },
+        {
+          "id": "deezer-131744046",
+          "title": "Blue Monday (2016 Remaster)",
+          "artist": "New Order",
+          "albumId": 13995194,
+          "genre": "Pop",
+          "releaseYear": 2005,
+          "sourceUrl": "https://www.deezer.com/track/131744046",
+          "verifiedAt": "2026-10-08T06:35:52.307Z"
+        },
+        {
+          "id": "deezer-705996",
+          "title": "Bizarre Love Triangle '94",
+          "artist": "New Order",
+          "albumId": 84572,
+          "genre": "Pop",
+          "releaseYear": 1994,
+          "sourceUrl": "https://www.deezer.com/track/705996",
+          "verifiedAt": "2026-10-08T06:35:52.307Z"
+        },
+        {
+          "id": "deezer-705993",
+          "title": "True Faith '94",
+          "artist": "New Order",
+          "albumId": 84572,
+          "genre": "Pop",
+          "releaseYear": 1994,
+          "sourceUrl": "https://www.deezer.com/track/705993",
+          "verifiedAt": "2026-10-08T06:35:52.307Z"
+        },
+        {
+          "id": "deezer-107907786",
+          "title": "Age of Consent (2015 Remaster)",
+          "artist": "New Order",
+          "albumId": 11253936,
+          "genre": "Pop",
+          "releaseYear": 1983,
+          "sourceUrl": "https://www.deezer.com/track/107907786",
+          "verifiedAt": "2026-10-08T06:35:52.307Z"
+        },
+        {
+          "id": "deezer-1069047692",
+          "title": "Temptation",
+          "artist": "New Order",
+          "albumId": 170950362,
+          "genre": "Pop",
+          "releaseYear": 1987,
+          "sourceUrl": "https://www.deezer.com/track/1069047692",
+          "verifiedAt": "2026-10-08T06:35:52.307Z"
+        },
+        {
+          "id": "deezer-706007",
+          "title": "Regret",
+          "artist": "New Order",
+          "albumId": 84572,
+          "genre": "Pop",
+          "releaseYear": 1994,
+          "sourceUrl": "https://www.deezer.com/track/706007",
+          "verifiedAt": "2026-10-08T06:35:52.307Z"
+        },
+        {
+          "id": "deezer-2481156",
+          "title": "Bizarre Love Triangle",
+          "artist": "New Order",
+          "albumId": 243849,
+          "genre": "Pop",
+          "releaseYear": 2008,
+          "sourceUrl": "https://www.deezer.com/track/2481156",
+          "verifiedAt": "2026-10-08T06:35:52.307Z"
+        },
+        {
+          "id": "deezer-1069047672",
+          "title": "Ceremony",
+          "artist": "New Order",
+          "albumId": 170950362,
+          "genre": "Pop",
+          "releaseYear": 1987,
+          "sourceUrl": "https://www.deezer.com/track/1069047672",
+          "verifiedAt": "2026-10-08T06:35:52.307Z"
+        },
+        {
+          "id": "deezer-1069047782",
+          "title": "True Faith",
+          "artist": "New Order",
+          "albumId": 170950362,
+          "genre": "Pop",
+          "releaseYear": 1987,
+          "sourceUrl": "https://www.deezer.com/track/1069047782",
+          "verifiedAt": "2026-10-08T06:35:52.307Z"
+        }
+      ]
+    },
+    {
+      "name": "The Smiths",
+      "category": "Alternative",
+      "artistId": 1297,
+      "songs": [
+        {
+          "id": "deezer-5093617",
+          "title": "There Is a Light That Never Goes Out (2008 Remaster)",
+          "artist": "The Smiths",
+          "albumId": 467267,
+          "genre": "Alternative",
+          "releaseYear": 2008,
+          "sourceUrl": "https://www.deezer.com/track/5093617",
+          "verifiedAt": "2026-10-08T06:36:00.275Z"
+        },
+        {
+          "id": "deezer-416477062",
+          "title": "Bigmouth Strikes Again (2017 Master)",
+          "artist": "The Smiths",
+          "albumId": 49722702,
+          "genre": "Alternative",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/416477062",
+          "verifiedAt": "2026-10-08T06:36:00.275Z"
+        },
+        {
+          "id": "deezer-5093604",
+          "title": "This Charming Man (Single Version; 2008 Remaster)",
+          "artist": "The Smiths",
+          "albumId": 467267,
+          "genre": "Alternative",
+          "releaseYear": 2008,
+          "sourceUrl": "https://www.deezer.com/track/5093604",
+          "verifiedAt": "2026-10-08T06:36:00.275Z"
+        },
+        {
+          "id": "deezer-13786025",
+          "title": "Back to the Old House (2011 Remaster)",
+          "artist": "The Smiths",
+          "albumId": 1261478,
+          "genre": "Alternative",
+          "releaseYear": 2001,
+          "sourceUrl": "https://www.deezer.com/track/13786025",
+          "verifiedAt": "2026-10-08T06:36:00.275Z"
+        },
+        {
+          "id": "deezer-5093607",
+          "title": "Heaven Knows I'm Miserable Now (2008 Remaster)",
+          "artist": "The Smiths",
+          "albumId": 467267,
+          "genre": "Alternative",
+          "releaseYear": 2008,
+          "sourceUrl": "https://www.deezer.com/track/5093607",
+          "verifiedAt": "2026-10-08T06:36:00.275Z"
+        },
+        {
+          "id": "deezer-5093609",
+          "title": "How Soon Is Now? (2008 Remaster)",
+          "artist": "The Smiths",
+          "albumId": 467267,
+          "genre": "Alternative",
+          "releaseYear": 2008,
+          "sourceUrl": "https://www.deezer.com/track/5093609",
+          "verifiedAt": "2026-10-08T06:36:00.275Z"
+        },
+        {
+          "id": "deezer-13786041",
+          "title": "This Night Has Opened My Eyes (2011 Remaster)",
+          "artist": "The Smiths",
+          "albumId": 1261479,
+          "genre": "Alternative",
+          "releaseYear": 2001,
+          "sourceUrl": "https://www.deezer.com/track/13786041",
+          "verifiedAt": "2026-10-08T06:36:00.275Z"
+        },
+        {
+          "id": "deezer-13785967",
+          "title": "I Know It's Over (2011 Remaster)",
+          "artist": "The Smiths",
+          "albumId": 1261474,
+          "genre": "Alternative",
+          "releaseYear": 2001,
+          "sourceUrl": "https://www.deezer.com/track/13785967",
+          "verifiedAt": "2026-10-08T06:36:00.275Z"
+        },
+        {
+          "id": "deezer-13785957",
+          "title": "Pretty Girls Make Graves (2011 Remaster)",
+          "artist": "The Smiths",
+          "albumId": 1261473,
+          "genre": "Alternative",
+          "releaseYear": 2001,
+          "sourceUrl": "https://www.deezer.com/track/13785957",
+          "verifiedAt": "2026-10-08T06:36:00.275Z"
+        },
+        {
+          "id": "deezer-5093615",
+          "title": "The Boy with the Thorn in His Side (Single Version; 2008 Remaster)",
+          "artist": "The Smiths",
+          "albumId": 467267,
+          "genre": "Alternative",
+          "releaseYear": 2008,
+          "sourceUrl": "https://www.deezer.com/track/5093615",
+          "verifiedAt": "2026-10-08T06:36:00.275Z"
+        }
+      ]
+    },
+    {
+      "name": "Joy Division",
+      "category": "Alternative",
+      "artistId": 1249,
+      "songs": [
+        {
+          "id": "deezer-797434",
+          "title": "Love Will Tear Us Apart",
+          "artist": "Joy Division",
+          "albumId": 93066,
+          "genre": "Alternative",
+          "releaseYear": 2008,
+          "sourceUrl": "https://www.deezer.com/track/797434",
+          "verifiedAt": "2026-10-08T06:36:07.502Z"
+        },
+        {
+          "id": "deezer-741235352",
+          "title": "Disorder (2019 Digital Master)",
+          "artist": "Joy Division",
+          "albumId": 109048922,
+          "genre": "Alternative",
+          "releaseYear": 1979,
+          "sourceUrl": "https://www.deezer.com/track/741235352",
+          "verifiedAt": "2026-10-08T06:36:07.502Z"
+        },
+        {
+          "id": "deezer-797409",
+          "title": "Atmosphere",
+          "artist": "Joy Division",
+          "albumId": 93066,
+          "genre": "Alternative",
+          "releaseYear": 2008,
+          "sourceUrl": "https://www.deezer.com/track/797409",
+          "verifiedAt": "2026-10-08T06:36:07.502Z"
+        },
+        {
+          "id": "deezer-797403",
+          "title": "Transmission",
+          "artist": "Joy Division",
+          "albumId": 93066,
+          "genre": "Alternative",
+          "releaseYear": 2008,
+          "sourceUrl": "https://www.deezer.com/track/797403",
+          "verifiedAt": "2026-10-08T06:36:07.502Z"
+        },
+        {
+          "id": "deezer-729546",
+          "title": "She's Lost Control (2007 Remaster)",
+          "artist": "Joy Division",
+          "albumId": 86885,
+          "genre": "Alternative",
+          "releaseYear": 2007,
+          "sourceUrl": "https://www.deezer.com/track/729546",
+          "verifiedAt": "2026-10-08T06:36:07.502Z"
+        },
+        {
+          "id": "deezer-741235412",
+          "title": "Shadowplay (2019 Digital Master)",
+          "artist": "Joy Division",
+          "albumId": 109048922,
+          "genre": "Alternative",
+          "releaseYear": 1979,
+          "sourceUrl": "https://www.deezer.com/track/741235412",
+          "verifiedAt": "2026-10-08T06:36:07.502Z"
+        },
+        {
+          "id": "deezer-741235392",
+          "title": "New Dawn Fades (2019 Digital Master)",
+          "artist": "Joy Division",
+          "albumId": 109048922,
+          "genre": "Alternative",
+          "releaseYear": 1979,
+          "sourceUrl": "https://www.deezer.com/track/741235392",
+          "verifiedAt": "2026-10-08T06:36:07.502Z"
+        },
+        {
+          "id": "deezer-741235362",
+          "title": "Day of the Lords (2019 Digital Master)",
+          "artist": "Joy Division",
+          "albumId": 109048922,
+          "genre": "Alternative",
+          "releaseYear": 1979,
+          "sourceUrl": "https://www.deezer.com/track/741235362",
+          "verifiedAt": "2026-10-08T06:36:07.502Z"
+        },
+        {
+          "id": "deezer-1021197562",
+          "title": "Decades (2020 Digital Master)",
+          "artist": "Joy Division",
+          "albumId": 160648312,
+          "genre": "Alternative",
+          "releaseYear": 1980,
+          "sourceUrl": "https://www.deezer.com/track/1021197562",
+          "verifiedAt": "2026-10-08T06:36:07.502Z"
+        },
+        {
+          "id": "deezer-797446",
+          "title": "Twenty Four Hours",
+          "artist": "Joy Division",
+          "albumId": 93066,
+          "genre": "Alternative",
+          "releaseYear": 2008,
+          "sourceUrl": "https://www.deezer.com/track/797446",
+          "verifiedAt": "2026-10-08T06:36:07.502Z"
+        }
+      ]
+    },
+    {
+      "name": "The Cure",
+      "category": "Alternative",
+      "artistId": 381,
+      "songs": [
+        {
+          "id": "deezer-3063323451",
+          "title": "Alone",
+          "artist": "The Cure",
+          "albumId": 662383081,
+          "genre": "Alternative",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/3063323451",
+          "verifiedAt": "2026-10-08T06:36:16.780Z"
+        },
+        {
+          "id": "deezer-3063323521",
+          "title": "Endsong",
+          "artist": "The Cure",
+          "albumId": 662383081,
+          "genre": "Alternative",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/3063323521",
+          "verifiedAt": "2026-10-08T06:36:16.780Z"
+        },
+        {
+          "id": "deezer-3063323471",
+          "title": "A Fragile Thing",
+          "artist": "The Cure",
+          "albumId": 662383081,
+          "genre": "Alternative",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/3063323471",
+          "verifiedAt": "2026-10-08T06:36:16.780Z"
+        },
+        {
+          "id": "deezer-2349357025",
+          "title": "Boys Don't Cry",
+          "artist": "The Cure",
+          "albumId": 459420025,
+          "genre": "Rock",
+          "releaseYear": 1979,
+          "sourceUrl": "https://www.deezer.com/track/2349357025",
+          "verifiedAt": "2026-10-08T06:36:16.780Z"
+        },
+        {
+          "id": "deezer-3063323511",
+          "title": "All I Ever Am",
+          "artist": "The Cure",
+          "albumId": 662383081,
+          "genre": "Alternative",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/3063323511",
+          "verifiedAt": "2026-10-08T06:36:16.780Z"
+        },
+        {
+          "id": "deezer-3063323461",
+          "title": "And Nothing Is Forever",
+          "artist": "The Cure",
+          "albumId": 662383081,
+          "genre": "Alternative",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/3063323461",
+          "verifiedAt": "2026-10-08T06:36:16.780Z"
+        },
+        {
+          "id": "deezer-6629305",
+          "title": "Burn",
+          "artist": "The Cure",
+          "albumId": 613049,
+          "genre": "Films/Games",
+          "releaseYear": 1994,
+          "sourceUrl": "https://www.deezer.com/track/6629305",
+          "verifiedAt": "2026-10-08T06:36:16.780Z"
+        },
+        {
+          "id": "deezer-3063323501",
+          "title": "I Can Never Say Goodbye",
+          "artist": "The Cure",
+          "albumId": 662383081,
+          "genre": "Alternative",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/3063323501",
+          "verifiedAt": "2026-10-08T06:36:16.780Z"
+        },
+        {
+          "id": "deezer-3063323481",
+          "title": "Warsong",
+          "artist": "The Cure",
+          "albumId": 662383081,
+          "genre": "Alternative",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/3063323481",
+          "verifiedAt": "2026-10-08T06:36:16.780Z"
+        },
+        {
+          "id": "deezer-3063323491",
+          "title": "Drone:Nodrone",
+          "artist": "The Cure",
+          "albumId": 662383081,
+          "genre": "Alternative",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/3063323491",
+          "verifiedAt": "2026-10-08T06:36:16.780Z"
+        }
+      ]
+    },
+    {
+      "name": "Molchat Doma",
+      "category": "Alternative",
+      "artistId": 73228892,
+      "songs": [
+        {
+          "id": "deezer-836932812",
+          "title": "Судно (Борис Рыжий)",
+          "artist": "Molchat Doma",
+          "albumId": 123870262,
+          "genre": "Rock",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/836932812",
+          "verifiedAt": "2026-10-08T06:36:24.199Z"
+        },
+        {
+          "id": "deezer-836932832",
+          "title": "Клетка",
+          "artist": "Molchat Doma",
+          "albumId": 123870262,
+          "genre": "Rock",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/836932832",
+          "verifiedAt": "2026-10-08T06:36:24.199Z"
+        },
+        {
+          "id": "deezer-836932782",
+          "title": "Тоска",
+          "artist": "Molchat Doma",
+          "albumId": 123870262,
+          "genre": "Rock",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/836932782",
+          "verifiedAt": "2026-10-08T06:36:24.199Z"
+        },
+        {
+          "id": "deezer-836932722",
+          "title": "Танцевать",
+          "artist": "Molchat Doma",
+          "albumId": 123870262,
+          "genre": "Rock",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/836932722",
+          "verifiedAt": "2026-10-08T06:36:24.199Z"
+        },
+        {
+          "id": "deezer-836932762",
+          "title": "Волны",
+          "artist": "Molchat Doma",
+          "albumId": 123870262,
+          "genre": "Rock",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/836932762",
+          "verifiedAt": "2026-10-08T06:36:24.199Z"
+        },
+        {
+          "id": "deezer-836932702",
+          "title": "На Дне",
+          "artist": "Molchat Doma",
+          "albumId": 123870262,
+          "genre": "Rock",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/836932702",
+          "verifiedAt": "2026-10-08T06:36:24.199Z"
+        },
+        {
+          "id": "deezer-836860282",
+          "title": "Люди Надоели",
+          "artist": "Molchat Doma",
+          "albumId": 123854262,
+          "genre": "Alternative",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/836860282",
+          "verifiedAt": "2026-10-08T06:36:24.200Z"
+        },
+        {
+          "id": "deezer-836932742",
+          "title": "Фильмы",
+          "artist": "Molchat Doma",
+          "albumId": 123870262,
+          "genre": "Rock",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/836932742",
+          "verifiedAt": "2026-10-08T06:36:24.200Z"
+        },
+        {
+          "id": "deezer-836932822",
+          "title": "Коммерсанты",
+          "artist": "Molchat Doma",
+          "albumId": 123870262,
+          "genre": "Rock",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/836932822",
+          "verifiedAt": "2026-10-08T06:36:24.200Z"
+        },
+        {
+          "id": "deezer-836860262",
+          "title": "Дома Молчат",
+          "artist": "Molchat Doma",
+          "albumId": 123854262,
+          "genre": "Alternative",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/836860262",
+          "verifiedAt": "2026-10-08T06:36:24.200Z"
+        }
+      ]
+    },
+    {
+      "name": "Fugazi",
+      "category": "Rock",
+      "artistId": 2873,
+      "songs": [
+        {
+          "id": "deezer-1717942497",
+          "title": "Waiting Room",
+          "artist": "Fugazi",
+          "albumId": 310447807,
+          "genre": "Alternative",
+          "releaseYear": 1989,
+          "sourceUrl": "https://www.deezer.com/track/1717942497",
+          "verifiedAt": "2026-10-08T06:36:31.779Z"
+        },
+        {
+          "id": "deezer-1717801587",
+          "title": "I'm So Tired",
+          "artist": "Fugazi",
+          "albumId": 310430547,
+          "genre": "Alternative",
+          "releaseYear": 1999,
+          "sourceUrl": "https://www.deezer.com/track/1717801587",
+          "verifiedAt": "2026-10-08T06:36:31.779Z"
+        },
+        {
+          "id": "deezer-1717940947",
+          "title": "Blueprint",
+          "artist": "Fugazi",
+          "albumId": 310447607,
+          "genre": "Alternative",
+          "releaseYear": 1990,
+          "sourceUrl": "https://www.deezer.com/track/1717940947",
+          "verifiedAt": "2026-10-08T06:36:31.779Z"
+        },
+        {
+          "id": "deezer-1717985587",
+          "title": "Arpeggiator",
+          "artist": "Fugazi",
+          "albumId": 310453917,
+          "genre": "Alternative",
+          "releaseYear": 1998,
+          "sourceUrl": "https://www.deezer.com/track/1717985587",
+          "verifiedAt": "2026-10-08T06:36:31.779Z"
+        },
+        {
+          "id": "deezer-1717942517",
+          "title": "Bad Mouth",
+          "artist": "Fugazi",
+          "albumId": 310447807,
+          "genre": "Alternative",
+          "releaseYear": 1989,
+          "sourceUrl": "https://www.deezer.com/track/1717942517",
+          "verifiedAt": "2026-10-08T06:36:31.779Z"
+        },
+        {
+          "id": "deezer-1717801507",
+          "title": "Afterthought",
+          "artist": "Fugazi",
+          "albumId": 310430547,
+          "genre": "Alternative",
+          "releaseYear": 1999,
+          "sourceUrl": "https://www.deezer.com/track/1717801507",
+          "verifiedAt": "2026-10-08T06:36:31.779Z"
+        },
+        {
+          "id": "deezer-1717985207",
+          "title": "Cashout",
+          "artist": "Fugazi",
+          "albumId": 310453887,
+          "genre": "Alternative",
+          "releaseYear": 2001,
+          "sourceUrl": "https://www.deezer.com/track/1717985207",
+          "verifiedAt": "2026-10-08T06:36:31.779Z"
+        },
+        {
+          "id": "deezer-1717940907",
+          "title": "Turnover",
+          "artist": "Fugazi",
+          "albumId": 310447607,
+          "genre": "Alternative",
+          "releaseYear": 1990,
+          "sourceUrl": "https://www.deezer.com/track/1717940907",
+          "verifiedAt": "2026-10-08T06:36:31.779Z"
+        },
+        {
+          "id": "deezer-1717985237",
+          "title": "Life And Limb",
+          "artist": "Fugazi",
+          "albumId": 310453887,
+          "genre": "Alternative",
+          "releaseYear": 2001,
+          "sourceUrl": "https://www.deezer.com/track/1717985237",
+          "verifiedAt": "2026-10-08T06:36:31.779Z"
+        },
+        {
+          "id": "deezer-1717985497",
+          "title": "Break",
+          "artist": "Fugazi",
+          "albumId": 310453917,
+          "genre": "Alternative",
+          "releaseYear": 1998,
+          "sourceUrl": "https://www.deezer.com/track/1717985497",
+          "verifiedAt": "2026-10-08T06:36:31.779Z"
+        }
+      ]
+    },
+    {
+      "name": "Wolfmother",
+      "category": "Rock",
+      "artistId": 5359,
+      "songs": [
+        {
+          "id": "deezer-1182050",
+          "title": "Woman",
+          "artist": "Wolfmother",
+          "albumId": 126294,
+          "genre": "Rock",
+          "releaseYear": 2006,
+          "sourceUrl": "https://www.deezer.com/track/1182050",
+          "verifiedAt": "2026-10-08T06:36:39.866Z"
+        },
+        {
+          "id": "deezer-119436440",
+          "title": "Gypsy Caravan",
+          "artist": "Wolfmother",
+          "albumId": 12442358,
+          "genre": "Rock",
+          "releaseYear": 2016,
+          "sourceUrl": "https://www.deezer.com/track/119436440",
+          "verifiedAt": "2026-10-08T06:36:39.866Z"
+        },
+        {
+          "id": "deezer-119436428",
+          "title": "Victorious",
+          "artist": "Wolfmother",
+          "albumId": 12442358,
+          "genre": "Rock",
+          "releaseYear": 2016,
+          "sourceUrl": "https://www.deezer.com/track/119436428",
+          "verifiedAt": "2026-10-08T06:36:39.866Z"
+        },
+        {
+          "id": "deezer-4255744",
+          "title": "10,000 Feet",
+          "artist": "Wolfmother",
+          "albumId": 396040,
+          "genre": "Alternative",
+          "releaseYear": 2009,
+          "sourceUrl": "https://www.deezer.com/track/4255744",
+          "verifiedAt": "2026-10-08T06:36:39.866Z"
+        },
+        {
+          "id": "deezer-119436434",
+          "title": "City Lights",
+          "artist": "Wolfmother",
+          "albumId": 12442358,
+          "genre": "Rock",
+          "releaseYear": 2016,
+          "sourceUrl": "https://www.deezer.com/track/119436434",
+          "verifiedAt": "2026-10-08T06:36:39.866Z"
+        },
+        {
+          "id": "deezer-4255743",
+          "title": "In The Morning",
+          "artist": "Wolfmother",
+          "albumId": 396040,
+          "genre": "Alternative",
+          "releaseYear": 2009,
+          "sourceUrl": "https://www.deezer.com/track/4255743",
+          "verifiedAt": "2026-10-08T06:36:39.866Z"
+        },
+        {
+          "id": "deezer-119436432",
+          "title": "Pretty Peggy",
+          "artist": "Wolfmother",
+          "albumId": 12442358,
+          "genre": "Rock",
+          "releaseYear": 2016,
+          "sourceUrl": "https://www.deezer.com/track/119436432",
+          "verifiedAt": "2026-10-08T06:36:39.866Z"
+        },
+        {
+          "id": "deezer-119436430",
+          "title": "Baroness",
+          "artist": "Wolfmother",
+          "albumId": 12442358,
+          "genre": "Rock",
+          "releaseYear": 2016,
+          "sourceUrl": "https://www.deezer.com/track/119436430",
+          "verifiedAt": "2026-10-08T06:36:39.866Z"
+        },
+        {
+          "id": "deezer-4255742",
+          "title": "Sundial",
+          "artist": "Wolfmother",
+          "albumId": 396040,
+          "genre": "Alternative",
+          "releaseYear": 2009,
+          "sourceUrl": "https://www.deezer.com/track/4255742",
+          "verifiedAt": "2026-10-08T06:36:39.866Z"
+        },
+        {
+          "id": "deezer-118203246",
+          "title": "Heavy Weight",
+          "artist": "Wolfmother",
+          "albumId": 12281050,
+          "genre": "Rock",
+          "releaseYear": 2016,
+          "sourceUrl": "https://www.deezer.com/track/118203246",
+          "verifiedAt": "2026-10-08T06:36:39.866Z"
+        }
+      ]
+    },
+    {
+      "name": "King Gizzard & The Lizard Wizard",
+      "category": "Rock",
+      "artistId": 3973121,
+      "songs": [
+        {
+          "id": "deezer-4220541332",
+          "title": "Alien Metal",
+          "artist": "King Gizzard & The Lizard Wizard",
+          "albumId": 1052937982,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4220541332",
+          "verifiedAt": "2026-10-08T06:36:47.937Z"
+        },
+        {
+          "id": "deezer-1721650727",
+          "title": "Magenta Mountain",
+          "artist": "King Gizzard & The Lizard Wizard",
+          "albumId": 311155477,
+          "genre": "Alternative",
+          "releaseYear": 2022,
+          "sourceUrl": "https://www.deezer.com/track/1721650727",
+          "verifiedAt": "2026-10-08T06:36:47.937Z"
+        },
+        {
+          "id": "deezer-4220541322",
+          "title": "Sapience",
+          "artist": "King Gizzard & The Lizard Wizard",
+          "albumId": 1052937982,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4220541322",
+          "verifiedAt": "2026-10-08T06:36:47.937Z"
+        },
+        {
+          "id": "deezer-4220541342",
+          "title": "Superheavy, Supercritical",
+          "artist": "King Gizzard & The Lizard Wizard",
+          "albumId": 1052937982,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4220541342",
+          "verifiedAt": "2026-10-08T06:36:47.937Z"
+        },
+        {
+          "id": "deezer-4220541362",
+          "title": "Level 5",
+          "artist": "King Gizzard & The Lizard Wizard",
+          "albumId": 1052937982,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4220541362",
+          "verifiedAt": "2026-10-08T06:36:47.937Z"
+        },
+        {
+          "id": "deezer-2321086545",
+          "title": "Motor Spirit",
+          "artist": "King Gizzard & The Lizard Wizard",
+          "albumId": 451265215,
+          "genre": "Alternative",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2321086545",
+          "verifiedAt": "2026-10-08T06:36:47.937Z"
+        },
+        {
+          "id": "deezer-2321086575",
+          "title": "Witchcraft",
+          "artist": "King Gizzard & The Lizard Wizard",
+          "albumId": 451265215,
+          "genre": "Alternative",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2321086575",
+          "verifiedAt": "2026-10-08T06:36:47.937Z"
+        },
+        {
+          "id": "deezer-4220541352",
+          "title": "Kill For The Steel",
+          "artist": "King Gizzard & The Lizard Wizard",
+          "albumId": 1052937982,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4220541352",
+          "verifiedAt": "2026-10-08T06:36:47.937Z"
+        },
+        {
+          "id": "deezer-4220541382",
+          "title": "Uqt",
+          "artist": "King Gizzard & The Lizard Wizard",
+          "albumId": 1052937982,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4220541382",
+          "verifiedAt": "2026-10-08T06:36:47.937Z"
+        },
+        {
+          "id": "deezer-1939652177",
+          "title": "Iron Lung",
+          "artist": "King Gizzard & The Lizard Wizard",
+          "albumId": 361793937,
+          "genre": "Alternative",
+          "releaseYear": 2022,
+          "sourceUrl": "https://www.deezer.com/track/1939652177",
+          "verifiedAt": "2026-10-08T06:36:47.937Z"
+        }
+      ]
+    },
+    {
+      "name": "Red Hot Chili Peppers",
+      "category": "Rock",
+      "artistId": 182,
+      "songs": [
+        {
+          "id": "deezer-725274",
+          "title": "Californication",
+          "artist": "Red Hot Chili Peppers",
+          "albumId": 86511,
+          "genre": "Alternative",
+          "releaseYear": 2004,
+          "sourceUrl": "https://www.deezer.com/track/725274",
+          "verifiedAt": "2026-10-08T06:36:53.404Z"
+        },
+        {
+          "id": "deezer-785176",
+          "title": "Under the Bridge",
+          "artist": "Red Hot Chili Peppers",
+          "albumId": 91909,
+          "genre": "Alternative",
+          "releaseYear": 2003,
+          "sourceUrl": "https://www.deezer.com/track/785176",
+          "verifiedAt": "2026-10-08T06:36:53.404Z"
+        },
+        {
+          "id": "deezer-725971",
+          "title": "Can't Stop",
+          "artist": "Red Hot Chili Peppers",
+          "albumId": 86560,
+          "genre": "Alternative",
+          "releaseYear": 2004,
+          "sourceUrl": "https://www.deezer.com/track/725971",
+          "verifiedAt": "2026-10-08T06:36:53.404Z"
+        },
+        {
+          "id": "deezer-725261",
+          "title": "Otherside",
+          "artist": "Red Hot Chili Peppers",
+          "albumId": 86511,
+          "genre": "Alternative",
+          "releaseYear": 2004,
+          "sourceUrl": "https://www.deezer.com/track/725261",
+          "verifiedAt": "2026-10-08T06:36:53.404Z"
+        },
+        {
+          "id": "deezer-680518",
+          "title": "Snow (Hey Oh)",
+          "artist": "Red Hot Chili Peppers",
+          "albumId": 82107,
+          "genre": "Alternative",
+          "releaseYear": 2006,
+          "sourceUrl": "https://www.deezer.com/track/680518",
+          "verifiedAt": "2026-10-08T06:36:53.404Z"
+        },
+        {
+          "id": "deezer-725254",
+          "title": "Scar Tissue",
+          "artist": "Red Hot Chili Peppers",
+          "albumId": 86511,
+          "genre": "Alternative",
+          "releaseYear": 2004,
+          "sourceUrl": "https://www.deezer.com/track/725254",
+          "verifiedAt": "2026-10-08T06:36:53.404Z"
+        },
+        {
+          "id": "deezer-680516",
+          "title": "Dani California",
+          "artist": "Red Hot Chili Peppers",
+          "albumId": 82107,
+          "genre": "Alternative",
+          "releaseYear": 2006,
+          "sourceUrl": "https://www.deezer.com/track/680516",
+          "verifiedAt": "2026-10-08T06:36:53.404Z"
+        },
+        {
+          "id": "deezer-725929",
+          "title": "By the Way",
+          "artist": "Red Hot Chili Peppers",
+          "albumId": 86560,
+          "genre": "Alternative",
+          "releaseYear": 2004,
+          "sourceUrl": "https://www.deezer.com/track/725929",
+          "verifiedAt": "2026-10-08T06:36:53.404Z"
+        },
+        {
+          "id": "deezer-126534873",
+          "title": "Dark Necessities",
+          "artist": "Red Hot Chili Peppers",
+          "albumId": 13329611,
+          "genre": "Alternative",
+          "releaseYear": 2016,
+          "sourceUrl": "https://www.deezer.com/track/126534873",
+          "verifiedAt": "2026-10-08T06:36:53.404Z"
+        },
+        {
+          "id": "deezer-725837",
+          "title": "Give It Away",
+          "artist": "Red Hot Chili Peppers",
+          "albumId": 86548,
+          "genre": "Alternative",
+          "releaseYear": 1991,
+          "sourceUrl": "https://www.deezer.com/track/725837",
+          "verifiedAt": "2026-10-08T06:36:53.404Z"
+        }
+      ]
+    },
+    {
+      "name": "Central Cee",
+      "category": "Hip-Hop/Rap",
+      "artistId": 12096038,
+      "songs": [
+        {
+          "id": "deezer-1824910267",
+          "title": "Doja",
+          "artist": "Central Cee",
+          "albumId": 335789027,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2022,
+          "sourceUrl": "https://www.deezer.com/track/1824910267",
+          "verifiedAt": "2026-10-08T06:36:59.994Z"
+        },
+        {
+          "id": "deezer-2957472191",
+          "title": "Bolide Noir",
+          "artist": "Central Cee",
+          "albumId": 632582711,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/2957472191",
+          "verifiedAt": "2026-10-08T06:36:59.994Z"
+        },
+        {
+          "id": "deezer-2040509907",
+          "title": "LET GO",
+          "artist": "Central Cee",
+          "albumId": 381250597,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2022,
+          "sourceUrl": "https://www.deezer.com/track/2040509907",
+          "verifiedAt": "2026-10-08T06:36:59.994Z"
+        },
+        {
+          "id": "deezer-2816017052",
+          "title": "BAND4BAND",
+          "artist": "Central Cee",
+          "albumId": 591251842,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/2816017052",
+          "verifiedAt": "2026-10-08T06:36:59.994Z"
+        },
+        {
+          "id": "deezer-3421133341",
+          "title": "GUILT TRIPPIN",
+          "artist": "Central Cee",
+          "albumId": 774747511,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3421133341",
+          "verifiedAt": "2026-10-08T06:36:59.994Z"
+        },
+        {
+          "id": "deezer-3919177501",
+          "title": "WAGWAN",
+          "artist": "Central Cee",
+          "albumId": 946544691,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/3919177501",
+          "verifiedAt": "2026-10-08T06:36:59.994Z"
+        },
+        {
+          "id": "deezer-1487902102",
+          "title": "Obsessed With You",
+          "artist": "Central Cee",
+          "albumId": 257174252,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1487902102",
+          "verifiedAt": "2026-10-08T06:36:59.994Z"
+        },
+        {
+          "id": "deezer-1112729702",
+          "title": "Loading",
+          "artist": "Central Cee",
+          "albumId": 180450492,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1112729702",
+          "verifiedAt": "2026-10-08T06:36:59.994Z"
+        },
+        {
+          "id": "deezer-3196387911",
+          "title": "CRG",
+          "artist": "Central Cee",
+          "albumId": 701132071,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3196387911",
+          "verifiedAt": "2026-10-08T06:36:59.994Z"
+        },
+        {
+          "id": "deezer-3185132481",
+          "title": "GBP",
+          "artist": "Central Cee",
+          "albumId": 697666431,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3185132481",
+          "verifiedAt": "2026-10-08T06:36:59.994Z"
+        }
+      ]
+    },
+    {
+      "name": "kizaru",
+      "category": "Hip-Hop/Rap",
+      "artistId": 8687202,
+      "songs": [
+        {
+          "id": "deezer-4028935381",
+          "title": "Fake ID",
+          "artist": "Kizaru",
+          "albumId": 985561871,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/4028935381",
+          "verifiedAt": "2026-10-08T06:37:08.431Z"
+        },
+        {
+          "id": "deezer-1975781457",
+          "title": "Дежавю",
+          "artist": "Kizaru",
+          "albumId": 368266467,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2019,
+          "sourceUrl": "https://www.deezer.com/track/1975781457",
+          "verifiedAt": "2026-10-08T06:37:08.431Z"
+        },
+        {
+          "id": "deezer-2021717287",
+          "title": "Jefe",
+          "artist": "Kizaru",
+          "albumId": 376614417,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2022,
+          "sourceUrl": "https://www.deezer.com/track/2021717287",
+          "verifiedAt": "2026-10-08T06:37:08.431Z"
+        },
+        {
+          "id": "deezer-4036956611",
+          "title": "2L8",
+          "artist": "Kizaru",
+          "albumId": 988338171,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4036956611",
+          "verifiedAt": "2026-10-08T06:37:08.431Z"
+        },
+        {
+          "id": "deezer-4279190722",
+          "title": "BABY DRAC",
+          "artist": "Kizaru",
+          "albumId": 1075958622,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4279190722",
+          "verifiedAt": "2026-10-08T06:37:08.431Z"
+        },
+        {
+          "id": "deezer-4279190752",
+          "title": "L.O.T.R.",
+          "artist": "Kizaru",
+          "albumId": 1075958622,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4279190752",
+          "verifiedAt": "2026-10-08T06:37:08.431Z"
+        },
+        {
+          "id": "deezer-4279190732",
+          "title": "K.I.Z.I",
+          "artist": "Kizaru",
+          "albumId": 1075958622,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4279190732",
+          "verifiedAt": "2026-10-08T06:37:08.431Z"
+        },
+        {
+          "id": "deezer-4279190792",
+          "title": "TRIPLE HOMICIDE",
+          "artist": "Kizaru",
+          "albumId": 1075958622,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4279190792",
+          "verifiedAt": "2026-10-08T06:37:08.431Z"
+        },
+        {
+          "id": "deezer-4279190762",
+          "title": "JEFF BEZOS FLOW",
+          "artist": "Kizaru",
+          "albumId": 1075958622,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4279190762",
+          "verifiedAt": "2026-10-08T06:37:08.431Z"
+        },
+        {
+          "id": "deezer-4279190812",
+          "title": "NIGHT CRIME",
+          "artist": "Kizaru",
+          "albumId": 1075958622,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4279190812",
+          "verifiedAt": "2026-10-08T06:37:08.431Z"
+        }
+      ]
+    },
+    {
+      "name": "Big Baby Tape",
+      "category": "Hip-Hop/Rap",
+      "artistId": 14277587,
+      "songs": [
+        {
+          "id": "deezer-2868877752",
+          "title": "Supersonic",
+          "artist": "Big Baby Tape",
+          "albumId": 608425542,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/2868877752",
+          "verifiedAt": "2026-10-08T06:37:16.780Z"
+        },
+        {
+          "id": "deezer-2939633391",
+          "title": "Turbo (Majestic)",
+          "artist": "Big Baby Tape",
+          "albumId": 626821871,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/2939633391",
+          "verifiedAt": "2026-10-08T06:37:16.780Z"
+        },
+        {
+          "id": "deezer-1975430157",
+          "title": "99 Problems",
+          "artist": "Big Baby Tape",
+          "albumId": 368179797,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1975430157",
+          "verifiedAt": "2026-10-08T06:37:16.780Z"
+        },
+        {
+          "id": "deezer-4304734102",
+          "title": "BENZIN",
+          "artist": "Big Baby Tape",
+          "albumId": 1103910202,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4304734102",
+          "verifiedAt": "2026-10-08T06:37:16.780Z"
+        },
+        {
+          "id": "deezer-2868877762",
+          "title": "Ameli",
+          "artist": "Big Baby Tape",
+          "albumId": 608425542,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/2868877762",
+          "verifiedAt": "2026-10-08T06:37:16.780Z"
+        },
+        {
+          "id": "deezer-2125710637",
+          "title": "HOODAK MP3",
+          "artist": "Big Baby Tape",
+          "albumId": 400926087,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2125710637",
+          "verifiedAt": "2026-10-08T06:37:16.780Z"
+        },
+        {
+          "id": "deezer-585683922",
+          "title": "Gimme The Loot",
+          "artist": "Big Baby Tape",
+          "albumId": 78643812,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/585683922",
+          "verifiedAt": "2026-10-08T06:37:16.780Z"
+        },
+        {
+          "id": "deezer-1975430247",
+          "title": "Bandana",
+          "artist": "Big Baby Tape",
+          "albumId": 368179797,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1975430247",
+          "verifiedAt": "2026-10-08T06:37:16.780Z"
+        },
+        {
+          "id": "deezer-2868877772",
+          "title": "EDM",
+          "artist": "Big Baby Tape",
+          "albumId": 608425542,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/2868877772",
+          "verifiedAt": "2026-10-08T06:37:16.780Z"
+        },
+        {
+          "id": "deezer-3140317021",
+          "title": "Chuchuka",
+          "artist": "Big Baby Tape",
+          "albumId": 683190021,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/3140317021",
+          "verifiedAt": "2026-10-08T06:37:16.780Z"
+        }
+      ]
+    },
+    {
+      "name": "OG Buda",
+      "category": "Hip-Hop/Rap",
+      "artistId": 15037981,
+      "songs": [
+        {
+          "id": "deezer-3574576381",
+          "title": "Грусть 2",
+          "artist": "OG Buda",
+          "albumId": 828051891,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2022,
+          "sourceUrl": "https://www.deezer.com/track/3574576381",
+          "verifiedAt": "2026-10-08T06:37:25.019Z"
+        },
+        {
+          "id": "deezer-1996106107",
+          "title": "ГАНЬГ Аутро",
+          "artist": "OG Buda",
+          "albumId": 372171527,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1996106107",
+          "verifiedAt": "2026-10-08T06:37:25.019Z"
+        },
+        {
+          "id": "deezer-2249031287",
+          "title": "6AM в Будапеште",
+          "artist": "OG Buda",
+          "albumId": 432622797,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2249031287",
+          "verifiedAt": "2026-10-08T06:37:25.019Z"
+        },
+        {
+          "id": "deezer-3573625001",
+          "title": "Биг бой слайм",
+          "artist": "OG Buda",
+          "albumId": 827706361,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2019,
+          "sourceUrl": "https://www.deezer.com/track/3573625001",
+          "verifiedAt": "2026-10-08T06:37:25.019Z"
+        },
+        {
+          "id": "deezer-2249031157",
+          "title": "Для Тебя (Пусто)",
+          "artist": "OG Buda",
+          "albumId": 432622797,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2249031157",
+          "verifiedAt": "2026-10-08T06:37:25.019Z"
+        },
+        {
+          "id": "deezer-1996106007",
+          "title": "Старшие",
+          "artist": "OG Buda",
+          "albumId": 372171527,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1996106007",
+          "verifiedAt": "2026-10-08T06:37:25.019Z"
+        },
+        {
+          "id": "deezer-2576757842",
+          "title": "Крит",
+          "artist": "OG Buda",
+          "albumId": 521244692,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2576757842",
+          "verifiedAt": "2026-10-08T06:37:25.019Z"
+        },
+        {
+          "id": "deezer-1722709237",
+          "title": "Капли",
+          "artist": "OG Buda",
+          "albumId": 311387767,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2022,
+          "sourceUrl": "https://www.deezer.com/track/1722709237",
+          "verifiedAt": "2026-10-08T06:37:25.019Z"
+        },
+        {
+          "id": "deezer-1996104677",
+          "title": "Диибо",
+          "artist": "OG Buda",
+          "albumId": 372171207,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1996104677",
+          "verifiedAt": "2026-10-08T06:37:25.019Z"
+        },
+        {
+          "id": "deezer-1996105497",
+          "title": "Вина",
+          "artist": "OG Buda",
+          "albumId": 372171357,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1996105497",
+          "verifiedAt": "2026-10-08T06:37:25.019Z"
+        }
+      ]
+    },
+    {
+      "name": "PHARAOH",
+      "category": "Hip-Hop/Rap",
+      "artistId": 10216612,
+      "songs": [
+        {
+          "id": "deezer-367431961",
+          "title": "Дико, например",
+          "artist": "Pharaoh",
+          "albumId": 42362681,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/367431961",
+          "verifiedAt": "2026-10-08T06:37:33.405Z"
+        },
+        {
+          "id": "deezer-127709375",
+          "title": "5 минут назад",
+          "artist": "Pharaoh",
+          "albumId": 13480259,
+          "genre": "Alternative",
+          "releaseYear": 2016,
+          "sourceUrl": "https://www.deezer.com/track/127709375",
+          "verifiedAt": "2026-10-08T06:37:33.405Z"
+        },
+        {
+          "id": "deezer-126507171",
+          "title": "Бойсбэнд",
+          "artist": "Pharaoh",
+          "albumId": 13326425,
+          "genre": "Alternative",
+          "releaseYear": 2014,
+          "sourceUrl": "https://www.deezer.com/track/126507171",
+          "verifiedAt": "2026-10-08T06:37:33.405Z"
+        },
+        {
+          "id": "deezer-566281122",
+          "title": "Не по пути",
+          "artist": "Pharaoh",
+          "albumId": 75271642,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/566281122",
+          "verifiedAt": "2026-10-08T06:37:33.405Z"
+        },
+        {
+          "id": "deezer-381303131",
+          "title": "Лаллипап",
+          "artist": "Pharaoh",
+          "albumId": 44301501,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/381303131",
+          "verifiedAt": "2026-10-08T06:37:33.405Z"
+        },
+        {
+          "id": "deezer-127710187",
+          "title": "1-800-Siemensixone",
+          "artist": "Pharaoh",
+          "albumId": 13480365,
+          "genre": "Alternative",
+          "releaseYear": 2015,
+          "sourceUrl": "https://www.deezer.com/track/127710187",
+          "verifiedAt": "2026-10-08T06:37:33.405Z"
+        },
+        {
+          "id": "deezer-1394167832",
+          "title": "Pornozvezda",
+          "artist": "Pharaoh",
+          "albumId": 235020352,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2016,
+          "sourceUrl": "https://www.deezer.com/track/1394167832",
+          "verifiedAt": "2026-10-08T06:37:33.405Z"
+        },
+        {
+          "id": "deezer-508411092",
+          "title": "На луне",
+          "artist": "Pharaoh",
+          "albumId": 65033422,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/508411092",
+          "verifiedAt": "2026-10-08T06:37:33.405Z"
+        },
+        {
+          "id": "deezer-3892414581",
+          "title": "Black Siemens",
+          "artist": "Pharaoh",
+          "albumId": 936806431,
+          "genre": "Alternative",
+          "releaseYear": 2014,
+          "sourceUrl": "https://www.deezer.com/track/3892414581",
+          "verifiedAt": "2026-10-08T06:37:33.405Z"
+        },
+        {
+          "id": "deezer-381303151",
+          "title": "Одним целым",
+          "artist": "Pharaoh",
+          "albumId": 44301501,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/381303151",
+          "verifiedAt": "2026-10-08T06:37:33.405Z"
+        }
+      ]
+    },
+    {
+      "name": "SALUKI",
+      "category": "Hip-Hop/Rap",
+      "artistId": 10520799,
+      "songs": [
+        {
+          "id": "deezer-1883490957",
+          "title": "Огней",
+          "artist": "SALUKI",
+          "albumId": 350207957,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2022,
+          "sourceUrl": "https://www.deezer.com/track/1883490957",
+          "verifiedAt": "2026-10-08T06:37:41.673Z"
+        },
+        {
+          "id": "deezer-3938538531",
+          "title": "ЛАВЭ",
+          "artist": "SALUKI",
+          "albumId": 953159671,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/3938538531",
+          "verifiedAt": "2026-10-08T06:37:41.673Z"
+        },
+        {
+          "id": "deezer-2247640127",
+          "title": "ТАК ЛЕГКО ЗАМЁРЗНУТЬ",
+          "artist": "SALUKI",
+          "albumId": 432308437,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2247640127",
+          "verifiedAt": "2026-10-08T06:37:41.673Z"
+        },
+        {
+          "id": "deezer-2247640147",
+          "title": "BOY$",
+          "artist": "SALUKI",
+          "albumId": 432308437,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2247640147",
+          "verifiedAt": "2026-10-08T06:37:41.673Z"
+        },
+        {
+          "id": "deezer-2955236631",
+          "title": "Реприза",
+          "artist": "SALUKI",
+          "albumId": 631933571,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2018,
+          "sourceUrl": "https://www.deezer.com/track/2955236631",
+          "verifiedAt": "2026-10-08T06:37:41.673Z"
+        },
+        {
+          "id": "deezer-3439905101",
+          "title": "Властелин Калек",
+          "artist": "SALUKI",
+          "albumId": 781245681,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2019,
+          "sourceUrl": "https://www.deezer.com/track/3439905101",
+          "verifiedAt": "2026-10-08T06:37:41.673Z"
+        },
+        {
+          "id": "deezer-4256265631",
+          "title": "BOLSHIE KURTKI",
+          "artist": "SALUKI",
+          "albumId": 1067152591,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/4256265631",
+          "verifiedAt": "2026-10-08T06:37:41.673Z"
+        },
+        {
+          "id": "deezer-1391099422",
+          "title": "Stress",
+          "artist": "SALUKI",
+          "albumId": 234296902,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1391099422",
+          "verifiedAt": "2026-10-08T06:37:41.673Z"
+        },
+        {
+          "id": "deezer-3938538551",
+          "title": "ДОСКИ",
+          "artist": "SALUKI",
+          "albumId": 953159671,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/3938538551",
+          "verifiedAt": "2026-10-08T06:37:41.673Z"
+        },
+        {
+          "id": "deezer-4166453172",
+          "title": "weekend",
+          "artist": "SALUKI",
+          "albumId": 1033977512,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4166453172",
+          "verifiedAt": "2026-10-08T06:37:41.673Z"
+        }
+      ]
+    },
+    {
+      "name": "Oxxxymiron",
+      "category": "Hip-Hop/Rap",
+      "artistId": 291076,
+      "songs": [
+        {
+          "id": "deezer-786353292",
+          "title": "Город под подошвой",
+          "artist": "Oxxxymiron",
+          "albumId": 116438102,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2015,
+          "sourceUrl": "https://www.deezer.com/track/786353292",
+          "verifiedAt": "2026-10-08T06:37:49.646Z"
+        },
+        {
+          "id": "deezer-794829572",
+          "title": "Где нас нет",
+          "artist": "Oxxxymiron",
+          "albumId": 117203732,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2015,
+          "sourceUrl": "https://www.deezer.com/track/794829572",
+          "verifiedAt": "2026-10-08T06:37:49.646Z"
+        },
+        {
+          "id": "deezer-1550998352",
+          "title": "Погружение",
+          "artist": "Oxxxymiron",
+          "albumId": 272255782,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1550998352",
+          "verifiedAt": "2026-10-08T06:37:49.646Z"
+        },
+        {
+          "id": "deezer-3953137651",
+          "title": "EXIT",
+          "artist": "Oxxxymiron",
+          "albumId": 958621151,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/3953137651",
+          "verifiedAt": "2026-10-08T06:37:49.646Z"
+        },
+        {
+          "id": "deezer-3719968242",
+          "title": "Приключения",
+          "artist": "Oxxxymiron",
+          "albumId": 878596552,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3719968242",
+          "verifiedAt": "2026-10-08T06:37:49.646Z"
+        },
+        {
+          "id": "deezer-1538760762",
+          "title": "КТО УБИЛ МАРКА?",
+          "artist": "Oxxxymiron",
+          "albumId": 269598792,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1538760762",
+          "verifiedAt": "2026-10-08T06:37:49.646Z"
+        },
+        {
+          "id": "deezer-794829512",
+          "title": "Переплетено",
+          "artist": "Oxxxymiron",
+          "albumId": 117203732,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2015,
+          "sourceUrl": "https://www.deezer.com/track/794829512",
+          "verifiedAt": "2026-10-08T06:37:49.646Z"
+        },
+        {
+          "id": "deezer-2441412545",
+          "title": "1.Kla$",
+          "artist": "Oxxxymiron",
+          "albumId": 484516655,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2441412545",
+          "verifiedAt": "2026-10-08T06:37:49.646Z"
+        },
+        {
+          "id": "deezer-1572845982",
+          "title": "Хоп-механика",
+          "artist": "Oxxxymiron",
+          "albumId": 276871022,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1572845982",
+          "verifiedAt": "2026-10-08T06:37:49.646Z"
+        },
+        {
+          "id": "deezer-1572846032",
+          "title": "Мы все умрем",
+          "artist": "Oxxxymiron",
+          "albumId": 276871022,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1572846032",
+          "verifiedAt": "2026-10-08T06:37:49.646Z"
+        }
+      ]
+    },
+    {
+      "name": "Скриптонит",
+      "category": "Hip-Hop/Rap",
+      "artistId": 5603958,
+      "songs": [
+        {
+          "id": "deezer-4076088951",
+          "title": "не расслабляйся",
+          "artist": "Скриптонит",
+          "albumId": 1001862911,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/4076088951",
+          "verifiedAt": "2026-10-08T06:37:57.985Z"
+        },
+        {
+          "id": "deezer-1382145492",
+          "title": "Polozhenie (Izzamuzzic Remix)",
+          "artist": "Скриптонит",
+          "albumId": 232417062,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1382145492",
+          "verifiedAt": "2026-10-08T06:37:57.985Z"
+        },
+        {
+          "id": "deezer-4006993971",
+          "title": "Это любовь",
+          "artist": "Скриптонит",
+          "albumId": 977630561,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2015,
+          "sourceUrl": "https://www.deezer.com/track/4006993971",
+          "verifiedAt": "2026-10-08T06:37:57.985Z"
+        },
+        {
+          "id": "deezer-856558962",
+          "title": "Москва любит...",
+          "artist": "Скриптонит",
+          "albumId": 127667142,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/856558962",
+          "verifiedAt": "2026-10-08T06:37:57.985Z"
+        },
+        {
+          "id": "deezer-4014467011",
+          "title": "Цепи",
+          "artist": "Скриптонит",
+          "albumId": 980458621,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/4014467011",
+          "verifiedAt": "2026-10-08T06:37:57.985Z"
+        },
+        {
+          "id": "deezer-1010131012",
+          "title": "Baby mama",
+          "artist": "Скриптонит",
+          "albumId": 158512512,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1010131012",
+          "verifiedAt": "2026-10-08T06:37:57.985Z"
+        },
+        {
+          "id": "deezer-4005562551",
+          "title": "Космос",
+          "artist": "Скриптонит",
+          "albumId": 977096741,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/4005562551",
+          "verifiedAt": "2026-10-08T06:37:57.985Z"
+        },
+        {
+          "id": "deezer-3976560361",
+          "title": "Положение",
+          "artist": "Скриптонит",
+          "albumId": 966968111,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/3976560361",
+          "verifiedAt": "2026-10-08T06:37:57.985Z"
+        },
+        {
+          "id": "deezer-4005547911",
+          "title": "Радуйся",
+          "artist": "Скриптонит",
+          "albumId": 977091801,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/4005547911",
+          "verifiedAt": "2026-10-08T06:37:57.985Z"
+        },
+        {
+          "id": "deezer-3976560291",
+          "title": "Животные",
+          "artist": "Скриптонит",
+          "albumId": 966968111,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/3976560291",
+          "verifiedAt": "2026-10-08T06:37:57.985Z"
+        }
+      ]
+    },
+    {
+      "name": "Boulevard Depo",
+      "category": "Hip-Hop/Rap",
+      "artistId": 10292790,
+      "songs": [
+        {
+          "id": "deezer-4052908711",
+          "title": "Нищепанк",
+          "artist": "Boulevard Depo",
+          "albumId": 994127921,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4052908711",
+          "verifiedAt": "2026-10-08T06:38:06.670Z"
+        },
+        {
+          "id": "deezer-1111651672",
+          "title": "4 shaga (Prod. DavidRema)",
+          "artist": "Boulevard Depo",
+          "albumId": 180141802,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1111651672",
+          "verifiedAt": "2026-10-08T06:38:06.670Z"
+        },
+        {
+          "id": "deezer-635291392",
+          "title": "Katafalk (Prod. by Highself)",
+          "artist": "Boulevard Depo",
+          "albumId": 87872902,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2019,
+          "sourceUrl": "https://www.deezer.com/track/635291392",
+          "verifiedAt": "2026-10-08T06:38:06.670Z"
+        },
+        {
+          "id": "deezer-1111651652",
+          "title": "Friendly Fire (Prod. Avepack)",
+          "artist": "Boulevard Depo",
+          "albumId": 180141802,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1111651652",
+          "verifiedAt": "2026-10-08T06:38:06.670Z"
+        },
+        {
+          "id": "deezer-1372037562",
+          "title": "Geografiya",
+          "artist": "Boulevard Depo",
+          "albumId": 230087232,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1372037562",
+          "verifiedAt": "2026-10-08T06:38:06.670Z"
+        },
+        {
+          "id": "deezer-589248692",
+          "title": "OCB Smoking Raw (Sp4k Remix)",
+          "artist": "Boulevard Depo",
+          "albumId": 79236792,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2014,
+          "sourceUrl": "https://www.deezer.com/track/589248692",
+          "verifiedAt": "2026-10-08T06:38:06.670Z"
+        },
+        {
+          "id": "deezer-1584978892",
+          "title": "Drug 2.0",
+          "artist": "Boulevard Depo",
+          "albumId": 279247212,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1584978892",
+          "verifiedAt": "2026-10-08T06:38:06.670Z"
+        },
+        {
+          "id": "deezer-1111651612",
+          "title": "OLD BLOOD (Prod. Chivaz)",
+          "artist": "Boulevard Depo",
+          "albumId": 180141802,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1111651612",
+          "verifiedAt": "2026-10-08T06:38:06.670Z"
+        },
+        {
+          "id": "deezer-1111651592",
+          "title": "Angry toy$ (Prod. Ray Qwa)",
+          "artist": "Boulevard Depo",
+          "albumId": 180141802,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1111651592",
+          "verifiedAt": "2026-10-08T06:38:06.670Z"
+        },
+        {
+          "id": "deezer-2152455897",
+          "title": "COOLA",
+          "artist": "Boulevard Depo",
+          "albumId": 408302487,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2152455897",
+          "verifiedAt": "2026-10-08T06:38:06.670Z"
+        }
+      ]
+    },
+    {
+      "name": "OBLADAET",
+      "category": "Hip-Hop/Rap",
+      "artistId": 7800506,
+      "songs": [
+        {
+          "id": "deezer-4323040832",
+          "title": "FVKK YEAH",
+          "artist": "OBLADAET",
+          "albumId": 1111506532,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4323040832",
+          "verifiedAt": "2026-10-08T06:38:15.047Z"
+        },
+        {
+          "id": "deezer-3255022821",
+          "title": "NAME",
+          "artist": "OBLADAET",
+          "albumId": 719912411,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3255022821",
+          "verifiedAt": "2026-10-08T06:38:15.047Z"
+        },
+        {
+          "id": "deezer-4323040842",
+          "title": "Satisfaction",
+          "artist": "OBLADAET",
+          "albumId": 1111506532,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4323040842",
+          "verifiedAt": "2026-10-08T06:38:15.047Z"
+        },
+        {
+          "id": "deezer-1287017892",
+          "title": "BLIND ZONE",
+          "artist": "OBLADAET",
+          "albumId": 217720192,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1287017892",
+          "verifiedAt": "2026-10-08T06:38:15.047Z"
+        },
+        {
+          "id": "deezer-2536502941",
+          "title": "BOO!",
+          "artist": "OBLADAET",
+          "albumId": 510918321,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2536502941",
+          "verifiedAt": "2026-10-08T06:38:15.047Z"
+        },
+        {
+          "id": "deezer-2536503041",
+          "title": "Большой Брат",
+          "artist": "OBLADAET",
+          "albumId": 510918321,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2536503041",
+          "verifiedAt": "2026-10-08T06:38:15.047Z"
+        },
+        {
+          "id": "deezer-2536502931",
+          "title": "HARLEQUIN",
+          "artist": "OBLADAET",
+          "albumId": 510918321,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2536502931",
+          "verifiedAt": "2026-10-08T06:38:15.047Z"
+        },
+        {
+          "id": "deezer-354162171",
+          "title": "I AM",
+          "artist": "OBLADAET",
+          "albumId": 40587951,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/354162171",
+          "verifiedAt": "2026-10-08T06:38:15.047Z"
+        },
+        {
+          "id": "deezer-2536502951",
+          "title": "Проклятие",
+          "artist": "OBLADAET",
+          "albumId": 510918321,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2536502951",
+          "verifiedAt": "2026-10-08T06:38:15.047Z"
+        },
+        {
+          "id": "deezer-1470016822",
+          "title": "HELLA PLAYERS",
+          "artist": "OBLADAET",
+          "albumId": 253007812,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1470016822",
+          "verifiedAt": "2026-10-08T06:38:15.047Z"
+        }
+      ]
+    },
+    {
+      "name": "ATL",
+      "category": "Hip-Hop/Rap",
+      "artistId": 66220192,
+      "songs": [
+        {
+          "id": "deezer-2465062445",
+          "title": "Танцуйте",
+          "artist": "ATL",
+          "albumId": 490941745,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/2465062445",
+          "verifiedAt": "2026-10-08T06:38:23.451Z"
+        },
+        {
+          "id": "deezer-2449954285",
+          "title": "Солнышко",
+          "artist": "ATL",
+          "albumId": 486843885,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2019,
+          "sourceUrl": "https://www.deezer.com/track/2449954285",
+          "verifiedAt": "2026-10-08T06:38:23.451Z"
+        },
+        {
+          "id": "deezer-2449954065",
+          "title": "Марабу",
+          "artist": "ATL",
+          "albumId": 486843875,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2015,
+          "sourceUrl": "https://www.deezer.com/track/2449954065",
+          "verifiedAt": "2026-10-08T06:38:23.451Z"
+        },
+        {
+          "id": "deezer-2465062435",
+          "title": "Обратно",
+          "artist": "ATL",
+          "albumId": 490941745,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/2465062435",
+          "verifiedAt": "2026-10-08T06:38:23.451Z"
+        },
+        {
+          "id": "deezer-3288045881",
+          "title": "Хоровод",
+          "artist": "ATL",
+          "albumId": 730627751,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3288045881",
+          "verifiedAt": "2026-10-08T06:38:23.451Z"
+        },
+        {
+          "id": "deezer-2431350955",
+          "title": "Юность-89",
+          "artist": "ATL",
+          "albumId": 481847025,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/2431350955",
+          "verifiedAt": "2026-10-08T06:38:23.451Z"
+        },
+        {
+          "id": "deezer-2431350805",
+          "title": "Ящик",
+          "artist": "ATL",
+          "albumId": 481847025,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/2431350805",
+          "verifiedAt": "2026-10-08T06:38:23.451Z"
+        },
+        {
+          "id": "deezer-2465062395",
+          "title": "Архитектор",
+          "artist": "ATL",
+          "albumId": 490941745,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/2465062395",
+          "verifiedAt": "2026-10-08T06:38:23.451Z"
+        },
+        {
+          "id": "deezer-3210587411",
+          "title": "Вечный двигатель",
+          "artist": "ATL",
+          "albumId": 705643991,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3210587411",
+          "verifiedAt": "2026-10-08T06:38:23.451Z"
+        },
+        {
+          "id": "deezer-2465062375",
+          "title": "В унисон",
+          "artist": "ATL",
+          "albumId": 490941745,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/2465062375",
+          "verifiedAt": "2026-10-08T06:38:23.451Z"
+        }
+      ]
+    },
+    {
+      "name": "Баста",
+      "category": "Hip-Hop/Rap",
+      "artistId": 4170146,
+      "songs": [
+        {
+          "id": "deezer-4159509402",
+          "title": "Если я буду танцевать",
+          "artist": "Баста",
+          "albumId": 1031266752,
+          "genre": "Electronic",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4159509402",
+          "verifiedAt": "2026-10-08T06:38:31.694Z"
+        },
+        {
+          "id": "deezer-2248173007",
+          "title": "Где ты теперь и с кем",
+          "artist": "Баста",
+          "albumId": 432424667,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2248173007",
+          "verifiedAt": "2026-10-08T06:38:31.694Z"
+        },
+        {
+          "id": "deezer-4079463421",
+          "title": "Сансара",
+          "artist": "Баста",
+          "albumId": 1003027791,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2017,
+          "sourceUrl": "https://www.deezer.com/track/4079463421",
+          "verifiedAt": "2026-10-08T06:38:31.694Z"
+        },
+        {
+          "id": "deezer-3866777061",
+          "title": "Выпускной (Медлячок)",
+          "artist": "Баста",
+          "albumId": 927139291,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2016,
+          "sourceUrl": "https://www.deezer.com/track/3866777061",
+          "verifiedAt": "2026-10-08T06:38:31.694Z"
+        },
+        {
+          "id": "deezer-4191109852",
+          "title": "Мама",
+          "artist": "Баста",
+          "albumId": 1042097632,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2006,
+          "sourceUrl": "https://www.deezer.com/track/4191109852",
+          "verifiedAt": "2026-10-08T06:38:31.694Z"
+        },
+        {
+          "id": "deezer-4088101391",
+          "title": "На заре",
+          "artist": "Баста",
+          "albumId": 1006070151,
+          "genre": "Alternative",
+          "releaseYear": 2019,
+          "sourceUrl": "https://www.deezer.com/track/4088101391",
+          "verifiedAt": "2026-10-08T06:38:31.694Z"
+        },
+        {
+          "id": "deezer-4190619122",
+          "title": "Урбан",
+          "artist": "Баста",
+          "albumId": 1042000352,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2010,
+          "sourceUrl": "https://www.deezer.com/track/4190619122",
+          "verifiedAt": "2026-10-08T06:38:31.694Z"
+        },
+        {
+          "id": "deezer-1037814852",
+          "title": "неболей",
+          "artist": "Баста",
+          "albumId": 164118552,
+          "genre": "Pop",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1037814852",
+          "verifiedAt": "2026-10-08T06:38:31.694Z"
+        },
+        {
+          "id": "deezer-4191109982",
+          "title": "Моя игра",
+          "artist": "Баста",
+          "albumId": 1042097632,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2006,
+          "sourceUrl": "https://www.deezer.com/track/4191109982",
+          "verifiedAt": "2026-10-08T06:38:31.694Z"
+        },
+        {
+          "id": "deezer-4165735322",
+          "title": "Только сегодня",
+          "artist": "Баста",
+          "albumId": 1033704942,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2010,
+          "sourceUrl": "https://www.deezer.com/track/4165735322",
+          "verifiedAt": "2026-10-08T06:38:31.694Z"
+        }
+      ]
+    },
+    {
+      "name": "FRIENDLY THUG 52 NGG",
+      "category": "Hip-Hop/Rap",
+      "artistId": 140431282,
+      "songs": [
+        {
+          "id": "deezer-3339657991",
+          "title": "OCG",
+          "artist": "FRIENDLY THUG 52 NGG",
+          "albumId": 747614991,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3339657991",
+          "verifiedAt": "2026-10-08T06:38:39.762Z"
+        },
+        {
+          "id": "deezer-2526210251",
+          "title": "Lost Angeles",
+          "artist": "FRIENDLY THUG 52 NGG",
+          "albumId": 508195601,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2526210251",
+          "verifiedAt": "2026-10-08T06:38:39.762Z"
+        },
+        {
+          "id": "deezer-3339658151",
+          "title": "Arrivederci 2",
+          "artist": "FRIENDLY THUG 52 NGG",
+          "albumId": 747614991,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3339658151",
+          "verifiedAt": "2026-10-08T06:38:39.762Z"
+        },
+        {
+          "id": "deezer-3339658091",
+          "title": "Skyscraper",
+          "artist": "FRIENDLY THUG 52 NGG",
+          "albumId": 747614991,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3339658091",
+          "verifiedAt": "2026-10-08T06:38:39.762Z"
+        },
+        {
+          "id": "deezer-2526210241",
+          "title": "na Circus",
+          "artist": "FRIENDLY THUG 52 NGG",
+          "albumId": 508195601,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2023,
+          "sourceUrl": "https://www.deezer.com/track/2526210241",
+          "verifiedAt": "2026-10-08T06:38:39.762Z"
+        },
+        {
+          "id": "deezer-3885077041",
+          "title": "COW",
+          "artist": "FRIENDLY THUG 52 NGG",
+          "albumId": 933960761,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/3885077041",
+          "verifiedAt": "2026-10-08T06:38:39.762Z"
+        },
+        {
+          "id": "deezer-3339657981",
+          "title": "AIST",
+          "artist": "FRIENDLY THUG 52 NGG",
+          "albumId": 747614991,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3339657981",
+          "verifiedAt": "2026-10-08T06:38:39.762Z"
+        },
+        {
+          "id": "deezer-3339657971",
+          "title": "No Gletcher Gang 2",
+          "artist": "FRIENDLY THUG 52 NGG",
+          "albumId": 747614991,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3339657971",
+          "verifiedAt": "2026-10-08T06:38:39.762Z"
+        },
+        {
+          "id": "deezer-2826771032",
+          "title": "AMMO",
+          "artist": "FRIENDLY THUG 52 NGG",
+          "albumId": 594912972,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/2826771032",
+          "verifiedAt": "2026-10-08T06:38:39.762Z"
+        },
+        {
+          "id": "deezer-3552604001",
+          "title": "2 Goyard",
+          "artist": "FRIENDLY THUG 52 NGG",
+          "albumId": 820124231,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3552604001",
+          "verifiedAt": "2026-10-08T06:38:39.762Z"
+        }
+      ]
+    },
+    {
+      "name": "MAYOT",
+      "category": "Hip-Hop/Rap",
+      "artistId": 1944341,
+      "songs": [
+        {
+          "id": "deezer-1071732972",
+          "title": "Море",
+          "artist": "Mayot",
+          "albumId": 171459542,
+          "genre": "R&B/Soul",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1071732972",
+          "verifiedAt": "2026-10-08T06:38:48.426Z"
+        },
+        {
+          "id": "deezer-3412417041",
+          "title": "Ну-ка снимай",
+          "artist": "Mayot",
+          "albumId": 771809881,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3412417041",
+          "verifiedAt": "2026-10-08T06:38:48.426Z"
+        },
+        {
+          "id": "deezer-4081655101",
+          "title": "Идеально",
+          "artist": "Mayot",
+          "albumId": 1003609701,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4081655101",
+          "verifiedAt": "2026-10-08T06:38:48.426Z"
+        },
+        {
+          "id": "deezer-4323006322",
+          "title": "Любовь на пляже",
+          "artist": "Mayot",
+          "albumId": 1111499062,
+          "genre": "Pop",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4323006322",
+          "verifiedAt": "2026-10-08T06:38:48.426Z"
+        },
+        {
+          "id": "deezer-1071732992",
+          "title": "Лилия (prod. by DooMee)",
+          "artist": "Mayot",
+          "albumId": 171459542,
+          "genre": "R&B/Soul",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1071732992",
+          "verifiedAt": "2026-10-08T06:38:48.426Z"
+        },
+        {
+          "id": "deezer-1430274452",
+          "title": "В моих мыслях",
+          "artist": "Mayot",
+          "albumId": 243437262,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1430274452",
+          "verifiedAt": "2026-10-08T06:38:48.426Z"
+        },
+        {
+          "id": "deezer-1071732932",
+          "title": "Ауди [prod. by Sqweezey]",
+          "artist": "Mayot",
+          "albumId": 171459542,
+          "genre": "R&B/Soul",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1071732932",
+          "verifiedAt": "2026-10-08T06:38:48.426Z"
+        },
+        {
+          "id": "deezer-4081655181",
+          "title": "Кусай локти",
+          "artist": "Mayot",
+          "albumId": 1003609701,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4081655181",
+          "verifiedAt": "2026-10-08T06:38:48.426Z"
+        },
+        {
+          "id": "deezer-1071733042",
+          "title": "Звезда упала",
+          "artist": "Mayot",
+          "albumId": 171459542,
+          "genre": "R&B/Soul",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1071733042",
+          "verifiedAt": "2026-10-08T06:38:48.426Z"
+        },
+        {
+          "id": "deezer-1071733082",
+          "title": "Снег",
+          "artist": "Mayot",
+          "albumId": 171459542,
+          "genre": "R&B/Soul",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1071733082",
+          "verifiedAt": "2026-10-08T06:38:48.426Z"
+        }
+      ]
+    },
+    {
+      "name": "Miyagi & Andy Panda",
+      "category": "Hip-Hop/Rap",
+      "artistId": 57256202,
+      "songs": [
+        {
+          "id": "deezer-872973902",
+          "title": "Kosandra",
+          "artist": "Miyagi & Andy Panda",
+          "albumId": 130998922,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/872973902",
+          "verifiedAt": "2026-10-08T06:38:56.817Z"
+        },
+        {
+          "id": "deezer-1024499862",
+          "title": "Minor",
+          "artist": "Miyagi & Andy Panda",
+          "albumId": 161392882,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1024499862",
+          "verifiedAt": "2026-10-08T06:38:56.817Z"
+        },
+        {
+          "id": "deezer-1024499882",
+          "title": "Yamakasi",
+          "artist": "Miyagi & Andy Panda",
+          "albumId": 161392882,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1024499882",
+          "verifiedAt": "2026-10-08T06:38:56.817Z"
+        },
+        {
+          "id": "deezer-1024499872",
+          "title": "Там ревели горы",
+          "artist": "Miyagi & Andy Panda",
+          "albumId": 161392882,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1024499872",
+          "verifiedAt": "2026-10-08T06:38:56.817Z"
+        },
+        {
+          "id": "deezer-1304149422",
+          "title": "Патрон",
+          "artist": "Miyagi & Andy Panda",
+          "albumId": 219649442,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1304149422",
+          "verifiedAt": "2026-10-08T06:38:56.817Z"
+        },
+        {
+          "id": "deezer-617298732",
+          "title": "Freeman",
+          "artist": "Miyagi & Andy Panda",
+          "albumId": 84310052,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2019,
+          "sourceUrl": "https://www.deezer.com/track/617298732",
+          "verifiedAt": "2026-10-08T06:38:56.817Z"
+        },
+        {
+          "id": "deezer-947834212",
+          "title": "Brooklyn",
+          "artist": "Miyagi & Andy Panda",
+          "albumId": 145590222,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/947834212",
+          "verifiedAt": "2026-10-08T06:38:56.817Z"
+        },
+        {
+          "id": "deezer-1024499812",
+          "title": "Utopia",
+          "artist": "Miyagi & Andy Panda",
+          "albumId": 161392882,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1024499812",
+          "verifiedAt": "2026-10-08T06:38:56.817Z"
+        },
+        {
+          "id": "deezer-1024499842",
+          "title": "Tantra",
+          "artist": "Miyagi & Andy Panda",
+          "albumId": 161392882,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1024499842",
+          "verifiedAt": "2026-10-08T06:38:56.817Z"
+        },
+        {
+          "id": "deezer-1559480762",
+          "title": "Marmalade",
+          "artist": "Miyagi & Andy Panda",
+          "albumId": 273851132,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1559480762",
+          "verifiedAt": "2026-10-08T06:38:56.817Z"
+        }
+      ]
+    },
+    {
+      "name": "MORGENSHTERN",
+      "category": "Hip-Hop/Rap",
+      "artistId": 14468689,
+      "songs": [
+        {
+          "id": "deezer-1390591922",
+          "title": "Cristal & MOYOT",
+          "artist": "Morgenshtern",
+          "albumId": 234203842,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1390591922",
+          "verifiedAt": "2026-10-08T06:39:05.009Z"
+        },
+        {
+          "id": "deezer-1396680942",
+          "title": "Cadillac",
+          "artist": "Morgenshtern",
+          "albumId": 235606532,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1396680942",
+          "verifiedAt": "2026-10-08T06:39:05.009Z"
+        },
+        {
+          "id": "deezer-1390581002",
+          "title": "RATATATATA",
+          "artist": "Morgenshtern",
+          "albumId": 234201482,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1390581002",
+          "verifiedAt": "2026-10-08T06:39:05.009Z"
+        },
+        {
+          "id": "deezer-3233016471",
+          "title": "ПОВОД",
+          "artist": "Morgenshtern",
+          "albumId": 712778521,
+          "genre": "Rock",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3233016471",
+          "verifiedAt": "2026-10-08T06:39:05.009Z"
+        },
+        {
+          "id": "deezer-3233016461",
+          "title": "ДОМ (Лондон, Прага, Ницца)",
+          "artist": "Morgenshtern",
+          "albumId": 712778521,
+          "genre": "Rock",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3233016461",
+          "verifiedAt": "2026-10-08T06:39:05.009Z"
+        },
+        {
+          "id": "deezer-2126923567",
+          "title": "El Problema",
+          "artist": "Morgenshtern",
+          "albumId": 401259017,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/2126923567",
+          "verifiedAt": "2026-10-08T06:39:05.009Z"
+        },
+        {
+          "id": "deezer-3233016491",
+          "title": "ПУСТОЙ ВОКЗАЛ",
+          "artist": "Morgenshtern",
+          "albumId": 712778521,
+          "genre": "Rock",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3233016491",
+          "verifiedAt": "2026-10-08T06:39:05.009Z"
+        },
+        {
+          "id": "deezer-3233016451",
+          "title": "КРАСНЫЙ ФЛАГ",
+          "artist": "Morgenshtern",
+          "albumId": 712778521,
+          "genre": "Rock",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3233016451",
+          "verifiedAt": "2026-10-08T06:39:05.009Z"
+        },
+        {
+          "id": "deezer-1390592652",
+          "title": "ICE",
+          "artist": "Morgenshtern",
+          "albumId": 234203972,
+          "genre": "Hip-Hop/Rap",
+          "releaseYear": 2020,
+          "sourceUrl": "https://www.deezer.com/track/1390592652",
+          "verifiedAt": "2026-10-08T06:39:05.010Z"
+        },
+        {
+          "id": "deezer-2693784702",
+          "title": "Последняя Любовь",
+          "artist": "Morgenshtern",
+          "albumId": 557333252,
+          "genre": "Pop",
+          "releaseYear": 2024,
+          "sourceUrl": "https://www.deezer.com/track/2693784702",
+          "verifiedAt": "2026-10-08T06:39:05.010Z"
+        }
+      ]
+    },
+    {
+      "name": "Moby",
+      "category": "Electronic",
+      "artistId": 493,
+      "songs": [
+        {
+          "id": "deezer-4182285242",
+          "title": "Natural Blues (TECIE)",
+          "artist": "Moby",
+          "albumId": 1040226612,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4182285242",
+          "verifiedAt": "2026-10-08T06:39:13.440Z"
+        },
+        {
+          "id": "deezer-1362338442",
+          "title": "Extreme Ways",
+          "artist": "Moby",
+          "albumId": 227565682,
+          "genre": "Classical",
+          "releaseYear": 2013,
+          "sourceUrl": "https://www.deezer.com/track/1362338442",
+          "verifiedAt": "2026-10-08T06:39:13.440Z"
+        },
+        {
+          "id": "deezer-1872479957",
+          "title": "This Is Not Our World (feat. Indochine) (Ce n'est pas notre monde)",
+          "artist": "Moby",
+          "albumId": 347775127,
+          "genre": "Alternative",
+          "releaseYear": 2022,
+          "sourceUrl": "https://www.deezer.com/track/1872479957",
+          "verifiedAt": "2026-10-08T06:39:13.440Z"
+        },
+        {
+          "id": "deezer-3360431401",
+          "title": "Natural Blues",
+          "artist": "Moby",
+          "albumId": 754490161,
+          "genre": "Electro",
+          "releaseYear": 2025,
+          "sourceUrl": "https://www.deezer.com/track/3360431401",
+          "verifiedAt": "2026-10-08T06:39:13.440Z"
+        },
+        {
+          "id": "deezer-1893368057",
+          "title": "Go (Radio Edit)",
+          "artist": "Moby",
+          "albumId": 351843437,
+          "genre": "Electro",
+          "releaseYear": 1991,
+          "sourceUrl": "https://www.deezer.com/track/1893368057",
+          "verifiedAt": "2026-10-08T06:39:13.440Z"
+        },
+        {
+          "id": "deezer-3932404851",
+          "title": "Retreat",
+          "artist": "Moby",
+          "albumId": 951579701,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/3932404851",
+          "verifiedAt": "2026-10-08T06:39:13.440Z"
+        },
+        {
+          "id": "deezer-3805785542",
+          "title": "When It's Cold I'd Like to Die",
+          "artist": "Moby",
+          "albumId": 906042332,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/3805785542",
+          "verifiedAt": "2026-10-08T06:39:13.440Z"
+        },
+        {
+          "id": "deezer-3932404881",
+          "title": "Mott St 1992",
+          "artist": "Moby",
+          "albumId": 951579701,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/3932404881",
+          "verifiedAt": "2026-10-08T06:39:13.440Z"
+        },
+        {
+          "id": "deezer-1379126252",
+          "title": "Everloving (Reprise Version)",
+          "artist": "Moby",
+          "albumId": 231728442,
+          "genre": "Pop",
+          "releaseYear": 2021,
+          "sourceUrl": "https://www.deezer.com/track/1379126252",
+          "verifiedAt": "2026-10-08T06:39:13.440Z"
+        },
+        {
+          "id": "deezer-4237557682",
+          "title": "In This World (Boris Brejcha Remix)",
+          "artist": "Moby",
+          "albumId": 1059654992,
+          "genre": "Electro",
+          "releaseYear": 2026,
+          "sourceUrl": "https://www.deezer.com/track/4237557682",
+          "verifiedAt": "2026-10-08T06:39:13.440Z"
+        }
+      ]
+    }
+  ],
+  "imported": true,
+  "newTracks": 260,
+  "reusedTracks": 0
+}

@@ -96,6 +96,21 @@ bun run catalog:organize
 
 Default collections update automatically after imports, genre/release-year/availability edits and provider refreshes. Their names, descriptions and artwork remain editable. Create a custom pack to add or remove handpicked songs; imports may target the global mix or a custom pack.
 
+## Post-punk, guitars and rap
+
+The expanded artist selection adds **260 different official previews from 26 artists**, ten per artist, checked through the production server on 2026-10-08. Play [Post-punk & new wave](https://guessthesong-rust.vercel.app/packs/post-punk) for New Order, The Smiths, Joy Division, The Cure and Molchat Doma; [Alternative guitars](https://guessthesong-rust.vercel.app/packs/guitar-favorites) for Fugazi, Wolfmother, King Gizzard & The Lizard Wizard and Red Hot Chili Peppers; [UK rap](https://guessthesong-rust.vercel.app/packs/uk-rap) for Central Cee; and [Russian rap](https://guessthesong-rust.vercel.app/packs/russian-rap) for kizaru and fourteen other selected acts. Moby is also added to the catalog. See the [complete song list](data/expanded-artists.md).
+
+These packs use exact artist identities as editorial selections. Each track retains its actual album genre and release date; a Russian rap pack does not automatically label every song's language. Daily continues to use only the existing 100-hitmaker roster. Chart Clash continues to use Audius play counts.
+
+To refresh the selection against a running instance, configure the intended `APP_URL`, enabled previews and database, then use an ignored file containing the existing administrator password:
+
+```powershell
+bun run catalog:artists --password-file .data/admin-password.txt
+bun run catalog:artists --password-file .data/admin-password.txt --import
+```
+
+The first command exports verified metadata; `--import` also saves it to the configured database and rebuilds derived packs. Search and one-second audio checks run through the protected admin API on `APP_URL`, so verification uses the same provider region as the game. Exact primary-artist IDs exclude tribute accounts; duplicate editions, unavailable previews and unsupported versions are rejected. Existing disabled tracks and administrator metadata edits are preserved. The command reports actual totals when fewer than ten recordings are available. Passwords, session cookies, signed CDN URLs and music files stay out of the exported JSON/Markdown.
+
 ## Familiar songs for private local play
 
 The current computer has `DEEZER_PRIVATE_PREVIEWS=true`. To reproduce the familiar-artist collection on a fresh local checkout, add that setting to `.env.local`, keep `APP_URL=http://127.0.0.1:3000`, migrate and import:

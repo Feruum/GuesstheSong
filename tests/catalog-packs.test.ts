@@ -32,7 +32,7 @@ async function memoryCatalog() {
 describe("automatic catalog pack definitions", () => {
   test("keeps the starter pack IDs and adds distinct genre, decade, and popularity packs", () => {
     expect(DEFAULT_PACKS.map(pack => pack.id)).toEqual([
-      "global-mix", "electronic", "hip-hop", "indie", "pop", "rock", "2010s", "2020s", "popular", "hits", "hits-2010s", "rnb", "house", "jazz", "latin", "metal", "country", "reggae", "classical", "1980s", "1990s", "2000s", "featured-hits",
+      "global-mix", "electronic", "hip-hop", "indie", "pop", "rock", "2010s", "2020s", "popular", "hits", "hits-2010s", "rnb", "house", "jazz", "latin", "metal", "country", "reggae", "classical", "1980s", "1990s", "2000s", "featured-hits", "post-punk", "guitar-favorites", "uk-rap", "russian-rap",
     ]);
     expect(DEFAULT_PACKS.find(pack => pack.id === "pop")?.genre).toBe("Pop");
     expect(DEFAULT_PACKS.find(pack => pack.id === "rock")?.genre).toBe("Rock");
@@ -41,7 +41,7 @@ describe("automatic catalog pack definitions", () => {
 
   test("provides simple kinds for grouped discovery without new artwork variants", () => {
     expect(DEFAULT_PACKS.filter(pack => pack.kind === "decade").map(pack => pack.id)).toEqual(["2010s", "2020s", "hits-2010s", "1980s", "1990s", "2000s"]);
-    expect(DEFAULT_PACKS.filter(pack => pack.kind === "genre").map(pack => pack.id)).toEqual(["electronic", "hip-hop", "indie", "pop", "rock", "rnb", "house", "jazz", "latin", "metal", "country", "reggae", "classical"]);
+    expect(DEFAULT_PACKS.filter(pack => pack.kind === "genre").map(pack => pack.id)).toEqual(["electronic", "hip-hop", "indie", "pop", "rock", "rnb", "house", "jazz", "latin", "metal", "country", "reggae", "classical", "post-punk", "guitar-favorites", "uk-rap", "russian-rap"]);
     expect(DEFAULT_PACKS.every(pack => ["global", "electronic", "hip-hop", "indie"].includes(pack.coverArt))).toBe(true);
   });
 });
@@ -60,6 +60,29 @@ describe("metadata-based automatic pack membership", () => {
     for (const [id, count] of [["rnb", 2], ["house", 2], ["jazz", 1], ["latin", 1], ["metal", 1], ["country", 1], ["reggae", 1], ["classical", 1]] as const) {
       expect(selectPackTracks(id, songs)).toHaveLength(count);
     }
+  });
+
+  test("curated post-punk and guitar packs keep official artist identities and separate styles", () => {
+    const input = [
+      song("deezer-1", { artist: "New Order" }), song("deezer-2", { artist: "The Smiths" }),
+      song("deezer-3", { artist: "Fugazi" }), song("deezer-4", { artist: "Wolfmother" }),
+      song("deezer-5", { artist: "King Gizzard & The Lizard Wizard" }), song("deezer-6", { artist: "Red Hot Chili Peppers" }),
+      song("deezer-7", { artist: "Молчат Дома" }), song("deezer-8", { artist: "The Smiths Tribute" }),
+      song("audius-9", { artist: "New Order" }), song("deezer-10", { artist: "New Order", available: false }),
+    ];
+    expect(ids(selectPackTracks("post-punk", input))).toEqual(["deezer-1", "deezer-2", "deezer-7"]);
+    expect(ids(selectPackTracks("guitar-favorites", input))).toEqual(["deezer-3", "deezer-4", "deezer-5", "deezer-6"]);
+    expect(DEFAULT_PACKS.filter(pack => ["post-punk", "guitar-favorites"].includes(pack.id)).every(pack => pack.kind === "genre")).toBe(true);
+  });
+
+  test("curated UK and Russian rap packs do not mix Central Cee with kizaru", () => {
+    const input = [song("deezer-1", { artist: "Central Cee" }), song("deezer-2", { artist: "KIZARU" }),
+      song("deezer-3", { artist: "Oxxxymiron" }), song("deezer-4", { artist: "Miyagi & Эндшпиль" }),
+      song("deezer-5", { artist: "kizaru Tribute" }), song("audius-6", { artist: "kizaru" }),
+      song("deezer-7", { artist: "Central Cee", available: false })];
+    expect(ids(selectPackTracks("uk-rap", input))).toEqual(["deezer-1"]);
+    expect(ids(selectPackTracks("russian-rap", input))).toEqual(["deezer-2", "deezer-3", "deezer-4"]);
+    expect(input.every(track => track.language === null && track.genre === null)).toBe(true);
   });
   const genres = ["Pop", "Rock", "Alternative", "Indie", "Folk", "Acoustic", "Hip-Hop/Rap", "Hip-Hop", "Rap", "Electronic", "House", "Trap", "Jazz", "Indie Pop", "Pop/Rock"];
   const catalog = genres.map((genre, index) => song(String(index).padStart(2, "0"), { genre }));
