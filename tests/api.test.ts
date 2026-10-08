@@ -90,6 +90,25 @@ describe("catalog mutations through the admin API", () => {
     } finally { await fixture.close(); }
   }, 30000);
 
+  test("artist credit corrections move official previews between curated packs", async () => {
+    const fixture = await catalogApiFixture();
+    const id = "deezer-923451";
+    try {
+      await fixture.db.insert(tracks).values(catalogSong(id, { artist: "New Order", genre: "Pop", releaseYear: 1983 }));
+      await organizeCatalog(fixture.catalogDb);
+      expect((await fixture.db.select().from(packTracks).where(eq(packTracks.trackId, id))).map(row => row.packId)).toContain("post-punk");
+      const response = await app.request(`http://127.0.0.1:3000/api/v1/admin/tracks/${id}`, { method: "PATCH", headers: fixture.headers, body: JSON.stringify({ artist: "Fugazi" }) });
+      expect(response.status).toBe(200);
+      const membership = (await fixture.db.select().from(packTracks).where(eq(packTracks.trackId, id))).map(row => row.packId);
+      expect(membership).not.toContain("post-punk");
+      expect(membership).toContain("guitar-favorites");
+      const saved = (await fixture.db.select().from(tracks).where(eq(tracks.id, id)))[0];
+      expect(saved.genre).toBe("Pop");
+      expect(saved.releaseYear).toBe(1983);
+      expect(saved.language).toBeNull();
+    } finally { await fixture.close(); }
+  }, 30000);
+
   test("availability edits remove derived memberships while retaining the global library", async () => {
     const fixture = await catalogApiFixture();
     try {

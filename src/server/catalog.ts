@@ -103,7 +103,7 @@ export async function importTracks(input: Track[], packId = "global-mix", db: Ca
 }
 export async function updateCatalogTrack(id: string, input: Partial<Pick<Track, "title" | "artist" | "clipStartSec" | "genre" | "releaseYear" | "language" | "available">>, db: CatalogDatabase = getDatabase()) {
   if (Object.keys(input).length) await db.update(tracks).set({ ...input, updatedAt: new Date() }).where(eq(tracks.id, id));
-  if (input.genre !== undefined || input.releaseYear !== undefined || input.available !== undefined) await organizeCatalog(db);
+  if (input.artist !== undefined || input.genre !== undefined || input.releaseYear !== undefined || input.available !== undefined) await organizeCatalog(db);
   return catalogTrack(id, db);
 }
 export async function selectPool(packId: string, difficulty = 0, options: { audiusOnly?: boolean; db?: CatalogDatabase } = {}): Promise<Track[]> {

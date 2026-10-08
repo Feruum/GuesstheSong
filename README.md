@@ -94,7 +94,7 @@ The Audius importer targets 1,500 playable Audius tracks, first filling genre co
 bun run catalog:organize
 ```
 
-Default collections update automatically after imports, genre/release-year/availability edits and provider refreshes. Their names, descriptions and artwork remain editable. Create a custom pack to add or remove handpicked songs; imports may target the global mix or a custom pack.
+Default collections update automatically after imports, artist/genre/release-year/availability edits and provider refreshes. Their names, descriptions and artwork remain editable. Create a custom pack to add or remove handpicked songs; imports may target the global mix or a custom pack.
 
 ## Post-punk, guitars and rap
 
